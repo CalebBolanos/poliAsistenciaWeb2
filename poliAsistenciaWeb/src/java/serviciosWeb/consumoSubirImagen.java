@@ -12,6 +12,7 @@ import java.io.PrintWriter;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
@@ -28,8 +29,8 @@ import javax.xml.ws.WebServiceRef;
  */
 @WebServlet(name = "consumoSubirImagen", urlPatterns = {"/consumoSubirImagen"})
 @MultipartConfig(fileSizeThreshold = 1024 * 1024, // 1 MB 
-        maxFileSize = 1024 * 1024 * 2, // 2 MB
-        maxRequestSize = 1024 * 1024 * 100)      // 3 MB
+        maxFileSize = 1024 * 1024 * 10, // 10 MB
+        maxRequestSize = 1024 * 1024 * 5 * 5)      // 25 MB
 public class consumoSubirImagen extends HttpServlet {
 
     @WebServiceRef(wsdlLocation = "WEB-INF/wsdl/localhost_8080/serviciosWebPoliAsistencia/usuario.wsdl")
@@ -107,7 +108,7 @@ public class consumoSubirImagen extends HttpServlet {
                     try {
                         Thread.sleep(2 * 10000);
                     } 
-                    catch (Exception e) {
+                    catch (InterruptedException e) {
                     }
                     mensaje = "Imagen cambiada"; 
                     response.sendRedirect("configuracion?mensaje=" + mensaje);
@@ -125,9 +126,8 @@ public class consumoSubirImagen extends HttpServlet {
             }
 
         } catch (Exception error) {
-            mensaje = "Error";
+            mensaje = "Lo sentimos, tu archivo debe de pesar menos de 2MB";
             response.sendRedirect("configuracion?mensaje=" + mensaje);
-            return;
         }
         response.sendRedirect("configuracion?mensaje=" + mensaje);
 
