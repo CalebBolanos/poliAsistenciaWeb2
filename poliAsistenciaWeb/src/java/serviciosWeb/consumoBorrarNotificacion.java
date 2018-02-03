@@ -77,14 +77,14 @@ public class consumoBorrarNotificacion extends HttpServlet {
         try {
             int idNotificacion = new Integer(request.getParameter("idNot"));
             if (borrarNotificaciones(idNotificacion)) {
-                response.sendRedirect("notificaciones?msj=Notificacion borrada exitosamente");
+                response.sendRedirect("notificaciones?mensaje=Notificacion borrada exitosamente");
                 return;
             } else {
-                response.sendRedirect("notificaciones?msj=No se borro la notificacion");
+                response.sendRedirect("notificaciones?mensaje=No se borro la notificacion");
                 return;
             }
         } catch (Exception error) {
-            response.sendRedirect("notificaciones?msj=No se borro la notificacion");
+            response.sendRedirect("notificaciones?mensaje=No se borro la notificacion");
             return;
         }
     }

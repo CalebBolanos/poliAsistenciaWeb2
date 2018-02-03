@@ -49,8 +49,9 @@ public class notificaciones extends HttpServlet {
             throws ServletException, IOException {
         processRequest(request, response);
         response.setContentType("text/html;charset=UTF-8");
-            HttpSession usr = request.getSession();
-            if (usr.getAttribute("idpersona") == null || usr.getAttribute("idtipo") == null) {
+        HttpSession usr = request.getSession();
+        String msj = request.getParameter("mensaje") != null ? request.getParameter("mensaje") : "";
+        if (usr.getAttribute("idpersona") == null || usr.getAttribute("idtipo") == null) {
                 response.sendRedirect("iniciarSesion");
                 return;
             }
@@ -77,7 +78,7 @@ public class notificaciones extends HttpServlet {
                         String numero = (String) usr.getAttribute("numero");
                         String nombre = (String) usr.getAttribute("nombre");
                         jefeAcademia.notificaciones jefe = new jefeAcademia.notificaciones(idPersona, tipoPersona, numero, nombre);
-                        out.print(jefe.dibujarNotificaciones());
+                        out.print(jefe.dibujarNotificaciones(msj));
                     }
                     else{
                         if(tipoPersona == 1){//gestion
@@ -85,7 +86,7 @@ public class notificaciones extends HttpServlet {
                             String numero = (String) usr.getAttribute("numero");
                             String nombre = (String) usr.getAttribute("nombre");
                             gestion.notificaciones persona = new gestion.notificaciones(idPersona, tipoPersona, numero, nombre);
-                            out.print(persona.dibujarNotificaciones());
+                            out.print(persona.dibujarNotificaciones(msj));
                         }
                     }
                 }

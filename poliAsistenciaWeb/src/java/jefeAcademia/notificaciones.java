@@ -24,7 +24,39 @@ public class notificaciones {
         _nombre = nombre;
     }
 
-    public String dibujarNotificaciones() {
+    public String dibujarNotificaciones(String mensaje) {
+        String script = "<script>\n"
+                + "            window.onload = function () {\n"
+                + "                var barrita = document.getElementById('barrita');\n"
+                + "                barrita.style.visibility = 'hidden';\n"
+                + "                barrita.style.opacity = '0';\n"
+                + "            };\n"
+                + "            \n"
+                + "        </script>";
+        String cargar = "<div id=\"barrita\">\n"
+                + "            <div id=\"cargar\" class=\"mdl-progress mdl-js-progress mdl-progress__indeterminate\"><br><center><span class=\"titulo\">Cargando...</span></center></div> \n"
+                + "        </div>";
+        String html = "";
+        String msj = mensaje;
+        if (!msj.equals("")) {
+            script = "<script>\n"
+                    + "            window.onload = function () {\n"
+                    + "                var notification = document.querySelector('.mdl-js-snackbar');\n"
+                    + "                notification.MaterialSnackbar.showSnackbar(\n"
+                    + "                        {\n"
+                    + "                            message: '" + mensaje + "'\n"
+                    + "                        }\n"
+                    + "                );\n"
+                    + "            };\n"
+                    + "\n"
+                    + "        </script>";
+            html = "<div id=\"demo-toast-example\" class=\"mdl-js-snackbar mdl-snackbar\">\n"
+                    + "                    <div class=\"mdl-snackbar__text\"></div>\n"
+                    + "                    <button class=\"mdl-snackbar__action\" type=\"button\"></button>\n"
+                    + "                </div>";
+            cargar="";
+        }
+        
         _notificaciones = "\n"
                 + "<!DOCTYPE html>\n"
                 + "<html>\n"
@@ -281,12 +313,8 @@ public class notificaciones {
                 + "\n"
                 + "            }\n"
                 + "        </style>\n"
-                + "        <script>\n"
-                + "            window.onload = function () {\n"
-                + "                var barrita = document.getElementById('barrita');\n"
-                + "                barrita.style.visibility = 'hidden';\n"
-                + "                barrita.style.opacity = '0';\n"
-                + "            }\n"
+                + "        "+script+"\n"
+                + "         <script>"
                 + "           function borrarNotificacion(idNotificacion){\n"
                 + "             if(confirm(\"¿Estas seguro de que quieres borrar esta notificación? \\n  Esta acción no se puede deshacer.\")){\n"
                 + "                    document.getElementById(\"idNot\").value = idNotificacion;\n"
@@ -299,9 +327,7 @@ public class notificaciones {
                 + "        </script>\n"
                 + "    </head>\n"
                 + "    <body>\n"
-                + "        <div id=\"barrita\">\n"
-                + "            <div id=\"cargar\" class=\"mdl-progress mdl-js-progress mdl-progress__indeterminate\"><br><center><span class=\"titulo\">Cargando...</span></center></div> \n"
-                + "        </div>\n"
+                + "        "+cargar+"\n"
                 + "        <!-- Always shows a header, even in smaller screens. -->\n"
                 + "        <div class=\"mdl-layout mdl-js-layout mdl-layout--fixed-header\">\n"
                 + "            <header class=\"mdl-layout__header\" style=\"background-color: transparent;\">\n"
@@ -329,6 +355,7 @@ public class notificaciones {
                 + "                <span class=\"titulo\">&nbsp;Poli<span class=\"tituloBold\">Asistencia</span></span>\n"
                 + "                <nav class=\"mdl-navigation\">\n"
                 + "                    <a class=\"mdl-navigation__link disponible\" href=\"inicio\"><i class=\"material-icons md-36 md-dark\">home</i> Inicio</a>\n"
+                + "                    <a class=\"mdl-navigation__link disponible\" href=\"horario\" ><i class=\"material-icons md-36 md-dark\">date_range</i> Horario</a>\n"
                 + "                    <a class=\"mdl-navigation__link disponible\" href=\"estadisticas\"><i class=\"material-icons md-36 md-dark\">insert_chart</i> Estadisticas</a>\n"
                 + "                    <a class=\"mdl-navigation__link seleccionado\" href=\"#\"><i class=\"material-icons md-36 md-light\">list</i> Notificaciones</a>\n"
                 + "                    <a class=\"mdl-navigation__link disponible\" href=\"configuracion\"><i class=\"material-icons md-36 md-dark\">settings</i> Configuración</a>\n"
@@ -358,6 +385,7 @@ public class notificaciones {
                 + "            </form>\n"
                 + "        </div>"
                 + "\n"
+                + " "+html+"\n"
                 + "            </main>\n"
                 + "        </div>\n"
                 + "\n"
