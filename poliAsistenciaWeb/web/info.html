@@ -1,0 +1,327 @@
+<!doctype html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="PoliAsistencia">
+        <meta name="theme-color" content="#000000" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+        <meta name="HandheldFriendly" content="true">
+        <title>PoliAsistencia</title>
+        <meta charset="UTF-8">
+        <link href="css/mdl/material.css" rel="stylesheet" type="text/css"/>
+        <script src="css/mdl/material.js" type="text/javascript"></script>
+        <link href="css/mdl/material.min.css" rel="stylesheet" type="text/css"/>
+        <script src="css/mdl/material.min.js" type="text/javascript"></script>
+        <link rel="shortcut icon" href="imagenes/iconos/poliAsistIcono.ico" />
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+        <script src="scripts/parallax.js" type="text/javascript"></script>
+        <style>
+            @keyframes slidein {
+                from { opacity: 0; background-color: whitesmoke;}
+                to   { opacity: 1; background-color: white;}
+            }
+            @font-face{
+                font-family: Calibri;
+                src: URL("fuentes/calibri.ttf") format("opentype");
+            }
+            body{
+                animation-duration: 2.5s;
+                animation-name: slidein;
+            }
+            .footer {
+                min-height: 200px;
+                background: transparent;
+                padding-left: 35px;
+                font-size: 11px;
+                color: white;
+            }
+            .paralaje {
+                min-height: 700px;
+                background: transparent;
+                color: white;
+                font-family: Calibri;
+                font-size: 30px;
+                background-color:rgba(0, 0, 0, 0.5);
+            }
+            .contenidoFooter{
+                padding-top: 10px;
+                padding-left: 10px;
+            }
+            .titulo{
+                font-size: 35px;
+                color: #00B0FF;
+                font-family: Calibri;
+                padding-top: 30px;
+            }
+            .tituloBold{
+                font-size: 41px;
+                color: #0091EA;
+                font-weight: bold;
+                font-family: Calibri;
+                padding-top: 30px;
+            }
+            .titulobo{
+                font-size: 90px;
+                font-family: Calibri;
+                padding-top: 33px;
+            }
+            .tituloBoldbo{
+                font-size: 103px;
+                font-weight: bold;
+                font-family: Calibri;
+                padding-top: 33px;
+            }
+            .titulob{
+                font-size: 35px;
+                color: white;
+                font-family: Calibri;
+                padding-top: 30px;
+            }
+            .tituloBoldb{
+                font-size: 40px;
+                color: white;
+                font-weight: bold;
+                font-family: Calibri;
+                padding-top: 30px;
+            }
+            #view-source {
+                position: fixed;
+                display: block;
+                right: 0;
+                bottom: 0;
+                margin-right: 40px;
+                margin-bottom: 40px;
+                z-index: 900;
+            }
+            ul {
+                position: fixed;
+                top: 0;
+                width: 100%;
+                height: 82px;
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+                overflow: hidden;
+                background-color: white;
+                box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            }
+            li {
+                float: left;
+            }
+            li a {
+                display: block;
+                color: white;
+                text-align: center;
+                padding: 14px 16px;
+                text-decoration: none;
+            }
+            li a:hover {
+                background-color: white;
+            }
+            .cuadro{
+                width: 100%;
+                overflow: hidden;
+            }
+            .adaptable 
+            { 
+                width: 50%; 
+                height: auto;
+                float: left;
+                padding-top: 5%;
+                padding-bottom: 5%;
+            }
+            .adaptable2a 
+            { 
+                width: 40%; 
+                height: auto;
+                float: left;
+                padding-top: 5%;
+                padding-bottom: 5%;
+            }
+            .adaptable2b 
+            { 
+                width: 60%; 
+                height: auto;
+                float: left;
+                padding-top: 5%;
+                padding-bottom: 5%;
+            }
+            img{
+                width: 100%;
+                height: auto;
+            }
+            .tAzul{
+                font-size: 55px;
+                color: #00B0FF;
+                line-height: 1;
+                padding-bottom: 30px;
+                padding-left: 30px;
+                padding-right: 30px;
+                text-align: left;
+                font-family: Calibri;
+            }
+            .tGris{
+            }
+            .txt{
+                font-size: 18px;
+                color: gray;
+                padding-left: 30px;
+                padding-right: 30px;
+                font-weight: lighter;
+            }
+            .xd{
+            }
+            @media screen and (max-width: 320px){
+                .paralaje {                   
+                    font-size: 15px;
+                }
+                .titulobo{
+                    font-size: 20px;
+                }
+                .tituloBoldbo{
+                    font-size: 25px;
+                }
+            }
+            @media screen and (max-width: 500px){
+                .paralaje {                   
+                    font-size: 20px;
+                }
+                .titulobo{
+                    font-size: 50px;
+                }
+                .tituloBoldbo{
+                    font-size: 55px;
+                }
+                .xd{
+                    float: left;
+                }
+            }
+            @media screen and (max-width: 700px){
+                .titulobo{
+                    font-size: 60px;
+                }
+                .tituloBoldbo{
+                    font-size: 67px;
+                }
+                .adaptable, .adaptable2a, .adaptable2b{
+                    width: 100%;
+                }
+                .titulo{
+                    font-size: 35px;
+                    color: #00B0FF;
+                    font-family: Calibri;
+                    padding-top: 20px;
+                }
+                .tituloBold{
+                    font-size: 41px;
+                    color: #0091EA;
+                    font-weight: bold;
+                    font-family: Calibri;
+                    padding-top: 20px;
+                }
+                li a{
+                    padding-top: 10px;
+                }
+                ul{
+                    height: 70px;
+                }
+                .tAzul{
+                    font-size: 30px;
+                }
+                .txt{
+                    font-size: 14px;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <ul>
+            <li class="xd" style="padding-top: 12px; padding-left: 50px;"><a href="iniciarSesion"><span class="titulo">Poli<span class="tituloBold">Asistencia</span></span></a></li>
+            <li style="float:right; padding-top: 15px; padding-right: 70px;"><a href="iniciarSesion" style="color: #00B0FF">INICIAR SESIÓN</a></li>
+        </ul>
+
+        <div class="cuerpo">
+            <div class="paralaje" data-parallax="scroll" data-image-src="imagenes/esc.JPG">
+                <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+                <center><span class="titulobo">Poli<span class="tituloBoldbo">Asistencia</span></span>
+                    <br><br>Un proyecto desarrollado por Disoft<br>
+                </center>
+            </div>
+            <div class="cuadro" style="background-color: white">
+
+                <div class="adaptable">
+                    <div class="tAzul">
+                        ¿En qué consiste PoliAsistencia?
+                    </div>
+                    <div class="txt">
+                        Es un software diseñado para el registro y control de la asistencia al plantel tanto de alumnos como de profesores, 
+                        que les permitirá ver sus incidencias.
+                        PoliAsitencia también implementa un sistema distribuido para gestión escolar que notifica la entrada y salida del plantel. <br>
+                        Cuenta con una plataforma en Android que les permite ver a los usuarios, horario, calendario de faltas y una pantalla de notificaciones.
+                    </div>
+                </div>
+                <div class="adaptable"><img src="imagenes/dispositivos.png" alt=""/></div>
+
+            </div>
+            <div class="cuadro" style="background-color: #00B0FF;">
+                
+                <div class="adaptable2a" style="padding-bottom: 0px;"><img src="imagenes/compu.png" alt=""/></div>
+                <div class="adaptable2b">
+                    <div class="tAzul" style="color: white;">
+                        ¿Para quién fue creado?
+                    </div>
+                    <div class="txt" style="color: whitesmoke;">
+                        PoliAsistencia está dirigido a todos los miembros de la comunidad escolar; fue desarrollado para ser de gran utilidad tanto para profesores, 
+                        como estudiantes y demás personal que labora ahí. El software es adaptable a las necesidades de cada usuario y le permita cubrir todas y 
+                        cada una de ellas. Podrá visualizar toda la informacion que se le brinda a travez de nuestras distintas plataformas.
+                        </div>
+                </div>
+                
+            </div>
+            <div class="cuadro" style="background-color: black;">
+                
+                
+                <div class="adaptable" style="width: 100%">
+                    <div class="tAzul" style="color: white;">
+                        ¿Cuál es nuestro objetivo?
+                    </div>
+                    <div class="txt" style="color: whitesmoke;">
+                        Tener un programa que le permita a todo nuestros usuarios adaptarse fácilmente a la aplicación, y que a su vez, este se adapte 
+                        a todas las necesidades del usuario. Llevar a ti una plataforma que sea de fácil acceso que te muestre tu rendimiento, a través 
+                        de gráficos o tablas  tanto de forma general como particular. <br> PoliAsistencia pretende crear un ambiente de estudio donde te 
+                        sientas más seguro, sabiendo que toda persona dentro del plantel es identifcado por medio de sistemas biometricos en todas las entradas.
+                    </div>
+                </div>
+                <div class="adaptable" style="width: 100%; padding-bottom: 0px; padding-top: 0px;"><img src="imagenes/celular.png" alt=""/></div>
+                
+            </div>
+            <div class="cuadro" style="background-color: white">
+
+                <div class="adaptable">
+                    <div class="tAzul">
+                        ¿Qué cambios nos brinda?
+                    </div>
+                    <div class="txt">
+                        Los actuales sistemas de control de asistencia que manejan las escuelas son obsoletos y tienen grandes fallas de seguridad. PoliAsistencia 
+                        es un software innovador que permitira a toda la comunidad ingresar con su huella biometrica, lo que ademas dejara tener un mayor 
+                        control respecto a quien entra y sale de las instalaciones. Todas las veces que se pase por el sensor quedaran registradas y se podra ver 
+                        por usuario, los dias ausentes o la hora en que suele retirar.
+                    </div>
+                </div>
+                <div class="adaptable"><img src="imagenes/escritorio.png" alt=""/></div>
+
+            </div>
+
+        </div>
+        <div class="footer" data-parallax="scroll" data-image-src="imagenes/footer.png">
+            <span class="titulob"><br><br>Poli<span class="tituloBoldb">Asistencia</span></span>
+            <br><br>
+            Desarrollado por <b>Disoft.</b><br>
+            © 2017 Hecho por Disoft. Todos los derechos reservados.
+        </div>
+
+    </body>
+</html>

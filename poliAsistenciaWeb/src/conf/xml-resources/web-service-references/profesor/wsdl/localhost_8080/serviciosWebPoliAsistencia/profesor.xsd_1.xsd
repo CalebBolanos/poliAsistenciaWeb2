@@ -1,0 +1,85 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI (http://jax-ws.java.net). RI's version is Metro/2.3.2-b608 (trunk-7979; 2015-01-21T12:50:19+0000) JAXWS-RI/2.2.11-b150120.1832 JAXWS-API/2.2.12 JAXB-RI/2.2.12-b141219.1637 JAXB-API/2.2.13-b141020.1521 svn-revision#unknown. --><xs:schema xmlns:tns="http://servicios/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://servicios/">
+
+<xs:element name="asistenciaInd" type="tns:asistenciaInd"/>
+
+<xs:element name="asistenciaIndResponse" type="tns:asistenciaIndResponse"/>
+
+<xs:element name="asistenciaUnidadDia" type="tns:asistenciaUnidadDia"/>
+
+<xs:element name="asistenciaUnidadDiaResponse" type="tns:asistenciaUnidadDiaResponse"/>
+
+<xs:element name="asistenciaUnidasMes" type="tns:asistenciaUnidasMes"/>
+
+<xs:element name="asistenciaUnidasMesResponse" type="tns:asistenciaUnidasMesResponse"/>
+
+<xs:element name="informacionUnidad" type="tns:informacionUnidad"/>
+
+<xs:element name="informacionUnidadResponse" type="tns:informacionUnidadResponse"/>
+
+<xs:element name="unidades" type="tns:unidades"/>
+
+<xs:element name="unidadesResponse" type="tns:unidadesResponse"/>
+
+<xs:complexType name="informacionUnidad">
+<xs:sequence>
+<xs:element name="grupo" type="xs:string" minOccurs="0"/>
+<xs:element name="idUnidad" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="informacionUnidadResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:anyType" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="asistenciaUnidasMes">
+<xs:sequence>
+<xs:element name="idUnidad" type="xs:int"/>
+<xs:element name="mes" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="asistenciaUnidasMesResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:anyType" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="asistenciaUnidadDia">
+<xs:sequence>
+<xs:element name="idUnidad" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="asistenciaUnidadDiaResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:anyType" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="unidades">
+<xs:sequence>
+<xs:element name="idPer" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="unidadesResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="asistenciaInd">
+<xs:sequence>
+<xs:element name="idPer" type="xs:string" minOccurs="0"/>
+<xs:element name="mes" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="asistenciaIndResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:anyType" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="http://localhost:8080/serviciosWebPoliAsistencia/usuario?wsdl" uri="wsdl/localhost_8080/serviciosWebPoliAsistencia/usuario.wsdl"/>
+    <system systemId="http://localhost:8080/serviciosWebPoliAsistencia/usuario?xsd=1" uri="wsdl/localhost_8080/serviciosWebPoliAsistencia/usuario.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/serviciosWebPoliAsistencia/alumno?wsdl" uri="wsdl/localhost_8080/serviciosWebPoliAsistencia/alumno.wsdl"/>
+    <system systemId="http://localhost:8080/serviciosWebPoliAsistencia/alumno?xsd=1" uri="wsdl/localhost_8080/serviciosWebPoliAsistencia/alumno.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/serviciosWebPoliAsistencia/profesor?wsdl" uri="wsdl/localhost_8080/serviciosWebPoliAsistencia/profesor.wsdl"/>
+    <system systemId="http://localhost:8080/serviciosWebPoliAsistencia/profesor?xsd=1" uri="wsdl/localhost_8080/serviciosWebPoliAsistencia/profesor.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/serviciosWebPoliAsistencia/jefeAcademia?wsdl" uri="wsdl/localhost_8080/serviciosWebPoliAsistencia/jefeAcademia.wsdl"/>
+    <system systemId="http://localhost:8080/serviciosWebPoliAsistencia/jefeAcademia?xsd=1" uri="wsdl/localhost_8080/serviciosWebPoliAsistencia/jefeAcademia.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/serviciosWebPoliAsistencia/gestion?wsdl" uri="wsdl/localhost_8080/serviciosWebPoliAsistencia/gestion.wsdl"/>
+    <system systemId="http://localhost:8080/serviciosWebPoliAsistencia/gestion?xsd=1" uri="wsdl/localhost_8080/serviciosWebPoliAsistencia/gestion.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/serviciosWebPoliAsistencia/alumno?xsd=2" uri="wsdl/localhost_8080/serviciosWebPoliAsistencia/alumno.xsd_2.xsd"/>
+</catalog>

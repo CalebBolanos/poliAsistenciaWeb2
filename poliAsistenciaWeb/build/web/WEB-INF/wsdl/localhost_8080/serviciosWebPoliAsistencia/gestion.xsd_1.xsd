@@ -1,0 +1,182 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI (http://jax-ws.java.net). RI's version is Metro/2.3.2-b608 (trunk-7979; 2015-01-21T12:50:19+0000) JAXWS-RI/2.2.11-b150120.1832 JAXWS-API/2.2.12 JAXB-RI/2.2.12-b141219.1637 JAXB-API/2.2.13-b141020.1521 svn-revision#unknown. --><xs:schema xmlns:tns="http://servicios/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://servicios/">
+
+<xs:element name="alumnos" type="tns:alumnos"/>
+
+<xs:element name="alumnosResponse" type="tns:alumnosResponse"/>
+
+<xs:element name="asistenciaGrupoDia" type="tns:asistenciaGrupoDia"/>
+
+<xs:element name="asistenciaGrupoDiaResponse" type="tns:asistenciaGrupoDiaResponse"/>
+
+<xs:element name="asistenciaGrupoMes" type="tns:asistenciaGrupoMes"/>
+
+<xs:element name="asistenciaGrupoMesResponse" type="tns:asistenciaGrupoMesResponse"/>
+
+<xs:element name="asistenciaTurnoMes" type="tns:asistenciaTurnoMes"/>
+
+<xs:element name="asistenciaTurnoMesResponse" type="tns:asistenciaTurnoMesResponse"/>
+
+<xs:element name="asistenciaTurnoPorDia" type="tns:asistenciaTurnoPorDia"/>
+
+<xs:element name="asistenciaTurnoPorDiaMas" type="tns:asistenciaTurnoPorDiaMas"/>
+
+<xs:element name="asistenciaTurnoPorDiaMasResponse" type="tns:asistenciaTurnoPorDiaMasResponse"/>
+
+<xs:element name="asistenciaTurnoPorDiaResponse" type="tns:asistenciaTurnoPorDiaResponse"/>
+
+<xs:element name="borrarNotificaciones" type="tns:borrarNotificaciones"/>
+
+<xs:element name="borrarNotificacionesResponse" type="tns:borrarNotificacionesResponse"/>
+
+<xs:element name="datosGrupoEspecifico" type="tns:datosGrupoEspecifico"/>
+
+<xs:element name="datosGrupoEspecificoResponse" type="tns:datosGrupoEspecificoResponse"/>
+
+<xs:element name="grupos" type="tns:grupos"/>
+
+<xs:element name="gruposResponse" type="tns:gruposResponse"/>
+
+<xs:element name="guardarNotificaciones" type="tns:guardarNotificaciones"/>
+
+<xs:element name="guardarNotificacionesResponse" type="tns:guardarNotificacionesResponse"/>
+
+<xs:element name="obtenerNotificaciones" type="tns:obtenerNotificaciones"/>
+
+<xs:element name="obtenerNotificacionesResponse" type="tns:obtenerNotificacionesResponse"/>
+
+<xs:complexType name="borrarNotificaciones">
+<xs:sequence>
+<xs:element name="idNotificacion" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="borrarNotificacionesResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="asistenciaTurnoPorDia">
+<xs:sequence>
+<xs:element name="turno" type="xs:int"/>
+<xs:element name="mes" type="xs:int"/>
+<xs:element name="dia" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="asistenciaTurnoPorDiaResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:anyType" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="asistenciaGrupoMes">
+<xs:sequence>
+<xs:element name="mes" type="xs:int"/>
+<xs:element name="grupo" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="asistenciaGrupoMesResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:anyType" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="asistenciaGrupoDia">
+<xs:sequence>
+<xs:element name="grupo" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="asistenciaGrupoDiaResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:anyType" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="asistenciaTurnoPorDiaMas">
+<xs:sequence>
+<xs:element name="turno" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="asistenciaTurnoPorDiaMasResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:anyType" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="asistenciaTurnoMes">
+<xs:sequence>
+<xs:element name="mes" type="xs:int"/>
+<xs:element name="turno" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="asistenciaTurnoMesResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:anyType" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="alumnos">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="alumnosResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="grupos">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="gruposResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="obtenerNotificaciones">
+<xs:sequence>
+<xs:element name="tipoNotificacion" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="obtenerNotificacionesResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="guardarNotificaciones">
+<xs:sequence>
+<xs:element name="tipoNotificacion" type="xs:int"/>
+<xs:element name="titulo" type="xs:string" minOccurs="0"/>
+<xs:element name="descripcion" type="xs:string" minOccurs="0"/>
+<xs:element name="url" type="xs:string" minOccurs="0"/>
+<xs:element name="urlImg" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="guardarNotificacionesResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="datosGrupoEspecifico">
+<xs:sequence>
+<xs:element name="grupo" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="datosGrupoEspecificoResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:anyType" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>

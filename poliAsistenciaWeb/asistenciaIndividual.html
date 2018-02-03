@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="description" content="PoliAsistencia">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+        <title>JSP Page</title>
+        <link href="css/mdl/material.css" rel="stylesheet" type="text/css"/>
+        <script src="css/mdl/material.js" type="text/javascript"></script>
+        <link href="css/mdl/material.min.css" rel="stylesheet" type="text/css"/>
+        <script src="css/mdl/material.min.js" type="text/javascript"></script>
+        <link rel="shortcut icon" href="imagenes/iconos/poliAsistIcono.ico" />
+        <link href="https://fonts.googleapis.com/css?family=Calibri:400,700,400italic,700italic" rel="stylesheet" type="text/css"/>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <meta name="theme-color" content="#00B0FF" />
+        <style>
+            .titulo{
+                font-size: 35px;
+                color: #00B0FF;
+                font-family: Calibri;
+                padding-top: 30px;
+            }
+            .tituloBold{
+                font-size: 40px;
+                color: #0091EA;
+                font-weight: bold;
+                font-family: Calibri;
+                padding-top: 30px;
+            }
+            .titulob{
+                font-size: 35px;
+                color: white;
+                font-family: Calibri;
+                padding-top: 33px;
+            }
+            .tituloBoldb{
+                font-size: 40px;
+                color: white;
+                font-weight: bold;
+                font-family: Calibri;
+                padding-top: 33px;
+            }
+            #tarjeta{
+                background-color: rgba(250, 250, 250, 0.4);
+                text-align: left;
+                color: white;
+                font-size: 30px;
+                width: auto;
+                height: 30px;
+                position: relative;
+                border-radius: 5px;
+                padding-top: 5px;
+                font-family: Calibri; 
+            }
+            .centrado{
+                position: absolute;
+                width: auto;
+                height: auto;
+                padding-left: 35%;
+            }
+            .persona{
+                background-color: rgba(250, 250, 250, 0.0);
+                color: white;
+                font-size: 20px;
+                border: 2px solid rgba(250, 250, 250, 0.0);
+                width: auto;
+            }
+            #cuenta, #salir{
+                display: none;
+            }
+            #barrita{
+                background-color: white;
+                height: 100%;
+                width: 100%;
+                position: fixed;
+                -webkit-transition: all 1s ease;
+                -o-transition: all 1s ease;
+                transition: all 1s ease;
+                z-index: 10000;
+
+            }
+            #cargar{
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                margin: auto;
+            }
+            .demo-card-wide.mdl-card {
+                width: 700px;
+            }
+            .demo-card-wide > .mdl-card__title {
+                color: #fff;
+                height: auto;
+                background-color: black;
+            }
+            .demo-card-wide > .mdl-card__menu {
+                color: #fff;
+            }
+            .notificacion{
+                padding-top: 15px;
+                padding-bottom: 15px;
+            }
+
+            @media screen and (max-width: 500px){
+                .titulob{
+                    font-size: 35px;
+                    color: transparent;
+                    font-family: Calibri;
+                    padding-top: 33px;
+                }
+                .tituloBoldb{
+                    font-size: 40px;
+                    color: transparent;
+                    font-weight: bold;
+                    font-family: Calibri;
+                    padding-top: 33px;
+                }
+                .notificacion{
+                    padding-left: 5px;
+                    padding-right: 5px;
+                }
+            }
+
+            @media screen and (max-width: 1024px){
+                .titulob{
+                    font-size: 0px;
+                    position: absolute;
+                    float: right;
+                }
+                .tituloBoldb{
+                    font-size: 0px;
+                    position: absolute;
+                    float: right;
+                }
+                #cuenta, #salir{
+                    display: block;
+                }
+                .demo-card-wide.mdl-card {
+                    width: auto;
+                }
+                .demo-card-wide > .mdl-card__title {
+                    height: auto;
+                }
+                .mdl-card__supporting-text{
+                    height: auto;
+                }
+                .notificacion{
+                    padding-left: 50px;
+                    padding-right: 50px;
+                }
+            }
+        </style>
+        <script>
+            window.onload = function () {
+                var barrita = document.getElementById('barrita');
+                barrita.style.visibility = 'hidden';
+                barrita.style.opacity = '0';
+            }
+        </script>
+    </head>
+    <body>
+        <div id="barrita">
+            <div id="cargar" class="mdl-progress mdl-js-progress mdl-progress__indeterminate"><br><center><span class="titulo">Cargando...</span></center></div> 
+        </div>
+        <!-- Always shows a header, even in smaller screens. -->
+        <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+            <header class="mdl-layout__header">
+                <div class="mdl-layout__header-row" style="background: linear-gradient(to right, #0091EA, #00D4FF);">
+                    <!-- Title -->
+                    <div id="tarjeta">&nbsp;Estadisticas&nbsp;</div><div class="centrado"><span class="titulob">&nbsp;Poli<span class="tituloBoldb">Asistencia</span></span></div>
+                    <!-- Add spacer, to align navigation to the right -->
+                    <div class="mdl-layout-spacer"></div>
+
+                    <!-- Navigation. We hide it in small screens. -->
+                    <nav class="mdl-navigation mdl-layout--large-screen-only">
+                        <button id="demo-menu-lower-right"
+                                class="persona">
+                            Usuario
+                        </button>
+                        <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
+                            for="demo-menu-lower-right">
+                            <li class="mdl-menu__item">Configuración de la cuenta</li>
+                            <li class="mdl-menu__item">Cerrar Sesión</li>
+                        </ul>
+                    </nav>
+                </div>
+            </header>
+            <div class="mdl-layout__drawer">
+                <span class="titulo">&nbsp;Poli<span class="tituloBold">Asistencia</span></span>
+                <nav class="mdl-navigation">
+                    <a class="mdl-navigation__link" href=""><span><div class="material-icons mdl-badge mdl-badge--overlap" data-badge="1">home</div> Inicio</span></a>
+                    <a class="mdl-navigation__link" href=""><span><div class="material-icons mdl-badge mdl-badge--overlap" data-badge="2">list</div> Avisos</span></a>
+                    <a class="mdl-navigation__link" href="" id="cuenta"><span><div class="material-icons">account_box</div>  Cuenta</span></a>
+                    <a class="mdl-navigation__link" href="" id="salir"><span><div class="material-icons">exit_to_app</div>  Cerrar Sesión</span></a>
+
+                </nav>
+            </div>
+            <main class="mdl-layout__content">
+                
+
+            </main>
+            </div>
+        </body>
+    </html>

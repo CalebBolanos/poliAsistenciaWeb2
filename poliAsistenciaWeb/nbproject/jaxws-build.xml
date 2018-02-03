@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?><!--
+        *** GENERATED FROM jax-ws.xml - DO NOT EDIT !                             ***
+        *** TO MODIFY wsimport options USE Web Service node -> Edit WS Attributes ***
+        *** TO CHANGE TARGETS GENERATED TO jaxws-build.xml COPY THOSE             ***
+        *** TARGETS TO ../build.xml AND MODIFY THAT FILE INSTEAD                  ***
+
+        --><project xmlns:xalan="http://xml.apache.org/xslt" xmlns:webproject2="http://www.netbeans.org/ns/web-project/2" xmlns:jaxws="http://www.netbeans.org/ns/jax-ws/1">
+    <!--
+                ===================
+                JAX-WS WSGEN SECTION
+                ===================
+            -->
+    <!--
+                ===================
+                JAX-WS WSIMPORT SECTION
+                ===================
+            -->
+    <target name="wsimport-init" depends="init">
+        <fail if="${wsimport.bad.version}" message="WsImport ant task defined in the classpath ${j2ee.platform.wsimport.classpath} has a serious bug. See http://wiki.netbeans.org/MetroIssue for details."/>
+        <mkdir dir="${build.generated.sources.dir}/jax-ws"/>
+        <property name="j2ee.platform.wsimport.classpath" value="${libs.jaxws21.classpath}"/>
+        <taskdef name="wsimport" classname="com.sun.tools.ws.ant.WsImport">
+            <classpath path="${java.home}/../lib/tools.jar:${j2ee.platform.wsimport.classpath}:${javac.classpath}"/>
+        </taskdef>
+        <condition property="conf-dir" value="${conf.dir}/" else="">
+            <isset property="conf.dir"/>
+        </condition>
+    </target>
+    <target name="wsimport-client-usuario" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/usuario"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/usuario" destdir="${build.generated.dir}/jax-wsCache/usuario" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/usuario/wsdl/localhost_8080/serviciosWebPoliAsistencia/usuario.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:8080/serviciosWebPoliAsistencia/usuario?wsdl" xnocompile="true" xendorsed="true" package="serviciosWeb">
+            <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/usuario/wsdl/localhost_8080/serviciosWebPoliAsistencia/usuario.wsdl"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/usuario"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/usuario">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-usuario" depends="-init-project">
+        <delete dir="${build.generated.sources.dir}/jax-ws/serviciosWeb"/>
+        <delete dir="${build.generated.dir}/jax-wsCache/usuario"/>
+    </target>
+    <target name="wsimport-client-alumno" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/alumno"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/alumno" destdir="${build.generated.dir}/jax-wsCache/alumno" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/alumno/wsdl/localhost_8080/serviciosWebPoliAsistencia/alumno.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:8080/serviciosWebPoliAsistencia/alumno?wsdl" xnocompile="true" xendorsed="true" package="serviciosWebAlumno">
+            <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/alumno/wsdl/localhost_8080/serviciosWebPoliAsistencia/alumno.wsdl"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/alumno"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/alumno">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-alumno" depends="-init-project">
+        <delete dir="${build.generated.sources.dir}/jax-ws/serviciosWebAlumno"/>
+        <delete dir="${build.generated.dir}/jax-wsCache/alumno"/>
+    </target>
+    <target name="wsimport-client-profesor" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/profesor"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/profesor" destdir="${build.generated.dir}/jax-wsCache/profesor" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/profesor/wsdl/localhost_8080/serviciosWebPoliAsistencia/profesor.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:8080/serviciosWebPoliAsistencia/profesor?wsdl" xnocompile="true" xendorsed="true" package="serviciosWebProfesor">
+            <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/profesor/wsdl/localhost_8080/serviciosWebPoliAsistencia/profesor.wsdl"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/profesor"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/profesor">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-profesor" depends="-init-project">
+        <delete dir="${build.generated.sources.dir}/jax-ws/serviciosWebProfesor"/>
+        <delete dir="${build.generated.dir}/jax-wsCache/profesor"/>
+    </target>
+    <target name="wsimport-client-jefeAcademia" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/jefeAcademia"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/jefeAcademia" destdir="${build.generated.dir}/jax-wsCache/jefeAcademia" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/jefeAcademia/wsdl/localhost_8080/serviciosWebPoliAsistencia/jefeAcademia.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:8080/serviciosWebPoliAsistencia/jefeAcademia?wsdl" xnocompile="true" xendorsed="true" package="serviciosWebJefeAcademia">
+            <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/jefeAcademia/wsdl/localhost_8080/serviciosWebPoliAsistencia/jefeAcademia.wsdl"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/jefeAcademia"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/jefeAcademia">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-jefeAcademia" depends="-init-project">
+        <delete dir="${build.generated.sources.dir}/jax-ws/serviciosWebJefeAcademia"/>
+        <delete dir="${build.generated.dir}/jax-wsCache/jefeAcademia"/>
+    </target>
+    <target name="wsimport-client-gestion" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/gestion"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/gestion" destdir="${build.generated.dir}/jax-wsCache/gestion" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/gestion/wsdl/localhost_8080/serviciosWebPoliAsistencia/gestion.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:8080/serviciosWebPoliAsistencia/gestion?wsdl" xnocompile="true" xendorsed="true" package="serviciosWebGestion">
+            <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/gestion/wsdl/localhost_8080/serviciosWebPoliAsistencia/gestion.wsdl"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/gestion"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/gestion">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-gestion" depends="-init-project">
+        <delete dir="${build.generated.sources.dir}/jax-ws/serviciosWebGestion"/>
+        <delete dir="${build.generated.dir}/jax-wsCache/gestion"/>
+    </target>
+    <target name="wsimport-client-generate" depends="wsimport-client-usuario, wsimport-client-alumno, wsimport-client-profesor, wsimport-client-jefeAcademia, wsimport-client-gestion"/>
+</project>
