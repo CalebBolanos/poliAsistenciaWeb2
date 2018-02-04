@@ -4,11 +4,11 @@
 <xsd:import namespace="http://servicios/" schemaLocation="http://localhost:8080/serviciosWebPoliAsistencia/usuario?xsd=1"/>
 </xsd:schema>
 </types>
-<message name="guardarCorreo">
-<part name="parameters" element="tns:guardarCorreo"/>
+<message name="datosJefeAcademia">
+<part name="parameters" element="tns:datosJefeAcademia"/>
 </message>
-<message name="guardarCorreoResponse">
-<part name="parameters" element="tns:guardarCorreoResponse"/>
+<message name="datosJefeAcademiaResponse">
+<part name="parameters" element="tns:datosJefeAcademiaResponse"/>
 </message>
 <message name="traerUrl">
 <part name="parameters" element="tns:traerUrl"/>
@@ -16,29 +16,29 @@
 <message name="traerUrlResponse">
 <part name="parameters" element="tns:traerUrlResponse"/>
 </message>
-<message name="datosGestion">
-<part name="parameters" element="tns:datosGestion"/>
+<message name="traerCorreo">
+<part name="parameters" element="tns:traerCorreo"/>
 </message>
-<message name="datosGestionResponse">
-<part name="parameters" element="tns:datosGestionResponse"/>
+<message name="traerCorreoResponse">
+<part name="parameters" element="tns:traerCorreoResponse"/>
+</message>
+<message name="guardarUrl">
+<part name="parameters" element="tns:guardarUrl"/>
+</message>
+<message name="guardarUrlResponse">
+<part name="parameters" element="tns:guardarUrlResponse"/>
+</message>
+<message name="guardarCorreo">
+<part name="parameters" element="tns:guardarCorreo"/>
+</message>
+<message name="guardarCorreoResponse">
+<part name="parameters" element="tns:guardarCorreoResponse"/>
 </message>
 <message name="cambioContrasena">
 <part name="parameters" element="tns:cambioContrasena"/>
 </message>
 <message name="cambioContrasenaResponse">
 <part name="parameters" element="tns:cambioContrasenaResponse"/>
-</message>
-<message name="datosProfesor">
-<part name="parameters" element="tns:datosProfesor"/>
-</message>
-<message name="datosProfesorResponse">
-<part name="parameters" element="tns:datosProfesorResponse"/>
-</message>
-<message name="traerCorreo">
-<part name="parameters" element="tns:traerCorreo"/>
-</message>
-<message name="traerCorreoResponse">
-<part name="parameters" element="tns:traerCorreoResponse"/>
 </message>
 <message name="validarUsuario">
 <part name="parameters" element="tns:validarUsuario"/>
@@ -52,42 +52,42 @@
 <message name="datosAlumnoResponse">
 <part name="parameters" element="tns:datosAlumnoResponse"/>
 </message>
-<message name="guardarUrl">
-<part name="parameters" element="tns:guardarUrl"/>
+<message name="datosProfesor">
+<part name="parameters" element="tns:datosProfesor"/>
 </message>
-<message name="guardarUrlResponse">
-<part name="parameters" element="tns:guardarUrlResponse"/>
+<message name="datosProfesorResponse">
+<part name="parameters" element="tns:datosProfesorResponse"/>
 </message>
-<message name="datosJefeAcademia">
-<part name="parameters" element="tns:datosJefeAcademia"/>
+<message name="datosGestion">
+<part name="parameters" element="tns:datosGestion"/>
 </message>
-<message name="datosJefeAcademiaResponse">
-<part name="parameters" element="tns:datosJefeAcademiaResponse"/>
+<message name="datosGestionResponse">
+<part name="parameters" element="tns:datosGestionResponse"/>
 </message>
 <portType name="usuario">
-<operation name="guardarCorreo">
-<input wsam:Action="http://servicios/usuario/guardarCorreoRequest" message="tns:guardarCorreo"/>
-<output wsam:Action="http://servicios/usuario/guardarCorreoResponse" message="tns:guardarCorreoResponse"/>
+<operation name="datosJefeAcademia">
+<input wsam:Action="http://servicios/usuario/datosJefeAcademiaRequest" message="tns:datosJefeAcademia"/>
+<output wsam:Action="http://servicios/usuario/datosJefeAcademiaResponse" message="tns:datosJefeAcademiaResponse"/>
 </operation>
 <operation name="traerUrl">
 <input wsam:Action="http://servicios/usuario/traerUrlRequest" message="tns:traerUrl"/>
 <output wsam:Action="http://servicios/usuario/traerUrlResponse" message="tns:traerUrlResponse"/>
 </operation>
-<operation name="datosGestion">
-<input wsam:Action="http://servicios/usuario/datosGestionRequest" message="tns:datosGestion"/>
-<output wsam:Action="http://servicios/usuario/datosGestionResponse" message="tns:datosGestionResponse"/>
+<operation name="traerCorreo">
+<input wsam:Action="http://servicios/usuario/traerCorreoRequest" message="tns:traerCorreo"/>
+<output wsam:Action="http://servicios/usuario/traerCorreoResponse" message="tns:traerCorreoResponse"/>
+</operation>
+<operation name="guardarUrl">
+<input wsam:Action="http://servicios/usuario/guardarUrlRequest" message="tns:guardarUrl"/>
+<output wsam:Action="http://servicios/usuario/guardarUrlResponse" message="tns:guardarUrlResponse"/>
+</operation>
+<operation name="guardarCorreo">
+<input wsam:Action="http://servicios/usuario/guardarCorreoRequest" message="tns:guardarCorreo"/>
+<output wsam:Action="http://servicios/usuario/guardarCorreoResponse" message="tns:guardarCorreoResponse"/>
 </operation>
 <operation name="cambioContrasena">
 <input wsam:Action="http://servicios/usuario/cambioContrasenaRequest" message="tns:cambioContrasena"/>
 <output wsam:Action="http://servicios/usuario/cambioContrasenaResponse" message="tns:cambioContrasenaResponse"/>
-</operation>
-<operation name="datosProfesor">
-<input wsam:Action="http://servicios/usuario/datosProfesorRequest" message="tns:datosProfesor"/>
-<output wsam:Action="http://servicios/usuario/datosProfesorResponse" message="tns:datosProfesorResponse"/>
-</operation>
-<operation name="traerCorreo">
-<input wsam:Action="http://servicios/usuario/traerCorreoRequest" message="tns:traerCorreo"/>
-<output wsam:Action="http://servicios/usuario/traerCorreoResponse" message="tns:traerCorreoResponse"/>
 </operation>
 <operation name="validarUsuario">
 <input wsam:Action="http://servicios/usuario/validarUsuarioRequest" message="tns:validarUsuario"/>
@@ -97,18 +97,18 @@
 <input wsam:Action="http://servicios/usuario/datosAlumnoRequest" message="tns:datosAlumno"/>
 <output wsam:Action="http://servicios/usuario/datosAlumnoResponse" message="tns:datosAlumnoResponse"/>
 </operation>
-<operation name="guardarUrl">
-<input wsam:Action="http://servicios/usuario/guardarUrlRequest" message="tns:guardarUrl"/>
-<output wsam:Action="http://servicios/usuario/guardarUrlResponse" message="tns:guardarUrlResponse"/>
+<operation name="datosProfesor">
+<input wsam:Action="http://servicios/usuario/datosProfesorRequest" message="tns:datosProfesor"/>
+<output wsam:Action="http://servicios/usuario/datosProfesorResponse" message="tns:datosProfesorResponse"/>
 </operation>
-<operation name="datosJefeAcademia">
-<input wsam:Action="http://servicios/usuario/datosJefeAcademiaRequest" message="tns:datosJefeAcademia"/>
-<output wsam:Action="http://servicios/usuario/datosJefeAcademiaResponse" message="tns:datosJefeAcademiaResponse"/>
+<operation name="datosGestion">
+<input wsam:Action="http://servicios/usuario/datosGestionRequest" message="tns:datosGestion"/>
+<output wsam:Action="http://servicios/usuario/datosGestionResponse" message="tns:datosGestionResponse"/>
 </operation>
 </portType>
 <binding name="usuarioPortBinding" type="tns:usuario">
 <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
-<operation name="guardarCorreo">
+<operation name="datosJefeAcademia">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -126,7 +126,25 @@
 <soap:body use="literal"/>
 </output>
 </operation>
-<operation name="datosGestion">
+<operation name="traerCorreo">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="guardarUrl">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="guardarCorreo">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -136,24 +154,6 @@
 </output>
 </operation>
 <operation name="cambioContrasena">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<operation name="datosProfesor">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<operation name="traerCorreo">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -180,7 +180,7 @@
 <soap:body use="literal"/>
 </output>
 </operation>
-<operation name="guardarUrl">
+<operation name="datosProfesor">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -189,7 +189,7 @@
 <soap:body use="literal"/>
 </output>
 </operation>
-<operation name="datosJefeAcademia">
+<operation name="datosGestion">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>

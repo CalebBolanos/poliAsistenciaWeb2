@@ -4,18 +4,6 @@
 <xsd:import namespace="http://servicios/" schemaLocation="http://localhost:8080/serviciosWebPoliAsistencia/profesor?xsd=1"/>
 </xsd:schema>
 </types>
-<message name="asistenciaInd">
-<part name="parameters" element="tns:asistenciaInd"/>
-</message>
-<message name="asistenciaIndResponse">
-<part name="parameters" element="tns:asistenciaIndResponse"/>
-</message>
-<message name="unidades">
-<part name="parameters" element="tns:unidades"/>
-</message>
-<message name="unidadesResponse">
-<part name="parameters" element="tns:unidadesResponse"/>
-</message>
 <message name="informacionUnidad">
 <part name="parameters" element="tns:informacionUnidad"/>
 </message>
@@ -34,15 +22,19 @@
 <message name="asistenciaUnidasMesResponse">
 <part name="parameters" element="tns:asistenciaUnidasMesResponse"/>
 </message>
+<message name="asistenciaInd">
+<part name="parameters" element="tns:asistenciaInd"/>
+</message>
+<message name="asistenciaIndResponse">
+<part name="parameters" element="tns:asistenciaIndResponse"/>
+</message>
+<message name="unidades">
+<part name="parameters" element="tns:unidades"/>
+</message>
+<message name="unidadesResponse">
+<part name="parameters" element="tns:unidadesResponse"/>
+</message>
 <portType name="profesor">
-<operation name="asistenciaInd">
-<input wsam:Action="http://servicios/profesor/asistenciaIndRequest" message="tns:asistenciaInd"/>
-<output wsam:Action="http://servicios/profesor/asistenciaIndResponse" message="tns:asistenciaIndResponse"/>
-</operation>
-<operation name="unidades">
-<input wsam:Action="http://servicios/profesor/unidadesRequest" message="tns:unidades"/>
-<output wsam:Action="http://servicios/profesor/unidadesResponse" message="tns:unidadesResponse"/>
-</operation>
 <operation name="informacionUnidad">
 <input wsam:Action="http://servicios/profesor/informacionUnidadRequest" message="tns:informacionUnidad"/>
 <output wsam:Action="http://servicios/profesor/informacionUnidadResponse" message="tns:informacionUnidadResponse"/>
@@ -55,27 +47,17 @@
 <input wsam:Action="http://servicios/profesor/asistenciaUnidasMesRequest" message="tns:asistenciaUnidasMes"/>
 <output wsam:Action="http://servicios/profesor/asistenciaUnidasMesResponse" message="tns:asistenciaUnidasMesResponse"/>
 </operation>
+<operation name="asistenciaInd">
+<input wsam:Action="http://servicios/profesor/asistenciaIndRequest" message="tns:asistenciaInd"/>
+<output wsam:Action="http://servicios/profesor/asistenciaIndResponse" message="tns:asistenciaIndResponse"/>
+</operation>
+<operation name="unidades">
+<input wsam:Action="http://servicios/profesor/unidadesRequest" message="tns:unidades"/>
+<output wsam:Action="http://servicios/profesor/unidadesResponse" message="tns:unidadesResponse"/>
+</operation>
 </portType>
 <binding name="profesorPortBinding" type="tns:profesor">
 <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
-<operation name="asistenciaInd">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<operation name="unidades">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
 <operation name="informacionUnidad">
 <soap:operation soapAction=""/>
 <input>
@@ -95,6 +77,24 @@
 </output>
 </operation>
 <operation name="asistenciaUnidasMes">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="asistenciaInd">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="unidades">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>

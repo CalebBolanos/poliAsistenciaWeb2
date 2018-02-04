@@ -56,6 +56,19 @@
 </xs:sequence>
 </xs:complexType>
 
+<xs:complexType name="asistenciaGrupoMes">
+<xs:sequence>
+<xs:element name="mes" type="xs:int"/>
+<xs:element name="grupo" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="asistenciaGrupoMesResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:anyType" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
 <xs:complexType name="asistenciaTurnoPorDia">
 <xs:sequence>
 <xs:element name="turno" type="xs:int"/>
@@ -65,19 +78,6 @@
 </xs:complexType>
 
 <xs:complexType name="asistenciaTurnoPorDiaResponse">
-<xs:sequence>
-<xs:element name="return" type="xs:anyType" minOccurs="0" maxOccurs="unbounded"/>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="asistenciaGrupoMes">
-<xs:sequence>
-<xs:element name="mes" type="xs:int"/>
-<xs:element name="grupo" type="xs:string" minOccurs="0"/>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="asistenciaGrupoMesResponse">
 <xs:sequence>
 <xs:element name="return" type="xs:anyType" minOccurs="0" maxOccurs="unbounded"/>
 </xs:sequence>
