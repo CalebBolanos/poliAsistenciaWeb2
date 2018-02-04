@@ -84,7 +84,7 @@ public class consumoSubirImagenNotificacionAlumno extends HttpServlet {
                 response.sendRedirect("iniciarSesion");
                 return;
             }
-            String titulo = new String(request.getParameter("titulo").getBytes(), "UTF-8") != null ? new String(request.getParameter("titulo").getBytes(), "UTF-8") : "";
+            String titulo = new String(request.getParameter("tit").getBytes(), "UTF-8") != null ? new String(request.getParameter("tit").getBytes(), "UTF-8") : "";
             String info = new String(request.getParameter("info").getBytes(), "UTF-8") != null ? new String(request.getParameter("info").getBytes(), "UTF-8") : "";
             String url = new String(request.getParameter("url").getBytes(), "UTF-8") != null ? new String(request.getParameter("url").getBytes(), "UTF-8") : "";
             Part foto = request.getPart("subir");
