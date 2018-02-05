@@ -70,6 +70,12 @@
 <message name="asistenciaTurnoPorDiaMasResponse">
 <part name="parameters" element="tns:asistenciaTurnoPorDiaMasResponse"/>
 </message>
+<message name="obtenerNotificacionEspecifica">
+<part name="parameters" element="tns:obtenerNotificacionEspecifica"/>
+</message>
+<message name="obtenerNotificacionEspecificaResponse">
+<part name="parameters" element="tns:obtenerNotificacionEspecificaResponse"/>
+</message>
 <portType name="gestion">
 <operation name="grupos">
 <input wsam:Action="http://servicios/gestion/gruposRequest" message="tns:grupos"/>
@@ -114,6 +120,10 @@
 <operation name="asistenciaTurnoPorDiaMas">
 <input wsam:Action="http://servicios/gestion/asistenciaTurnoPorDiaMasRequest" message="tns:asistenciaTurnoPorDiaMas"/>
 <output wsam:Action="http://servicios/gestion/asistenciaTurnoPorDiaMasResponse" message="tns:asistenciaTurnoPorDiaMasResponse"/>
+</operation>
+<operation name="obtenerNotificacionEspecifica">
+<input wsam:Action="http://servicios/gestion/obtenerNotificacionEspecificaRequest" message="tns:obtenerNotificacionEspecifica"/>
+<output wsam:Action="http://servicios/gestion/obtenerNotificacionEspecificaResponse" message="tns:obtenerNotificacionEspecificaResponse"/>
 </operation>
 </portType>
 <binding name="gestionPortBinding" type="tns:gestion">
@@ -209,6 +219,15 @@
 </output>
 </operation>
 <operation name="asistenciaTurnoPorDiaMas">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="obtenerNotificacionEspecifica">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>

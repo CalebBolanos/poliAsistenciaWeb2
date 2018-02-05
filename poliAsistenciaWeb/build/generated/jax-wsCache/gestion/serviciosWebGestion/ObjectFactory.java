@@ -44,6 +44,8 @@ public class ObjectFactory {
     private final static QName _GruposResponse_QNAME = new QName("http://servicios/", "gruposResponse");
     private final static QName _GuardarNotificaciones_QNAME = new QName("http://servicios/", "guardarNotificaciones");
     private final static QName _GuardarNotificacionesResponse_QNAME = new QName("http://servicios/", "guardarNotificacionesResponse");
+    private final static QName _ObtenerNotificacionEspecifica_QNAME = new QName("http://servicios/", "obtenerNotificacionEspecifica");
+    private final static QName _ObtenerNotificacionEspecificaResponse_QNAME = new QName("http://servicios/", "obtenerNotificacionEspecificaResponse");
     private final static QName _ObtenerNotificaciones_QNAME = new QName("http://servicios/", "obtenerNotificaciones");
     private final static QName _ObtenerNotificacionesResponse_QNAME = new QName("http://servicios/", "obtenerNotificacionesResponse");
 
@@ -212,6 +214,22 @@ public class ObjectFactory {
      */
     public GuardarNotificacionesResponse createGuardarNotificacionesResponse() {
         return new GuardarNotificacionesResponse();
+    }
+
+    /**
+     * Create an instance of {@link ObtenerNotificacionEspecifica }
+     * 
+     */
+    public ObtenerNotificacionEspecifica createObtenerNotificacionEspecifica() {
+        return new ObtenerNotificacionEspecifica();
+    }
+
+    /**
+     * Create an instance of {@link ObtenerNotificacionEspecificaResponse }
+     * 
+     */
+    public ObtenerNotificacionEspecificaResponse createObtenerNotificacionEspecificaResponse() {
+        return new ObtenerNotificacionEspecificaResponse();
     }
 
     /**
@@ -408,6 +426,24 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://servicios/", name = "guardarNotificacionesResponse")
     public JAXBElement<GuardarNotificacionesResponse> createGuardarNotificacionesResponse(GuardarNotificacionesResponse value) {
         return new JAXBElement<GuardarNotificacionesResponse>(_GuardarNotificacionesResponse_QNAME, GuardarNotificacionesResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link ObtenerNotificacionEspecifica }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://servicios/", name = "obtenerNotificacionEspecifica")
+    public JAXBElement<ObtenerNotificacionEspecifica> createObtenerNotificacionEspecifica(ObtenerNotificacionEspecifica value) {
+        return new JAXBElement<ObtenerNotificacionEspecifica>(_ObtenerNotificacionEspecifica_QNAME, ObtenerNotificacionEspecifica.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link ObtenerNotificacionEspecificaResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://servicios/", name = "obtenerNotificacionEspecificaResponse")
+    public JAXBElement<ObtenerNotificacionEspecificaResponse> createObtenerNotificacionEspecificaResponse(ObtenerNotificacionEspecificaResponse value) {
+        return new JAXBElement<ObtenerNotificacionEspecificaResponse>(_ObtenerNotificacionEspecificaResponse_QNAME, ObtenerNotificacionEspecificaResponse.class, null, value);
     }
 
     /**

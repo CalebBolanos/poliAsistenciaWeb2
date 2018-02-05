@@ -124,4 +124,17 @@ public class gestion {
         valido = borrar.borrarNotificacion(idNotificacion);
         return valido;
     }
+    
+    @WebMethod(operationName = "obtenerNotificacionEspecifica")
+    public ArrayList obtenerNotificacionEspecifica(@WebParam(name = "id") int id) {
+        base.obtenerNotificacionEspecifica notificacion = new base.obtenerNotificacionEspecifica(id);
+        ArrayList<Object> datos = new ArrayList<>();
+        datos.add(notificacion.obteneIdNoti());
+        datos.add(notificacion.obtenerIdTipoN());
+        datos.add(notificacion.obtenerTitulo());
+        datos.add(notificacion.obtenerInfo());
+        datos.add(notificacion.obtenerUrl());
+        datos.add(notificacion.obtenerImg());
+        return datos;
+    }
 }

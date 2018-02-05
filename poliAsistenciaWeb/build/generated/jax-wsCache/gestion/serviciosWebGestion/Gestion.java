@@ -208,4 +208,19 @@ public interface Gestion {
         @WebParam(name = "turno", targetNamespace = "")
         String turno);
 
+    /**
+     * 
+     * @param id
+     * @return
+     *     returns java.util.List<java.lang.Object>
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "obtenerNotificacionEspecifica", targetNamespace = "http://servicios/", className = "serviciosWebGestion.ObtenerNotificacionEspecifica")
+    @ResponseWrapper(localName = "obtenerNotificacionEspecificaResponse", targetNamespace = "http://servicios/", className = "serviciosWebGestion.ObtenerNotificacionEspecificaResponse")
+    @Action(input = "http://servicios/gestion/obtenerNotificacionEspecificaRequest", output = "http://servicios/gestion/obtenerNotificacionEspecificaResponse")
+    public List<Object> obtenerNotificacionEspecifica(
+        @WebParam(name = "id", targetNamespace = "")
+        int id);
+
 }
