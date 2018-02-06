@@ -27,6 +27,7 @@ public class horario {
     }
 
     public String dibujarHorario() {
+        profesor.horario hor = new profesor.horario(_idPersona, _idTipo, _numero, _nombre);
         _horario = "<!DOCTYPE html>\n"
                 + "<html>\n"
                 + "    <head>\n"
@@ -486,9 +487,7 @@ public class horario {
                 + "                </div>\n"
                 + "\n"
                 + "                <script>\n"
-                + "                    //Aqui podemos modificar lo que va dentro del horario\n"
-                + "                    document.getElementById(\"L7\").innerHTML = \"Quimica\";\n"
-                + "                    document.getElementById(\"L7\").style.backgroundColor = \"red\";\n"
+                + hor.horarioDeLaBase()
                 + "                </script>\n"
                 + "\n"
                 + "            </main>\n"
@@ -498,4 +497,5 @@ public class horario {
                 + "";
         return _horario;
     }
+    
 }
