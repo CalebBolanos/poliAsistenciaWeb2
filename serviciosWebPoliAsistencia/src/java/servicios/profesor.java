@@ -5,6 +5,8 @@
  */
 package servicios;
 
+import conexion.cDatos;
+import java.sql.ResultSet;
 import java.util.ArrayList;
 import javax.jws.WebService;
 import javax.jws.WebMethod;
@@ -75,5 +77,40 @@ public class profesor {
         datos.add(asistencia.totalDias());
         datos.add(asistencia.grafTotalDias());
         return datos;
+    }
+    
+    @WebMethod(operationName = "horarioProfesor")
+    public String[][] horarioProfesor(@WebParam(name = "idPer") String idPer){
+        String[][] ret = new String[15][5];
+        cDatos bd = new cDatos();
+        try{
+            bd.conectar();
+            ResultSet rs = bd.consulta("call spHorarioProfesor('" + idPer + "');");
+            int resta, dia, hora, hora2;
+            String mate;
+            while(rs.next()){
+                dia = rs.getInt("idDia")-1;
+                hora = rs.getInt("idHorarioI")-1;
+                hora2 = rs.getInt("idHorarioF")-1;
+                mate = rs.getString("materia");
+                ret[hora][dia] = mate;
+                resta = hora2-hora;
+                if(resta>1){
+                    for(int i = 1; i<resta; i++){
+                        ret[hora2-i][dia] = mate;
+                    }
+                }
+            }
+            for(int i = 0; i<15; i++){
+                for(int j = 0; j<5; j++){
+                    if(ret[i][j]==null){
+                        ret[i][j] = "";
+                    }
+                }
+            }
+        } catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }
+        return ret;
     }
 }
