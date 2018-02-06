@@ -5,6 +5,11 @@
  */
 package profesor;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+import serviciosWebAlumno.StringArray;
+
 /**
  *
  * @author Caleb
@@ -484,9 +489,7 @@ public class horario {
                 + "                </div>\n"
                 + "\n"
                 + "                <script>\n"
-                + "                    //Aqui podemos modificar lo que va dentro del horario\n"
-                + "                    document.getElementById(\"L7\").innerHTML = \"Quimica\";\n"
-                + "                    document.getElementById(\"L7\").style.backgroundColor = \"red\";\n"
+                + horarioDeLaBase()
                 + "                </script>\n"
                 + "\n"
                 + "            </main>\n"
@@ -496,4 +499,46 @@ public class horario {
                 + "";
         return _horario;
     }
+    
+    public String horarioDeLaBase(){
+        String ret = "";
+        String[][] elementosDias = {{"L7", "M7", "Mi7", "J7", "V7"}, {"L8", "M8", "Mi8", "J8", "V8"}, 
+                    {"L9", "M9", "Mi9", "J9", "V9"}, {"L10", "M10", "Mi10", "J10", "V10"}, {"L11", "M11", "Mi11", "J11", "V11"}, 
+                    {"L12", "M12", "Mi12", "J12", "V12"}, {"L13", "M13", "Mi13", "J13", "V13"},
+                    {"L14", "M14", "Mi14", "J14", "V14"}, {"L15", "M15", "Mi15", "J15", "V15"},
+                    {"L16", "M16", "Mi16", "J16", "V16"}, {"L17", "M17", "Mi17", "J17", "V17"}, 
+                    {"L18", "M18", "Mi18", "J18", "V18"}, {"L19", "M19", "Mi19", "J19", "V19"}, 
+                    {"L20", "M20", "Mi20", "J20", "V20"}, {"L21", "M21", "Mi21", "J21", "V21"}};
+        List<serviciosWebProfesor.StringArray> horarioAl = horarioProfesor(_numero);
+        ArrayList<String[]> array = new ArrayList<>();
+        StringArray sa = new StringArray();
+        for(int i = 0; i<horarioAl.size(); i++){
+            String[] shh = horarioAl.get(i).getItem().toArray(new String[0]);
+            String pp = shh[0], tt = shh[1], rt = shh[2];
+            array.add(shh);
+        }
+        Random rand = new Random();
+        int r, g, b;
+        for (int i = 0; i < 15; i++) {
+            for(int j = 0; j < 5; j++){
+                if(!"".equals(array.get(i)[j])){
+                    r = rand.nextInt(256);
+                    g = rand.nextInt(256);
+                    b = rand.nextInt(256);
+                    ret+="                    document.getElementById(\"" + elementosDias[i][j] + "\").innerHTML = \""+ array.get(i)[j] + "\";\n";
+                    ret+="                    document.getElementById(\"" + elementosDias[i][j] + "\").style.backgroundColor= \"rgb("+r+", " + g + ", " + b + ")\";\n";
+                    
+                }
+            }
+        }
+        return ret;
+    }
+
+    private static java.util.List<serviciosWebProfesor.StringArray> horarioProfesor(java.lang.String idPer) {
+        serviciosWebProfesor.Profesor_Service service = new serviciosWebProfesor.Profesor_Service();
+        serviciosWebProfesor.Profesor port = service.getProfesorPort();
+        return port.horarioProfesor(idPer);
+    }
+    
+    
 }
