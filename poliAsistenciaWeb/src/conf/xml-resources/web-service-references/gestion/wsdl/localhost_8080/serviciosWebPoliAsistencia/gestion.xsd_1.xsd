@@ -48,18 +48,6 @@
 
 <xs:element name="obtenerNotificacionesResponse" type="tns:obtenerNotificacionesResponse"/>
 
-<xs:complexType name="obtenerNotificacionEspecifica">
-<xs:sequence>
-<xs:element name="id" type="xs:int"/>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="obtenerNotificacionEspecificaResponse">
-<xs:sequence>
-<xs:element name="return" type="xs:anyType" minOccurs="0" maxOccurs="unbounded"/>
-</xs:sequence>
-</xs:complexType>
-
 <xs:complexType name="borrarNotificaciones">
 <xs:sequence>
 <xs:element name="idNotificacion" type="xs:int"/>
@@ -72,14 +60,13 @@
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="asistenciaGrupoMes">
+<xs:complexType name="obtenerNotificacionEspecifica">
 <xs:sequence>
-<xs:element name="mes" type="xs:int"/>
-<xs:element name="grupo" type="xs:string" minOccurs="0"/>
+<xs:element name="id" type="xs:int"/>
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="asistenciaGrupoMesResponse">
+<xs:complexType name="obtenerNotificacionEspecificaResponse">
 <xs:sequence>
 <xs:element name="return" type="xs:anyType" minOccurs="0" maxOccurs="unbounded"/>
 </xs:sequence>
@@ -99,13 +86,14 @@
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="asistenciaGrupoDia">
+<xs:complexType name="asistenciaGrupoMes">
 <xs:sequence>
+<xs:element name="mes" type="xs:int"/>
 <xs:element name="grupo" type="xs:string" minOccurs="0"/>
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="asistenciaGrupoDiaResponse">
+<xs:complexType name="asistenciaGrupoMesResponse">
 <xs:sequence>
 <xs:element name="return" type="xs:anyType" minOccurs="0" maxOccurs="unbounded"/>
 </xs:sequence>
@@ -118,6 +106,18 @@
 </xs:complexType>
 
 <xs:complexType name="asistenciaTurnoPorDiaMasResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:anyType" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="asistenciaGrupoDia">
+<xs:sequence>
+<xs:element name="grupo" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="asistenciaGrupoDiaResponse">
 <xs:sequence>
 <xs:element name="return" type="xs:anyType" minOccurs="0" maxOccurs="unbounded"/>
 </xs:sequence>

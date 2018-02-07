@@ -42,21 +42,6 @@ public interface Alumno {
 
     /**
      * 
-     * @param tipoNotificacion
-     * @return
-     *     returns java.lang.String
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "obtenerNotificaciones", targetNamespace = "http://servicios/", className = "serviciosWebAlumno.ObtenerNotificaciones")
-    @ResponseWrapper(localName = "obtenerNotificacionesResponse", targetNamespace = "http://servicios/", className = "serviciosWebAlumno.ObtenerNotificacionesResponse")
-    @Action(input = "http://servicios/alumno/obtenerNotificacionesRequest", output = "http://servicios/alumno/obtenerNotificacionesResponse")
-    public String obtenerNotificaciones(
-        @WebParam(name = "tipoNotificacion", targetNamespace = "")
-        int tipoNotificacion);
-
-    /**
-     * 
      * @param idPer
      * @param mes
      * @return
@@ -72,5 +57,20 @@ public interface Alumno {
         String idPer,
         @WebParam(name = "mes", targetNamespace = "")
         String mes);
+
+    /**
+     * 
+     * @param tipoNotificacion
+     * @return
+     *     returns java.lang.String
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "obtenerNotificaciones", targetNamespace = "http://servicios/", className = "serviciosWebAlumno.ObtenerNotificaciones")
+    @ResponseWrapper(localName = "obtenerNotificacionesResponse", targetNamespace = "http://servicios/", className = "serviciosWebAlumno.ObtenerNotificacionesResponse")
+    @Action(input = "http://servicios/alumno/obtenerNotificacionesRequest", output = "http://servicios/alumno/obtenerNotificacionesResponse")
+    public String obtenerNotificaciones(
+        @WebParam(name = "tipoNotificacion", targetNamespace = "")
+        int tipoNotificacion);
 
 }
