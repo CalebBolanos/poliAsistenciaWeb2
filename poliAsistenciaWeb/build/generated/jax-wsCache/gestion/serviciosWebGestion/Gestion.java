@@ -51,24 +51,6 @@ public interface Gestion {
 
     /**
      * 
-     * @param mes
-     * @param turno
-     * @return
-     *     returns java.util.List<java.lang.Object>
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "asistenciaTurnoMes", targetNamespace = "http://servicios/", className = "serviciosWebGestion.AsistenciaTurnoMes")
-    @ResponseWrapper(localName = "asistenciaTurnoMesResponse", targetNamespace = "http://servicios/", className = "serviciosWebGestion.AsistenciaTurnoMesResponse")
-    @Action(input = "http://servicios/gestion/asistenciaTurnoMesRequest", output = "http://servicios/gestion/asistenciaTurnoMesResponse")
-    public List<Object> asistenciaTurnoMes(
-        @WebParam(name = "mes", targetNamespace = "")
-        int mes,
-        @WebParam(name = "turno", targetNamespace = "")
-        int turno);
-
-    /**
-     * 
      * @param grupo
      * @param mes
      * @return
@@ -82,6 +64,21 @@ public interface Gestion {
     public List<Object> asistenciaGrupoMes(
         @WebParam(name = "mes", targetNamespace = "")
         int mes,
+        @WebParam(name = "grupo", targetNamespace = "")
+        String grupo);
+
+    /**
+     * 
+     * @param grupo
+     * @return
+     *     returns java.util.List<java.lang.Object>
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "datosGrupoEspecifico", targetNamespace = "http://servicios/", className = "serviciosWebGestion.DatosGrupoEspecifico")
+    @ResponseWrapper(localName = "datosGrupoEspecificoResponse", targetNamespace = "http://servicios/", className = "serviciosWebGestion.DatosGrupoEspecificoResponse")
+    @Action(input = "http://servicios/gestion/datosGrupoEspecificoRequest", output = "http://servicios/gestion/datosGrupoEspecificoResponse")
+    public List<Object> datosGrupoEspecifico(
         @WebParam(name = "grupo", targetNamespace = "")
         String grupo);
 
@@ -123,51 +120,6 @@ public interface Gestion {
 
     /**
      * 
-     * @param idNotificacion
-     * @return
-     *     returns boolean
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "borrarNotificaciones", targetNamespace = "http://servicios/", className = "serviciosWebGestion.BorrarNotificaciones")
-    @ResponseWrapper(localName = "borrarNotificacionesResponse", targetNamespace = "http://servicios/", className = "serviciosWebGestion.BorrarNotificacionesResponse")
-    @Action(input = "http://servicios/gestion/borrarNotificacionesRequest", output = "http://servicios/gestion/borrarNotificacionesResponse")
-    public boolean borrarNotificaciones(
-        @WebParam(name = "idNotificacion", targetNamespace = "")
-        int idNotificacion);
-
-    /**
-     * 
-     * @param grupo
-     * @return
-     *     returns java.util.List<java.lang.Object>
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "datosGrupoEspecifico", targetNamespace = "http://servicios/", className = "serviciosWebGestion.DatosGrupoEspecifico")
-    @ResponseWrapper(localName = "datosGrupoEspecificoResponse", targetNamespace = "http://servicios/", className = "serviciosWebGestion.DatosGrupoEspecificoResponse")
-    @Action(input = "http://servicios/gestion/datosGrupoEspecificoRequest", output = "http://servicios/gestion/datosGrupoEspecificoResponse")
-    public List<Object> datosGrupoEspecifico(
-        @WebParam(name = "grupo", targetNamespace = "")
-        String grupo);
-
-    /**
-     * 
-     * @param grupo
-     * @return
-     *     returns java.util.List<java.lang.Object>
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "asistenciaGrupoDia", targetNamespace = "http://servicios/", className = "serviciosWebGestion.AsistenciaGrupoDia")
-    @ResponseWrapper(localName = "asistenciaGrupoDiaResponse", targetNamespace = "http://servicios/", className = "serviciosWebGestion.AsistenciaGrupoDiaResponse")
-    @Action(input = "http://servicios/gestion/asistenciaGrupoDiaRequest", output = "http://servicios/gestion/asistenciaGrupoDiaResponse")
-    public List<Object> asistenciaGrupoDia(
-        @WebParam(name = "grupo", targetNamespace = "")
-        String grupo);
-
-    /**
-     * 
      * @param descripcion
      * @param titulo
      * @param urlImg
@@ -195,18 +147,18 @@ public interface Gestion {
 
     /**
      * 
-     * @param turno
+     * @param grupo
      * @return
      *     returns java.util.List<java.lang.Object>
      */
     @WebMethod
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "asistenciaTurnoPorDiaMas", targetNamespace = "http://servicios/", className = "serviciosWebGestion.AsistenciaTurnoPorDiaMas")
-    @ResponseWrapper(localName = "asistenciaTurnoPorDiaMasResponse", targetNamespace = "http://servicios/", className = "serviciosWebGestion.AsistenciaTurnoPorDiaMasResponse")
-    @Action(input = "http://servicios/gestion/asistenciaTurnoPorDiaMasRequest", output = "http://servicios/gestion/asistenciaTurnoPorDiaMasResponse")
-    public List<Object> asistenciaTurnoPorDiaMas(
-        @WebParam(name = "turno", targetNamespace = "")
-        String turno);
+    @RequestWrapper(localName = "asistenciaGrupoDia", targetNamespace = "http://servicios/", className = "serviciosWebGestion.AsistenciaGrupoDia")
+    @ResponseWrapper(localName = "asistenciaGrupoDiaResponse", targetNamespace = "http://servicios/", className = "serviciosWebGestion.AsistenciaGrupoDiaResponse")
+    @Action(input = "http://servicios/gestion/asistenciaGrupoDiaRequest", output = "http://servicios/gestion/asistenciaGrupoDiaResponse")
+    public List<Object> asistenciaGrupoDia(
+        @WebParam(name = "grupo", targetNamespace = "")
+        String grupo);
 
     /**
      * 
@@ -222,5 +174,53 @@ public interface Gestion {
     public List<Object> obtenerNotificacionEspecifica(
         @WebParam(name = "id", targetNamespace = "")
         int id);
+
+    /**
+     * 
+     * @param mes
+     * @param turno
+     * @return
+     *     returns java.util.List<java.lang.Object>
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "asistenciaTurnoMes", targetNamespace = "http://servicios/", className = "serviciosWebGestion.AsistenciaTurnoMes")
+    @ResponseWrapper(localName = "asistenciaTurnoMesResponse", targetNamespace = "http://servicios/", className = "serviciosWebGestion.AsistenciaTurnoMesResponse")
+    @Action(input = "http://servicios/gestion/asistenciaTurnoMesRequest", output = "http://servicios/gestion/asistenciaTurnoMesResponse")
+    public List<Object> asistenciaTurnoMes(
+        @WebParam(name = "mes", targetNamespace = "")
+        int mes,
+        @WebParam(name = "turno", targetNamespace = "")
+        int turno);
+
+    /**
+     * 
+     * @param turno
+     * @return
+     *     returns java.util.List<java.lang.Object>
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "asistenciaTurnoPorDiaMas", targetNamespace = "http://servicios/", className = "serviciosWebGestion.AsistenciaTurnoPorDiaMas")
+    @ResponseWrapper(localName = "asistenciaTurnoPorDiaMasResponse", targetNamespace = "http://servicios/", className = "serviciosWebGestion.AsistenciaTurnoPorDiaMasResponse")
+    @Action(input = "http://servicios/gestion/asistenciaTurnoPorDiaMasRequest", output = "http://servicios/gestion/asistenciaTurnoPorDiaMasResponse")
+    public List<Object> asistenciaTurnoPorDiaMas(
+        @WebParam(name = "turno", targetNamespace = "")
+        String turno);
+
+    /**
+     * 
+     * @param idNotificacion
+     * @return
+     *     returns boolean
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "borrarNotificaciones", targetNamespace = "http://servicios/", className = "serviciosWebGestion.BorrarNotificaciones")
+    @ResponseWrapper(localName = "borrarNotificacionesResponse", targetNamespace = "http://servicios/", className = "serviciosWebGestion.BorrarNotificacionesResponse")
+    @Action(input = "http://servicios/gestion/borrarNotificacionesRequest", output = "http://servicios/gestion/borrarNotificacionesResponse")
+    public boolean borrarNotificaciones(
+        @WebParam(name = "idNotificacion", targetNamespace = "")
+        int idNotificacion);
 
 }

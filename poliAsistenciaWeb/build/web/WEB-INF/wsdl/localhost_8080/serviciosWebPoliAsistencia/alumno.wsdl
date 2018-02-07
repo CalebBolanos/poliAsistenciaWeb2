@@ -7,17 +7,17 @@
 <xsd:import namespace="http://jaxb.dev.java.net/array" schemaLocation="http://localhost:8080/serviciosWebPoliAsistencia/alumno?xsd=2"/>
 </xsd:schema>
 </types>
-<message name="obtenerNotificaciones">
-<part name="parameters" element="tns:obtenerNotificaciones"/>
-</message>
-<message name="obtenerNotificacionesResponse">
-<part name="parameters" element="tns:obtenerNotificacionesResponse"/>
-</message>
 <message name="horarioAlumno">
 <part name="parameters" element="tns:horarioAlumno"/>
 </message>
 <message name="horarioAlumnoResponse">
 <part name="parameters" element="tns:horarioAlumnoResponse"/>
+</message>
+<message name="obtenerNotificaciones">
+<part name="parameters" element="tns:obtenerNotificaciones"/>
+</message>
+<message name="obtenerNotificacionesResponse">
+<part name="parameters" element="tns:obtenerNotificacionesResponse"/>
 </message>
 <message name="asistenciaInd">
 <part name="parameters" element="tns:asistenciaInd"/>
@@ -26,13 +26,13 @@
 <part name="parameters" element="tns:asistenciaIndResponse"/>
 </message>
 <portType name="alumno">
-<operation name="obtenerNotificaciones">
-<input wsam:Action="http://servicios/alumno/obtenerNotificacionesRequest" message="tns:obtenerNotificaciones"/>
-<output wsam:Action="http://servicios/alumno/obtenerNotificacionesResponse" message="tns:obtenerNotificacionesResponse"/>
-</operation>
 <operation name="horarioAlumno">
 <input wsam:Action="http://servicios/alumno/horarioAlumnoRequest" message="tns:horarioAlumno"/>
 <output wsam:Action="http://servicios/alumno/horarioAlumnoResponse" message="tns:horarioAlumnoResponse"/>
+</operation>
+<operation name="obtenerNotificaciones">
+<input wsam:Action="http://servicios/alumno/obtenerNotificacionesRequest" message="tns:obtenerNotificaciones"/>
+<output wsam:Action="http://servicios/alumno/obtenerNotificacionesResponse" message="tns:obtenerNotificacionesResponse"/>
 </operation>
 <operation name="asistenciaInd">
 <input wsam:Action="http://servicios/alumno/asistenciaIndRequest" message="tns:asistenciaInd"/>
@@ -41,7 +41,7 @@
 </portType>
 <binding name="alumnoPortBinding" type="tns:alumno">
 <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
-<operation name="obtenerNotificaciones">
+<operation name="horarioAlumno">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -50,7 +50,7 @@
 <soap:body use="literal"/>
 </output>
 </operation>
-<operation name="horarioAlumno">
+<operation name="obtenerNotificaciones">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>

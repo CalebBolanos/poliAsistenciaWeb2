@@ -30,6 +30,8 @@ public class ObjectFactory {
     private final static QName _AsistenciaUnidadDiaResponse_QNAME = new QName("http://servicios/", "asistenciaUnidadDiaResponse");
     private final static QName _AsistenciaUnidasMes_QNAME = new QName("http://servicios/", "asistenciaUnidasMes");
     private final static QName _AsistenciaUnidasMesResponse_QNAME = new QName("http://servicios/", "asistenciaUnidasMesResponse");
+    private final static QName _HorarioProfesor_QNAME = new QName("http://servicios/", "horarioProfesor");
+    private final static QName _HorarioProfesorResponse_QNAME = new QName("http://servicios/", "horarioProfesorResponse");
     private final static QName _InformacionUnidad_QNAME = new QName("http://servicios/", "informacionUnidad");
     private final static QName _InformacionUnidadResponse_QNAME = new QName("http://servicios/", "informacionUnidadResponse");
     private final static QName _Unidades_QNAME = new QName("http://servicios/", "unidades");
@@ -91,6 +93,22 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link HorarioProfesor }
+     * 
+     */
+    public HorarioProfesor createHorarioProfesor() {
+        return new HorarioProfesor();
+    }
+
+    /**
+     * Create an instance of {@link HorarioProfesorResponse }
+     * 
+     */
+    public HorarioProfesorResponse createHorarioProfesorResponse() {
+        return new HorarioProfesorResponse();
+    }
+
+    /**
      * Create an instance of {@link InformacionUnidad }
      * 
      */
@@ -120,6 +138,14 @@ public class ObjectFactory {
      */
     public UnidadesResponse createUnidadesResponse() {
         return new UnidadesResponse();
+    }
+
+    /**
+     * Create an instance of {@link StringArray }
+     * 
+     */
+    public StringArray createStringArray() {
+        return new StringArray();
     }
 
     /**
@@ -174,6 +200,24 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://servicios/", name = "asistenciaUnidasMesResponse")
     public JAXBElement<AsistenciaUnidasMesResponse> createAsistenciaUnidasMesResponse(AsistenciaUnidasMesResponse value) {
         return new JAXBElement<AsistenciaUnidasMesResponse>(_AsistenciaUnidasMesResponse_QNAME, AsistenciaUnidasMesResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link HorarioProfesor }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://servicios/", name = "horarioProfesor")
+    public JAXBElement<HorarioProfesor> createHorarioProfesor(HorarioProfesor value) {
+        return new JAXBElement<HorarioProfesor>(_HorarioProfesor_QNAME, HorarioProfesor.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link HorarioProfesorResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://servicios/", name = "horarioProfesorResponse")
+    public JAXBElement<HorarioProfesorResponse> createHorarioProfesorResponse(HorarioProfesorResponse value) {
+        return new JAXBElement<HorarioProfesorResponse>(_HorarioProfesorResponse_QNAME, HorarioProfesorResponse.class, null, value);
     }
 
     /**
