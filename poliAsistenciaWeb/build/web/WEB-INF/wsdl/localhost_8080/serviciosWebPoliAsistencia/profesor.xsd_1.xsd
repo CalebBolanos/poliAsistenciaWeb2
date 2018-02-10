@@ -22,6 +22,10 @@
 
 <xs:element name="informacionUnidadResponse" type="tns:informacionUnidadResponse"/>
 
+<xs:element name="obtenerHorarioDiaProfesor" type="tns:obtenerHorarioDiaProfesor"/>
+
+<xs:element name="obtenerHorarioDiaProfesorResponse" type="tns:obtenerHorarioDiaProfesorResponse"/>
+
 <xs:element name="unidades" type="tns:unidades"/>
 
 <xs:element name="unidadesResponse" type="tns:unidadesResponse"/>
@@ -71,6 +75,19 @@
 </xs:complexType>
 
 <xs:complexType name="unidadesResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="obtenerHorarioDiaProfesor">
+<xs:sequence>
+<xs:element name="numero" type="xs:string" minOccurs="0"/>
+<xs:element name="diaSemana" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="obtenerHorarioDiaProfesorResponse">
 <xs:sequence>
 <xs:element name="return" type="xs:string" minOccurs="0"/>
 </xs:sequence>

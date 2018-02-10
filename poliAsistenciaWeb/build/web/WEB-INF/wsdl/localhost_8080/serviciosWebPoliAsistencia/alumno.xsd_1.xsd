@@ -10,6 +10,10 @@
 
 <xs:element name="horarioAlumnoResponse" type="tns:horarioAlumnoResponse"/>
 
+<xs:element name="obtenerHorarioDia" type="tns:obtenerHorarioDia"/>
+
+<xs:element name="obtenerHorarioDiaResponse" type="tns:obtenerHorarioDiaResponse"/>
+
 <xs:element name="obtenerNotificaciones" type="tns:obtenerNotificaciones"/>
 
 <xs:element name="obtenerNotificacionesResponse" type="tns:obtenerNotificacionesResponse"/>
@@ -35,6 +39,19 @@
 <xs:complexType name="horarioAlumnoResponse">
 <xs:sequence>
 <xs:element name="return" type="ns1:stringArray" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="obtenerHorarioDia">
+<xs:sequence>
+<xs:element name="boleta" type="xs:string" minOccurs="0"/>
+<xs:element name="diaSemana" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="obtenerHorarioDiaResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
 </xs:sequence>
 </xs:complexType>
 

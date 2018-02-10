@@ -74,4 +74,11 @@ public class alumno {
         String html = consulta.obtenerHtml();
         return html;
     }
+    
+    @WebMethod(operationName = "obtenerHorarioDia")
+    public String obtenerHorarioDia(@WebParam(name = "boleta") String boleta, @WebParam(name = "diaSemana") int diaSemana) {
+        base.obtenerHorarioDia horario = new base.obtenerHorarioDia(boleta, diaSemana);
+        String html = horario.obtenerHtml();
+        return html;
+    }
 }

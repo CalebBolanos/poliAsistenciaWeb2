@@ -113,4 +113,11 @@ public class profesor {
         }
         return ret;
     }
+    
+    @WebMethod(operationName = "obtenerHorarioDiaProfesor")
+    public String obtenerHorarioDiaProfesor(@WebParam(name = "numero") String numero, @WebParam(name = "diaSemana") int diaSemana) {
+        consultaProfesor.obtenerHorarioDia horario = new consultaProfesor.obtenerHorarioDia(numero, diaSemana);
+        String html = horario.obtenerHtml();
+        return html;
+    }
 }

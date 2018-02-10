@@ -25,6 +25,12 @@
 <message name="obtenerNotificacionesResponse">
 <part name="parameters" element="tns:obtenerNotificacionesResponse"/>
 </message>
+<message name="obtenerHorarioDia">
+<part name="parameters" element="tns:obtenerHorarioDia"/>
+</message>
+<message name="obtenerHorarioDiaResponse">
+<part name="parameters" element="tns:obtenerHorarioDiaResponse"/>
+</message>
 <portType name="alumno">
 <operation name="horarioAlumno">
 <input wsam:Action="http://servicios/alumno/horarioAlumnoRequest" message="tns:horarioAlumno"/>
@@ -37,6 +43,10 @@
 <operation name="obtenerNotificaciones">
 <input wsam:Action="http://servicios/alumno/obtenerNotificacionesRequest" message="tns:obtenerNotificaciones"/>
 <output wsam:Action="http://servicios/alumno/obtenerNotificacionesResponse" message="tns:obtenerNotificacionesResponse"/>
+</operation>
+<operation name="obtenerHorarioDia">
+<input wsam:Action="http://servicios/alumno/obtenerHorarioDiaRequest" message="tns:obtenerHorarioDia"/>
+<output wsam:Action="http://servicios/alumno/obtenerHorarioDiaResponse" message="tns:obtenerHorarioDiaResponse"/>
 </operation>
 </portType>
 <binding name="alumnoPortBinding" type="tns:alumno">
@@ -60,6 +70,15 @@
 </output>
 </operation>
 <operation name="obtenerNotificaciones">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="obtenerHorarioDia">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
