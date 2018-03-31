@@ -12,17 +12,17 @@ import javax.xml.bind.annotation.XmlType;
  * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
  * 
  * <pre>
- * &lt;complexType name="asistenciaTurnoPorDia"&gt;
- *   &lt;complexContent&gt;
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
- *       &lt;sequence&gt;
- *         &lt;element name="turno" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
- *         &lt;element name="mes" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
- *         &lt;element name="dia" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
- *       &lt;/sequence&gt;
- *     &lt;/restriction&gt;
- *   &lt;/complexContent&gt;
- * &lt;/complexType&gt;
+ * &lt;complexType name="asistenciaTurnoPorDia">
+ *   &lt;complexContent>
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *       &lt;sequence>
+ *         &lt;element name="turno" type="{http://www.w3.org/2001/XMLSchema}int"/>
+ *         &lt;element name="mes" type="{http://www.w3.org/2001/XMLSchema}int"/>
+ *         &lt;element name="dia" type="{http://www.w3.org/2001/XMLSchema}int"/>
+ *       &lt;/sequence>
+ *     &lt;/restriction>
+ *   &lt;/complexContent>
+ * &lt;/complexType>
  * </pre>
  * 
  * 

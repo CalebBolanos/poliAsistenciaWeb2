@@ -21,6 +21,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.servlet.http.Part;
 import javax.xml.ws.WebServiceRef;
+import servicios.Mails;
 import serviciosWebGestion.Gestion_Service;
 
 /**
@@ -32,6 +33,9 @@ import serviciosWebGestion.Gestion_Service;
         maxFileSize = 1024 * 1024 * 2, // 2 MB
         maxRequestSize = 1024 * 1024 * 100)      // 3 MB
 public class consumoSubirImagenNotificacionProfesor extends HttpServlet {
+
+    @WebServiceRef(wsdlLocation = "WEB-INF/wsdl/localhost_8080/serviciosWebPoliAsistencia/mails.wsdl")
+    private Mails service_1;
 
     @WebServiceRef(wsdlLocation = "WEB-INF/wsdl/localhost_8080/serviciosWebPoliAsistencia/gestion.wsdl")
     private Gestion_Service service;
@@ -88,11 +92,18 @@ public class consumoSubirImagenNotificacionProfesor extends HttpServlet {
             String titulo = new String(request.getParameter("tit").getBytes(), "UTF-8") != null ? new String(request.getParameter("tit").getBytes(), "UTF-8") : "";
             String info = new String(request.getParameter("info").getBytes(), "UTF-8") != null ? new String(request.getParameter("info").getBytes(), "UTF-8") : "";
             String url = new String(request.getParameter("url").getBytes(), "UTF-8") != null ? new String(request.getParameter("url").getBytes(), "UTF-8") : "";
+            String mai="off";
+            try{mai = new String(request.getParameter("mail").getBytes(), "UTF-8") != null ? new String(request.getParameter("mail").getBytes(), "UTF-8") : "";
+            }catch(Exception xd){
+                System.out.println("xd");
+            }
             Part foto = request.getPart("subir");
             if (foto.getSize() == 0) {
                 boolean guardarSinFoto = guardarNotificaciones(2, titulo, info, url, "");
                 if (guardarSinFoto) {
                     response.sendRedirect("notificaciones/crearNotificaciones?mensaje=Notificacion subida");
+                    if(mai.equals("on"))
+                        mandaMAils(3, titulo, info);
                     return;
                 } else {
                     response.sendRedirect("notificaciones/crearNotificaciones?mensaje==Error al subir la notificacion, No rebases el numero de caracteres");
@@ -123,6 +134,8 @@ public class consumoSubirImagenNotificacionProfesor extends HttpServlet {
                             Thread.sleep(2 * 10000);
                         } catch (Exception e) {
                         }
+                        if(mai.equals("on"))
+                            mandaMAils(3, titulo, info);
                         mensaje = "Notificacion subida";
                         response.sendRedirect("notificaciones/crearNotificaciones?mensaje=" + mensaje);
                         return;
@@ -162,6 +175,13 @@ public class consumoSubirImagenNotificacionProfesor extends HttpServlet {
         // If the calling of port operations may lead to race condition some synchronization is required.
         serviciosWebGestion.Gestion port = service.getGestionPort();
         return port.guardarNotificaciones(tipoNotificacion, titulo, descripcion, url, urlImg);
+    }
+
+    private boolean mandaMAils(int para, java.lang.String titulo, java.lang.String msj) {
+        // Note that the injected javax.xml.ws.Service reference as well as port objects are not thread safe.
+        // If the calling of port operations may lead to race condition some synchronization is required.
+        servicios.EnviaMails port = service_1.getEnviaMailsPort();
+        return port.mandaMAils(para, titulo, msj);
     }
 
 }

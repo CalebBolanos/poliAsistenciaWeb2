@@ -106,5 +106,21 @@
         <delete dir="${build.generated.sources.dir}/jax-ws/serviciosWebGestion"/>
         <delete dir="${build.generated.dir}/jax-wsCache/gestion"/>
     </target>
-    <target name="wsimport-client-generate" depends="wsimport-client-usuario, wsimport-client-alumno, wsimport-client-profesor, wsimport-client-jefeAcademia, wsimport-client-gestion"/>
+    <target name="wsimport-client-mails" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/mails"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/mails" destdir="${build.generated.dir}/jax-wsCache/mails" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/mails/wsdl/localhost_8080/serviciosWebPoliAsistencia/mails.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:8080/serviciosWebPoliAsistencia/mails?wsdl" xnocompile="true" xendorsed="true">
+            <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/mails/wsdl/localhost_8080/serviciosWebPoliAsistencia/mails.wsdl"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/mails"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/mails">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-mails" depends="-init-project">
+        <delete dir="${build.generated.sources.dir}/jax-ws/servicios"/>
+        <delete dir="${build.generated.dir}/jax-wsCache/mails"/>
+    </target>
+    <target name="wsimport-client-generate" depends="wsimport-client-usuario, wsimport-client-alumno, wsimport-client-profesor, wsimport-client-jefeAcademia, wsimport-client-gestion, wsimport-client-mails"/>
 </project>

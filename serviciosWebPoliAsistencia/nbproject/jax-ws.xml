@@ -16,6 +16,9 @@
     <service name="jefeAcademia">
       <implementation-class>servicios.jefeAcademia</implementation-class>
     </service>
+    <service name="enviaMails">
+      <implementation-class>servicios.enviaMails</implementation-class>
+    </service>
   </services>
   <clients/>
 </jax-ws>

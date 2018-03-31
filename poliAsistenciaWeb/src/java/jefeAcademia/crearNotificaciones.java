@@ -424,6 +424,10 @@ public class crearNotificaciones {
                 + "                                    </div><br>\n"
                 + "                                    <input type=\"file\" name=\"subir\" accept=\"image/*\"  id=\"subir\" ><br><br>\n"
                 + "                                    \n"
+                + "                                     <label class=\"mdl-switch mdl-js-switch mdl-js-ripple-effect\" for=\"mail\">\n" +
+                "                                       <input type=\"checkbox\" id=\"mail\" class=\"mdl-switch__input\" name=\"mail\">\n" +
+                "                                       <span class=\"mdl-switch__label\">Enviar correo a los destinatarios</span>\n" +
+                "                                       </label><br><br>\n"
                 + "                                    <input type=\"submit\" class=\"mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--primary\" value=\"subir notificación\" id=\"subirNotificacion\">\n"
                 + "                                    <br>\n"
                 + "                                </form>\n"
