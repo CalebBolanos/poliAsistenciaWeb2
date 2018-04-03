@@ -155,6 +155,9 @@ public class crearNotificaciones {
                 + "                bottom: 0;\n"
                 + "                margin: auto;\n"
                 + "            }\n"
+                + "            .demo-card-wide.mdl-card {\n"
+                + "                width: 700px;\n"
+                + "            }\n"
                 + "            #load{\n"
                 + "                background-color: rgba(0, 0, 0, 0.7);\n"
                 + "                height: 100%;\n"
@@ -174,9 +177,6 @@ public class crearNotificaciones {
                 + "                right: 0;\n"
                 + "                bottom: 0;\n"
                 + "                margin: auto;\n"
-                + "            }\n"
-                + "            .demo-card-wide.mdl-card {\n"
-                + "                width: 700px;\n"
                 + "            }\n"
                 + "            .demo-card-wide > .mdl-card__title {\n"
                 + "                color: #fff;\n"
@@ -389,7 +389,10 @@ public class crearNotificaciones {
                 + "            <div class=\"mdl-layout__drawer\">\n"
                 + "                <span class=\"titulo\">&nbsp;Poli<span class=\"tituloBold\">Asistencia</span></span>\n"
                 + "                <nav class=\"mdl-navigation\">\n"
+
+
                 + "                    <a class=\"mdl-navigation__link disponible\" href=\"../inicio\"><i class=\"material-icons md-36 md-dark\">home</i> Inicio</a>\n"
+                + "                    <a class=\"mdl-navigation__link disponible\" href=\"../horario\" ><i class=\"material-icons md-36 md-dark\">date_range</i> Horario</a>\n"
                 + "                    <a class=\"mdl-navigation__link disponible\" href=\"../estadisticas\"><i class=\"material-icons md-36 md-dark\">insert_chart</i> Estadisticas</a>\n"
                 + "                    <a class=\"mdl-navigation__link seleccionado\" href=\"../notificaciones\"><i class=\"material-icons md-36 md-light\">list</i> Notificaciones</a>\n"
                 + "                    <a class=\"mdl-navigation__link disponible\" href=\"../configuracion\"><i class=\"material-icons md-36 md-dark\">settings</i> Configuración</a>\n"
@@ -403,7 +406,7 @@ public class crearNotificaciones {
                 + "                        <div class=\"tarjetas\" style=\"height: 420px; overflow: auto;\">\n"
                 + "                            <center>\n"
                 + "                                <br><br>\n"
-                + "                                <form action=\"../consumoSubirImagenNotificacionAlumno\" method=\"POST\" enctype=\"multipart/form-data\" id=\"subir\">\n"
+                + "                                <form action=\"../consumoSubirImagenNotificacionProfesor\" method=\"POST\" enctype=\"multipart/form-data\" id=\"subir\">\n"
                 + "                                    <div class=\"mdl-textfield mdl-js-textfield mdl-textfield--floating-label\">\n"
                 + "                                        <input class=\"mdl-textfield__input\" type=\"text\" id=\"tit\" name=\"tit\" required>\n"
                 + "                                        <label class=\"mdl-textfield__label\" for=\"tit\" style=\"\">Título</label>\n"
@@ -421,6 +424,10 @@ public class crearNotificaciones {
                 + "                                    </div><br>\n"
                 + "                                    <input type=\"file\" name=\"subir\" accept=\"image/*\"  id=\"subir\" ><br><br>\n"
                 + "                                    \n"
+                + "                                     <label class=\"mdl-switch mdl-js-switch mdl-js-ripple-effect\" for=\"mail\">\n" +
+                "                                       <input type=\"checkbox\" id=\"mail\" class=\"mdl-switch__input\" name=\"mail\">\n" +
+                "                                       <span class=\"mdl-switch__label\">Enviar correo a los destinatarios</span>\n" +
+                "                                       </label><br><br>\n"
                 + "                                    <input type=\"submit\" class=\"mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--primary\" value=\"subir notificación\" id=\"subirNotificacion\">\n"
                 + "                                    <br>\n"
                 + "                                </form>\n"
