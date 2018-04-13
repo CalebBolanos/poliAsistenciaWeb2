@@ -403,7 +403,7 @@ public class crearNotificaciones {
                 + "            <main class=\"mdl-layout__content\" style=\"background-color: whitesmoke;\">\n"
                 + "                <div class=\"mdl-grid center-items\">\n"
                 + "                    <div class=\"mdl-cell mdl-cell--6-col\" style=\"\">\n"
-                + "                        <div class=\"tarjetas\" style=\"height: 420px; overflow: auto;\">\n"
+                + "                        <div class=\"tarjetas\" style=\"height: auto; overflow: auto; padding: 10px;\">\n"
                 + "                            <center>\n"
                 + "                                <br><br>\n"
                 + "                                <form action=\"../consumoSubirImagenNotificacionProfesor\" method=\"POST\" enctype=\"multipart/form-data\" id=\"subir\">\n"
@@ -424,10 +424,10 @@ public class crearNotificaciones {
                 + "                                    </div><br>\n"
                 + "                                    <input type=\"file\" name=\"subir\" accept=\"image/*\"  id=\"subir\" ><br><br>\n"
                 + "                                    \n"
-                + "                                     <label class=\"mdl-switch mdl-js-switch mdl-js-ripple-effect\" for=\"mail\">\n" +
+                + "                                     <div style=\"text-align: left; display: table; margin: 0 auto;\"><label class=\"mdl-switch mdl-js-switch mdl-js-ripple-effect\" for=\"mail\">\n" +
                 "                                       <input type=\"checkbox\" id=\"mail\" class=\"mdl-switch__input\" name=\"mail\">\n" +
                 "                                       <span class=\"mdl-switch__label\">Enviar correo a los destinatarios</span>\n" +
-                "                                       </label><br><br>\n"
+                "                                       </label></div><br><br>\n"
                 + "                                    <input type=\"submit\" class=\"mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--primary\" value=\"subir notificación\" id=\"subirNotificacion\">\n"
                 + "                                    <br>\n"
                 + "                                </form>\n"
