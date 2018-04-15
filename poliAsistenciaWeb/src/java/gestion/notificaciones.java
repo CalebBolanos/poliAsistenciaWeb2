@@ -380,7 +380,7 @@ public class notificaciones {
                 + "                            </div>\n"
                 + "                        </div>\n"
                 + "                    </div>\n"
-                + "                    " + obtenerNotificaciones(2) + "      \n"
+                + "                    " + obtenerNotificaciones(1) + "      \n"
                 + "                </div>\n"
                 + "<div style=\"height:0px; overflow:hidden\">\n"
                 + "            <form action=\"consumoBorrarNotificacion\" method=\"POST\" id=\"borrar\">\n"

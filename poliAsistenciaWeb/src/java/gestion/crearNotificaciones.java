@@ -406,7 +406,7 @@ public class crearNotificaciones {
                 + "                        <div class=\"tarjetas\" style=\"height: auto; overflow: auto; padding: 10px;\">\n"
                 + "                            <center>\n"
                 + "                                <br><br>\n"
-                + "                                <form action=\"../consumoSubirImagenNotificacionProfesor\" method=\"POST\" enctype=\"multipart/form-data\" id=\"subir\">\n"
+                + "                                <form action=\"../consumoSubirImagenNotificacionAlumno\" method=\"POST\" enctype=\"multipart/form-data\" id=\"subir\">\n"
                 + "                                    <div class=\"mdl-textfield mdl-js-textfield mdl-textfield--floating-label\">\n"
                 + "                                        <input class=\"mdl-textfield__input\" type=\"text\" id=\"tit\" name=\"tit\" required>\n"
                 + "                                        <label class=\"mdl-textfield__label\" for=\"tit\" style=\"\">Título</label>\n"
