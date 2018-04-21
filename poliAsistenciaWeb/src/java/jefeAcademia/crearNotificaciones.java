@@ -16,12 +16,16 @@ public class crearNotificaciones {
     private String _numero = "";
     private String _nombre = "";
     private String _notificacion = "";
+    private String _paterno = "";
+    private String _materno = "";
 
-    public crearNotificaciones(int idPersona, int idTipo, String numero, String nombre) {
+    public crearNotificaciones(int idPersona, int idTipo, String numero, String nombre, String paterno, String materno) {
         _idPersona = idPersona;
         _idTipo = idTipo;
         _numero = numero;
         _nombre = nombre;
+        _paterno = paterno;
+        _materno = materno;
     }
 
     public String dibujarCreadorNotificaciones(String mensaje) {
@@ -436,19 +440,37 @@ public class crearNotificaciones {
                 + "                    </div>\n"
                 + "                    <div class=\"mdl-cell mdl-cell--6-col\">\n"
                 + "                        <div style=\"text-align: center; font-size: 30px; color: #0091EA; margin-bottom: 30px; margin-top: 20px;\">Vista previa</div>\n"
-                + "                        <div class=\"tarjetas\" style=\"\">\n"
-                + "                            <div class=\"iconos \" id=\"titTarjeta\" style=\"background: linear-gradient(to right, rgb(0, 229, 10), rgb(0, 238, 11)) \">\n"
-                + "                                Título\n"
-                + "                            </div>\n"
-                + "                            <div class=\"descripcion\"  style=\"text-align: left; margin: 10px; height: auto\">\n"
-                + "                                <div style=\"\" id=\"infoTarjeta\">\n"
-                + "                                    Descripción\n"
-                + "                                </div>\n"
-                + "                                <center id=\"boton\">\n"
-                + "\n"
-                + "                                </center>\n"
+                + "        <div class=\"mdl-grid center-items\">\n"
+                + "            <div class=\"mdl-cell mdl-cell--12-col\" style=\"transition: all 0.3s cubic-bezier(.25,.8,.25,1); box-shadow: 0px 1px 2px rgba(0,0,0,0.09), 0 1px 2px rgba(0,0,0,0.25); border-radius: 3px 3px;  background-color: white;\">\n"
+                + "                <div class=\"mdl-grid\">\n"
+                + "                    <div class=\"mdl-cell mdl-cell--12-col\">\n"
+                + "                        <div class=\"mdl-grid\" style=\"padding: 0px\">\n"
+                + "                            <div class=\"mdl-cell mdl-cell--4-col\" style=\"width: 50px; height: 50px; border-radius: 50%; background-repeat: no-repeat; background-position: center center; background-size: cover; background-image: url('../"+traerUrl(_idPersona)+"'); margin: 0px; padding: 0px; /**/position: relative; position: relative; float: left; display: flex; justify-content: center; align-content: center; flex-direction: column; text-align: center;\"></div>\n"
+                + "                            <div class=\"mdl-cell mdl-cell--8-col\" style=\"margin-top: 5px; /**/position: relative; position: relative; float: left; display: flex; justify-content: center; align-content: center; flex-direction: column; height: auto; overflow: hidden;\">\n"
+                + "                                <div style=\"font-weight: bold; font-size: 12px;\">"+_nombre+" "+_paterno+" "+_materno+"</div>\n"
+                + "                                <div style=\"color: #0091EA; font-weight: bold; font-size: 17px;\" id=\"titTarjeta\">Titulo</div>\n"
                 + "                            </div>\n"
                 + "                        </div>\n"
+                + "                    </div>\n"
+                + "                </div>\n"
+                + "                <div class=\"mdl-grid \">\n"
+                + "                    <div class=\"mdl-cell mdl-cell--12-col\" id=\"infoTarjeta\">\n"
+                + "                        Descripcion xd\n"
+                + "                    </div>\n"
+                + "                </div>\n"
+                + "                <div class=\"mdl-grid\" style=\"margin: 0px; padding: 0px\">\n"
+                + "                    <div class=\"mdl-cell mdl-cell--12-col\" style=\"margin: 0px; padding: 0px\">\n"
+                + "                        <div class=\"mdl-grid\" style=\"margin: 0px; padding: 0px\">\n"
+                + "                            <div class=\"mdl-cell mdl-cell--3-col\" style=\"float: right;\">\n"
+                + "                                <button class=\"mdl-button mdl-js-button mdl-button--primary\" style=\"color: rgb(0, 229, 10); width: 100%; margin: 5px;\" onclick=\"verUrl('a')\">\n"
+                + "                                    Ver mas\n"
+                + "                                </button>\n"
+                + "                            </div>\n"
+                + "                        </div>\n"
+                + "                    </div>\n"
+                + "                </div>\n"
+                + "            </div>\n"
+                + "        </div>"
                 + "                    </div>\n"
                 + "                    \n"
                 + "                </div>\n"
@@ -504,5 +526,11 @@ public class crearNotificaciones {
                 + "</html>\n"
                 + "";
         return _notificacion;
+    }
+
+    private static String traerUrl(int idPer) {
+        serviciosWeb.Usuario_Service service = new serviciosWeb.Usuario_Service();
+        serviciosWeb.Usuario port = service.getUsuarioPort();
+        return port.traerUrl(idPer);
     }
 }

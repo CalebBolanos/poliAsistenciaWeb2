@@ -77,18 +77,24 @@ public class crearNotificaciones extends HttpServlet {
                         int idPersona = Integer.parseInt((String) usr.getAttribute("idpersona"));
                         String numero = (String) usr.getAttribute("numero");
                         String nombre = (String) usr.getAttribute("nombre");
-                        jefeAcademia.crearNotificaciones jefe = new jefeAcademia.crearNotificaciones(idPersona, tipoPersona, numero, nombre);
+                        String paterno = (String) usr.getAttribute("paterno");
+                        String materno = (String) usr.getAttribute("materno");
+                        jefeAcademia.crearNotificaciones jefe = new jefeAcademia.crearNotificaciones(idPersona, tipoPersona, numero, nombre, paterno, materno);
                         out.print(jefe.dibujarCreadorNotificaciones(msj));
                     } else {
                         if (tipoPersona == 1) {//gestion
                             int idPersona = Integer.parseInt((String) usr.getAttribute("idpersona"));
                             String numero = (String) usr.getAttribute("numero");
                             String nombre = (String) usr.getAttribute("nombre");
+                            String paterno = (String) usr.getAttribute("paterno");
+                            String materno = (String) usr.getAttribute("materno");
                             gestion.crearNotificaciones persona = new gestion.crearNotificaciones(idPersona, tipoPersona, numero, nombre);
                             out.print(persona.dibujarCreadorNotificaciones(msj));
                         }
                     }
+                    //request.setAttribute("mensaje", out);
                 }
+                //getServletContext().getRequestDispatcher("jsp/algo.jsp").forward(request, response);
                 out.flush();
                 out.close();
             }

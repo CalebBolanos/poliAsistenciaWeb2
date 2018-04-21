@@ -13,11 +13,11 @@ import java.sql.ResultSet;
  */
 public class guardarNotificacion {
     private boolean  guardado = false;
-    public boolean guardarNotificacion(int tipoNotificacion, String titulo, String descripcion, String url, String urlImg){
+    public boolean guardarNotificacion(/*String idPersona,*/ int tipoNotificacion, String titulo, String descripcion, String url, String urlImg){
         conexion.cDatos base = new conexion.cDatos();
         try{
             base.conectar();
-            ResultSet resultado = base.consulta("call spGuardaNotificacion("+tipoNotificacion+",'"+titulo+"','"+descripcion+"','"+url+"','"+urlImg+"');;");
+            ResultSet resultado = base.consulta("call spGuardaNotificacion("/*+idPersona,+*/+tipoNotificacion+",'"+titulo+"','"+descripcion+"','"+url+"','"+urlImg+"');;");
             if(resultado.next()){
                 guardado = resultado.getString("msj").equals("ok");
             }

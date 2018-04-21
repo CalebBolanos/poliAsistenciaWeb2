@@ -54,9 +54,9 @@ public class crearNotificaciones {
                     + "                    <div class=\"mdl-snackbar__text\"></div>\n"
                     + "                    <button class=\"mdl-snackbar__action\" type=\"button\"></button>\n"
                     + "                </div>";
-            cargar="";
+            cargar = "";
         }
-        
+
         _notificacion = "\n"
                 + "<!DOCTYPE html>\n"
                 + "<html>\n"
@@ -218,8 +218,8 @@ public class crearNotificaciones {
                 + "                width: auto;\n"
                 + "                height: 200px;\n"
                 + "                transition: all 0.3s cubic-bezier(.25,.8,.25,1);\n"
-                + "                box-shadow: 0px 1px 2px rgba(0,0,0,0.09), 0 1px 2px rgba(0,0,0,0.25);\n" 
-                +                  "border-radius: 8px 8px;"
+                + "                box-shadow: 0px 1px 2px rgba(0,0,0,0.09), 0 1px 2px rgba(0,0,0,0.25);\n"
+                + "border-radius: 8px 8px;"
                 + "                text-decoration: none;\n"
                 + "                height: auto;\n"
                 + "                overflow: hidden;\n"
@@ -356,10 +356,10 @@ public class crearNotificaciones {
                 + "\n"
                 + "            }\n"
                 + "        </style>\n"
-                + "        "+script+"\n"
+                + "        " + script + "\n"
                 + "    </head>\n"
                 + "    <body>\n"
-                + "        "+cargar+"\n"
+                + "        " + cargar + "\n"
                 + "        <div id=\"load\">\n"
                 + "            <div id=\"subirF\" class=\"mdl-progress mdl-js-progress mdl-progress__indeterminate\"><br><center><span class=\"titulo\" style=\"color: white;\">Subiendo notificación...</span></center></div> \n"
                 + "        </div>\n"
@@ -376,7 +376,7 @@ public class crearNotificaciones {
                 + "                    <nav class=\"mdl-navigation mdl-layout--large-screen-only\">\n"
                 + "                        <button id=\"demo-menu-lower-right\"\n"
                 + "                                class=\"persona\">\n"
-                + "                            "+_nombre+"\n"
+                + "                            " + _nombre + "\n"
                 + "                        </button>\n"
                 + "                        <ul class=\"mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect\"\n"
                 + "                            for=\"demo-menu-lower-right\">\n"
@@ -389,8 +389,6 @@ public class crearNotificaciones {
                 + "            <div class=\"mdl-layout__drawer\">\n"
                 + "                <span class=\"titulo\">&nbsp;Poli<span class=\"tituloBold\">Asistencia</span></span>\n"
                 + "                <nav class=\"mdl-navigation\">\n"
-
-
                 + "                    <a class=\"mdl-navigation__link disponible\" href=\"../inicio\"><i class=\"material-icons md-36 md-dark\">home</i> Inicio</a>\n"
                 + "                    <a class=\"mdl-navigation__link disponible\" href=\"../horario\" ><i class=\"material-icons md-36 md-dark\">date_range</i> Horario</a>\n"
                 + "                    <a class=\"mdl-navigation__link disponible\" href=\"../estadisticas\"><i class=\"material-icons md-36 md-dark\">insert_chart</i> Estadisticas</a>\n"
@@ -424,10 +422,10 @@ public class crearNotificaciones {
                 + "                                    </div><br>\n"
                 + "                                    <input type=\"file\" name=\"subir\" accept=\"image/*\"  id=\"subir\" ><br><br>\n"
                 + "                                    \n"
-                + "                                     <div style=\"text-align: left; display: table; margin: 0 auto;\"><label class=\"mdl-switch mdl-js-switch mdl-js-ripple-effect\" for=\"mail\">\n" +
-                "                                       <input type=\"checkbox\" id=\"mail\" class=\"mdl-switch__input\" name=\"mail\">\n" +
-                "                                       <span class=\"mdl-switch__label\">Enviar correo a los destinatarios</span>\n" +
-                "                                       </label></div><br><br>\n"
+                + "                                     <div style=\"text-align: left; display: table; margin: 0 auto;\"><label class=\"mdl-switch mdl-js-switch mdl-js-ripple-effect\" for=\"mail\">\n"
+                + "                                       <input type=\"checkbox\" id=\"mail\" class=\"mdl-switch__input\" name=\"mail\">\n"
+                + "                                       <span class=\"mdl-switch__label\">Enviar correo a los destinatarios</span>\n"
+                + "                                       </label></div><br><br>\n"
                 + "                                    <input type=\"submit\" class=\"mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--primary\" value=\"subir notificación\" id=\"subirNotificacion\">\n"
                 + "                                    <br>\n"
                 + "                                </form>\n"
@@ -436,23 +434,42 @@ public class crearNotificaciones {
                 + "                    </div>\n"
                 + "                    <div class=\"mdl-cell mdl-cell--6-col\">\n"
                 + "                        <div style=\"text-align: center; font-size: 30px; color: #0091EA; margin-bottom: 30px; margin-top: 20px;\">Vista previa</div>\n"
-                + "                        <div class=\"tarjetas\" style=\"\">\n"
-                + "                            <div class=\"iconos \" id=\"titTarjeta\" style=\"background: linear-gradient(to right, rgb(0, 229, 10), rgb(0, 238, 11)) \">\n"
-                + "                                Título\n"
-                + "                            </div>\n"
-                + "                            <div class=\"descripcion\"  style=\"text-align: left; margin: 10px; height: auto\">\n"
-                + "                                <div style=\"\" id=\"infoTarjeta\">\n"
-                + "                                    Descripción\n"
-                + "                                </div>\n"
-                + "                                <center id=\"boton\">\n"
-                + "\n"
-                + "                                </center>\n"
+                + "<!-- nada-->\n"
+                + "        <div class=\"mdl-grid center-items\">\n"
+                + "            <div class=\"mdl-cell mdl-cell--12-col\" style=\"transition: all 0.3s cubic-bezier(.25,.8,.25,1); box-shadow: 0px 1px 2px rgba(0,0,0,0.09), 0 1px 2px rgba(0,0,0,0.25); border-radius: 3px 3px;  background-color: white;\">\n"
+                + "                <div class=\"mdl-grid\">\n"
+                + "                    <div class=\"mdl-cell mdl-cell--12-col\">\n"
+                + "                        <div class=\"mdl-grid\" style=\"padding: 0px\">\n"
+                + "                            <div class=\"mdl-cell mdl-cell--4-col\" style=\"width: 50px; height: 50px; border-radius: 50%; background-repeat: no-repeat; background-position: center center; background-size: cover; background-image: url('../"+traerUrl(_idPersona)+"'); margin: 0px; padding: 0px; /**/position: relative; position: relative; float: left; display: flex; justify-content: center; align-content: center; flex-direction: column; text-align: center;\"></div>\n"
+                + "                            <div class=\"mdl-cell mdl-cell--8-col\" style=\"margin-top: 5px; /**/position: relative; position: relative; float: left; display: flex; justify-content: center; align-content: center; flex-direction: column; height: auto; overflow: hidden;\">\n"
+                + "                                <div style=\"font-weight: bold; font-size: 12px;\">Gestion Escolar</div>\n"
+                + "                                <div style=\"color: #0091EA; font-weight: bold; font-size: 17px;\" id=\"titTarjeta\">Titulo</div>\n"
                 + "                            </div>\n"
                 + "                        </div>\n"
                 + "                    </div>\n"
+                + "                </div>\n"
+                + "                <div class=\"mdl-grid \">\n"
+                + "                    <div class=\"mdl-cell mdl-cell--12-col\" id=\"infoTarjeta\">\n"
+                + "                        Descripcion xd\n"
+                + "                    </div>\n"
+                + "                </div>\n"
+                + "                <div class=\"mdl-grid\" style=\"margin: 0px; padding: 0px\">\n"
+                + "                    <div class=\"mdl-cell mdl-cell--12-col\" style=\"margin: 0px; padding: 0px\">\n"
+                + "                        <div class=\"mdl-grid\" style=\"margin: 0px; padding: 0px\">\n"
+                + "                            <div class=\"mdl-cell mdl-cell--3-col\" style=\"float: right;\">\n"
+                + "                                <button class=\"mdl-button mdl-js-button mdl-button--primary\" style=\"color: rgb(0, 229, 10); width: 100%; margin: 5px;\" onclick=\"verUrl('a')\">\n"
+                + "                                    Ver mas\n"
+                + "                                </button>\n"
+                + "                            </div>\n"
+                + "                        </div>\n"
+                + "                    </div>\n"
+                + "                </div>\n"
+                + "            </div>\n"
+                + "        </div>"
+                + "                    </div>\n"
                 + "                    \n"
                 + "                </div>\n"
-                + " "+html+"\n"
+                + " " + html + "\n"
                 + "            </main>\n"
                 + "        </div>\n"
                 + "        <script>\n"
@@ -504,5 +521,11 @@ public class crearNotificaciones {
                 + "</html>\n"
                 + "";
         return _notificacion;
+    }
+
+    private static String traerUrl(int idPer) {
+        serviciosWeb.Usuario_Service service = new serviciosWeb.Usuario_Service();
+        serviciosWeb.Usuario port = service.getUsuarioPort();
+        return port.traerUrl(idPer);
     }
 }
