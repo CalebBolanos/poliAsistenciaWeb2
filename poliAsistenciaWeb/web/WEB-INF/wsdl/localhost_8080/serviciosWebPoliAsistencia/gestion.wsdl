@@ -16,23 +16,11 @@
 <message name="gruposResponse">
 <part name="parameters" element="tns:gruposResponse"/>
 </message>
-<message name="guardarNotificaciones">
-<part name="parameters" element="tns:guardarNotificaciones"/>
-</message>
-<message name="guardarNotificacionesResponse">
-<part name="parameters" element="tns:guardarNotificacionesResponse"/>
-</message>
 <message name="asistenciaTurnoPorDia">
 <part name="parameters" element="tns:asistenciaTurnoPorDia"/>
 </message>
 <message name="asistenciaTurnoPorDiaResponse">
 <part name="parameters" element="tns:asistenciaTurnoPorDiaResponse"/>
-</message>
-<message name="asistenciaTurnoPorDiaMas">
-<part name="parameters" element="tns:asistenciaTurnoPorDiaMas"/>
-</message>
-<message name="asistenciaTurnoPorDiaMasResponse">
-<part name="parameters" element="tns:asistenciaTurnoPorDiaMasResponse"/>
 </message>
 <message name="datosGrupoEspecifico">
 <part name="parameters" element="tns:datosGrupoEspecifico"/>
@@ -46,17 +34,11 @@
 <message name="asistenciaGrupoDiaResponse">
 <part name="parameters" element="tns:asistenciaGrupoDiaResponse"/>
 </message>
-<message name="asistenciaTurnoMes">
-<part name="parameters" element="tns:asistenciaTurnoMes"/>
+<message name="guardarNotificaciones">
+<part name="parameters" element="tns:guardarNotificaciones"/>
 </message>
-<message name="asistenciaTurnoMesResponse">
-<part name="parameters" element="tns:asistenciaTurnoMesResponse"/>
-</message>
-<message name="asistenciaGrupoMes">
-<part name="parameters" element="tns:asistenciaGrupoMes"/>
-</message>
-<message name="asistenciaGrupoMesResponse">
-<part name="parameters" element="tns:asistenciaGrupoMesResponse"/>
+<message name="guardarNotificacionesResponse">
+<part name="parameters" element="tns:guardarNotificacionesResponse"/>
 </message>
 <message name="obtenerNotificaciones">
 <part name="parameters" element="tns:obtenerNotificaciones"/>
@@ -64,17 +46,35 @@
 <message name="obtenerNotificacionesResponse">
 <part name="parameters" element="tns:obtenerNotificacionesResponse"/>
 </message>
+<message name="asistenciaTurnoMes">
+<part name="parameters" element="tns:asistenciaTurnoMes"/>
+</message>
+<message name="asistenciaTurnoMesResponse">
+<part name="parameters" element="tns:asistenciaTurnoMesResponse"/>
+</message>
 <message name="borrarNotificaciones">
 <part name="parameters" element="tns:borrarNotificaciones"/>
 </message>
 <message name="borrarNotificacionesResponse">
 <part name="parameters" element="tns:borrarNotificacionesResponse"/>
 </message>
+<message name="asistenciaGrupoMes">
+<part name="parameters" element="tns:asistenciaGrupoMes"/>
+</message>
+<message name="asistenciaGrupoMesResponse">
+<part name="parameters" element="tns:asistenciaGrupoMesResponse"/>
+</message>
 <message name="obtenerNotificacionEspecifica">
 <part name="parameters" element="tns:obtenerNotificacionEspecifica"/>
 </message>
 <message name="obtenerNotificacionEspecificaResponse">
 <part name="parameters" element="tns:obtenerNotificacionEspecificaResponse"/>
+</message>
+<message name="asistenciaTurnoPorDiaMas">
+<part name="parameters" element="tns:asistenciaTurnoPorDiaMas"/>
+</message>
+<message name="asistenciaTurnoPorDiaMasResponse">
+<part name="parameters" element="tns:asistenciaTurnoPorDiaMasResponse"/>
 </message>
 <portType name="gestion">
 <operation name="alumnos">
@@ -85,17 +85,9 @@
 <input wsam:Action="http://servicios/gestion/gruposRequest" message="tns:grupos"/>
 <output wsam:Action="http://servicios/gestion/gruposResponse" message="tns:gruposResponse"/>
 </operation>
-<operation name="guardarNotificaciones">
-<input wsam:Action="http://servicios/gestion/guardarNotificacionesRequest" message="tns:guardarNotificaciones"/>
-<output wsam:Action="http://servicios/gestion/guardarNotificacionesResponse" message="tns:guardarNotificacionesResponse"/>
-</operation>
 <operation name="asistenciaTurnoPorDia">
 <input wsam:Action="http://servicios/gestion/asistenciaTurnoPorDiaRequest" message="tns:asistenciaTurnoPorDia"/>
 <output wsam:Action="http://servicios/gestion/asistenciaTurnoPorDiaResponse" message="tns:asistenciaTurnoPorDiaResponse"/>
-</operation>
-<operation name="asistenciaTurnoPorDiaMas">
-<input wsam:Action="http://servicios/gestion/asistenciaTurnoPorDiaMasRequest" message="tns:asistenciaTurnoPorDiaMas"/>
-<output wsam:Action="http://servicios/gestion/asistenciaTurnoPorDiaMasResponse" message="tns:asistenciaTurnoPorDiaMasResponse"/>
 </operation>
 <operation name="datosGrupoEspecifico">
 <input wsam:Action="http://servicios/gestion/datosGrupoEspecificoRequest" message="tns:datosGrupoEspecifico"/>
@@ -105,25 +97,33 @@
 <input wsam:Action="http://servicios/gestion/asistenciaGrupoDiaRequest" message="tns:asistenciaGrupoDia"/>
 <output wsam:Action="http://servicios/gestion/asistenciaGrupoDiaResponse" message="tns:asistenciaGrupoDiaResponse"/>
 </operation>
-<operation name="asistenciaTurnoMes">
-<input wsam:Action="http://servicios/gestion/asistenciaTurnoMesRequest" message="tns:asistenciaTurnoMes"/>
-<output wsam:Action="http://servicios/gestion/asistenciaTurnoMesResponse" message="tns:asistenciaTurnoMesResponse"/>
-</operation>
-<operation name="asistenciaGrupoMes">
-<input wsam:Action="http://servicios/gestion/asistenciaGrupoMesRequest" message="tns:asistenciaGrupoMes"/>
-<output wsam:Action="http://servicios/gestion/asistenciaGrupoMesResponse" message="tns:asistenciaGrupoMesResponse"/>
+<operation name="guardarNotificaciones">
+<input wsam:Action="http://servicios/gestion/guardarNotificacionesRequest" message="tns:guardarNotificaciones"/>
+<output wsam:Action="http://servicios/gestion/guardarNotificacionesResponse" message="tns:guardarNotificacionesResponse"/>
 </operation>
 <operation name="obtenerNotificaciones">
 <input wsam:Action="http://servicios/gestion/obtenerNotificacionesRequest" message="tns:obtenerNotificaciones"/>
 <output wsam:Action="http://servicios/gestion/obtenerNotificacionesResponse" message="tns:obtenerNotificacionesResponse"/>
 </operation>
+<operation name="asistenciaTurnoMes">
+<input wsam:Action="http://servicios/gestion/asistenciaTurnoMesRequest" message="tns:asistenciaTurnoMes"/>
+<output wsam:Action="http://servicios/gestion/asistenciaTurnoMesResponse" message="tns:asistenciaTurnoMesResponse"/>
+</operation>
 <operation name="borrarNotificaciones">
 <input wsam:Action="http://servicios/gestion/borrarNotificacionesRequest" message="tns:borrarNotificaciones"/>
 <output wsam:Action="http://servicios/gestion/borrarNotificacionesResponse" message="tns:borrarNotificacionesResponse"/>
 </operation>
+<operation name="asistenciaGrupoMes">
+<input wsam:Action="http://servicios/gestion/asistenciaGrupoMesRequest" message="tns:asistenciaGrupoMes"/>
+<output wsam:Action="http://servicios/gestion/asistenciaGrupoMesResponse" message="tns:asistenciaGrupoMesResponse"/>
+</operation>
 <operation name="obtenerNotificacionEspecifica">
 <input wsam:Action="http://servicios/gestion/obtenerNotificacionEspecificaRequest" message="tns:obtenerNotificacionEspecifica"/>
 <output wsam:Action="http://servicios/gestion/obtenerNotificacionEspecificaResponse" message="tns:obtenerNotificacionEspecificaResponse"/>
+</operation>
+<operation name="asistenciaTurnoPorDiaMas">
+<input wsam:Action="http://servicios/gestion/asistenciaTurnoPorDiaMasRequest" message="tns:asistenciaTurnoPorDiaMas"/>
+<output wsam:Action="http://servicios/gestion/asistenciaTurnoPorDiaMasResponse" message="tns:asistenciaTurnoPorDiaMasResponse"/>
 </operation>
 </portType>
 <binding name="gestionPortBinding" type="tns:gestion">
@@ -146,25 +146,7 @@
 <soap:body use="literal"/>
 </output>
 </operation>
-<operation name="guardarNotificaciones">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
 <operation name="asistenciaTurnoPorDia">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<operation name="asistenciaTurnoPorDiaMas">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -191,16 +173,7 @@
 <soap:body use="literal"/>
 </output>
 </operation>
-<operation name="asistenciaTurnoMes">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<operation name="asistenciaGrupoMes">
+<operation name="guardarNotificaciones">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -218,6 +191,15 @@
 <soap:body use="literal"/>
 </output>
 </operation>
+<operation name="asistenciaTurnoMes">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
 <operation name="borrarNotificaciones">
 <soap:operation soapAction=""/>
 <input>
@@ -227,7 +209,25 @@
 <soap:body use="literal"/>
 </output>
 </operation>
+<operation name="asistenciaGrupoMes">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
 <operation name="obtenerNotificacionEspecifica">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="asistenciaTurnoPorDiaMas">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>

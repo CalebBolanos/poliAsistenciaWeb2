@@ -26,24 +26,6 @@ public interface EnviaMails {
 
     /**
      * 
-     * @param arg1
-     * @param arg0
-     * @return
-     *     returns java.lang.String
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "baseMail", targetNamespace = "http://servicios/", className = "servicios.BaseMail")
-    @ResponseWrapper(localName = "baseMailResponse", targetNamespace = "http://servicios/", className = "servicios.BaseMailResponse")
-    @Action(input = "http://servicios/enviaMails/baseMailRequest", output = "http://servicios/enviaMails/baseMailResponse")
-    public String baseMail(
-        @WebParam(name = "arg0", targetNamespace = "")
-        String arg0,
-        @WebParam(name = "arg1", targetNamespace = "")
-        String arg1);
-
-    /**
-     * 
      * @param arg2
      * @param arg1
      * @param arg0
@@ -62,39 +44,6 @@ public interface EnviaMails {
         String arg1,
         @WebParam(name = "arg2", targetNamespace = "")
         String arg2);
-
-    /**
-     * 
-     * @param arg2
-     * @param arg1
-     * @param arg0
-     * @return
-     *     returns boolean
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "mandaMAil", targetNamespace = "http://servicios/", className = "servicios.MandaMAil")
-    @ResponseWrapper(localName = "mandaMAilResponse", targetNamespace = "http://servicios/", className = "servicios.MandaMAilResponse")
-    @Action(input = "http://servicios/enviaMails/mandaMAilRequest", output = "http://servicios/enviaMails/mandaMAilResponse")
-    public boolean mandaMAil(
-        @WebParam(name = "arg0", targetNamespace = "")
-        String arg0,
-        @WebParam(name = "arg1", targetNamespace = "")
-        String arg1,
-        @WebParam(name = "arg2", targetNamespace = "")
-        String arg2);
-
-    /**
-     * 
-     * @return
-     *     returns java.lang.String
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "cambia", targetNamespace = "http://servicios/", className = "servicios.Cambia")
-    @ResponseWrapper(localName = "cambiaResponse", targetNamespace = "http://servicios/", className = "servicios.CambiaResponse")
-    @Action(input = "http://servicios/enviaMails/cambiaRequest", output = "http://servicios/enviaMails/cambiaResponse")
-    public String cambia();
 
     /**
      * 
@@ -119,6 +68,54 @@ public interface EnviaMails {
 
     /**
      * 
+     * @return
+     *     returns java.lang.String
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "cambia", targetNamespace = "http://servicios/", className = "servicios.Cambia")
+    @ResponseWrapper(localName = "cambiaResponse", targetNamespace = "http://servicios/", className = "servicios.CambiaResponse")
+    @Action(input = "http://servicios/enviaMails/cambiaRequest", output = "http://servicios/enviaMails/cambiaResponse")
+    public String cambia();
+
+    /**
+     * 
+     * @param arg0
+     * @return
+     *     returns java.lang.String
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "confirma", targetNamespace = "http://servicios/", className = "servicios.Confirma")
+    @ResponseWrapper(localName = "confirmaResponse", targetNamespace = "http://servicios/", className = "servicios.ConfirmaResponse")
+    @Action(input = "http://servicios/enviaMails/confirmaRequest", output = "http://servicios/enviaMails/confirmaResponse")
+    public String confirma(
+        @WebParam(name = "arg0", targetNamespace = "")
+        String arg0);
+
+    /**
+     * 
+     * @param arg2
+     * @param arg1
+     * @param arg0
+     * @return
+     *     returns boolean
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "mandaMAil", targetNamespace = "http://servicios/", className = "servicios.MandaMAil")
+    @ResponseWrapper(localName = "mandaMAilResponse", targetNamespace = "http://servicios/", className = "servicios.MandaMAilResponse")
+    @Action(input = "http://servicios/enviaMails/mandaMAilRequest", output = "http://servicios/enviaMails/mandaMAilResponse")
+    public boolean mandaMAil(
+        @WebParam(name = "arg0", targetNamespace = "")
+        String arg0,
+        @WebParam(name = "arg1", targetNamespace = "")
+        String arg1,
+        @WebParam(name = "arg2", targetNamespace = "")
+        String arg2);
+
+    /**
+     * 
      * @param arg2
      * @param arg1
      * @param arg0
@@ -140,17 +137,20 @@ public interface EnviaMails {
 
     /**
      * 
+     * @param arg1
      * @param arg0
      * @return
      *     returns java.lang.String
      */
     @WebMethod
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "confirma", targetNamespace = "http://servicios/", className = "servicios.Confirma")
-    @ResponseWrapper(localName = "confirmaResponse", targetNamespace = "http://servicios/", className = "servicios.ConfirmaResponse")
-    @Action(input = "http://servicios/enviaMails/confirmaRequest", output = "http://servicios/enviaMails/confirmaResponse")
-    public String confirma(
+    @RequestWrapper(localName = "baseMail", targetNamespace = "http://servicios/", className = "servicios.BaseMail")
+    @ResponseWrapper(localName = "baseMailResponse", targetNamespace = "http://servicios/", className = "servicios.BaseMailResponse")
+    @Action(input = "http://servicios/enviaMails/baseMailRequest", output = "http://servicios/enviaMails/baseMailResponse")
+    public String baseMail(
         @WebParam(name = "arg0", targetNamespace = "")
-        String arg0);
+        String arg0,
+        @WebParam(name = "arg1", targetNamespace = "")
+        String arg1);
 
 }

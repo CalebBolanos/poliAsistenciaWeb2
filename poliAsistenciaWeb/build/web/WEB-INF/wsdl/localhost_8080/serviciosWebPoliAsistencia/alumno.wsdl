@@ -7,17 +7,17 @@
 <xsd:import namespace="http://jaxb.dev.java.net/array" schemaLocation="http://localhost:8080/serviciosWebPoliAsistencia/alumno?xsd=2"/>
 </xsd:schema>
 </types>
-<message name="horarioAlumno">
-<part name="parameters" element="tns:horarioAlumno"/>
-</message>
-<message name="horarioAlumnoResponse">
-<part name="parameters" element="tns:horarioAlumnoResponse"/>
-</message>
 <message name="asistenciaInd">
 <part name="parameters" element="tns:asistenciaInd"/>
 </message>
 <message name="asistenciaIndResponse">
 <part name="parameters" element="tns:asistenciaIndResponse"/>
+</message>
+<message name="horarioAlumno">
+<part name="parameters" element="tns:horarioAlumno"/>
+</message>
+<message name="horarioAlumnoResponse">
+<part name="parameters" element="tns:horarioAlumnoResponse"/>
 </message>
 <message name="obtenerNotificaciones">
 <part name="parameters" element="tns:obtenerNotificaciones"/>
@@ -32,13 +32,13 @@
 <part name="parameters" element="tns:obtenerHorarioDiaResponse"/>
 </message>
 <portType name="alumno">
-<operation name="horarioAlumno">
-<input wsam:Action="http://servicios/alumno/horarioAlumnoRequest" message="tns:horarioAlumno"/>
-<output wsam:Action="http://servicios/alumno/horarioAlumnoResponse" message="tns:horarioAlumnoResponse"/>
-</operation>
 <operation name="asistenciaInd">
 <input wsam:Action="http://servicios/alumno/asistenciaIndRequest" message="tns:asistenciaInd"/>
 <output wsam:Action="http://servicios/alumno/asistenciaIndResponse" message="tns:asistenciaIndResponse"/>
+</operation>
+<operation name="horarioAlumno">
+<input wsam:Action="http://servicios/alumno/horarioAlumnoRequest" message="tns:horarioAlumno"/>
+<output wsam:Action="http://servicios/alumno/horarioAlumnoResponse" message="tns:horarioAlumnoResponse"/>
 </operation>
 <operation name="obtenerNotificaciones">
 <input wsam:Action="http://servicios/alumno/obtenerNotificacionesRequest" message="tns:obtenerNotificaciones"/>
@@ -51,7 +51,7 @@
 </portType>
 <binding name="alumnoPortBinding" type="tns:alumno">
 <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
-<operation name="horarioAlumno">
+<operation name="asistenciaInd">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -60,7 +60,7 @@
 <soap:body use="literal"/>
 </output>
 </operation>
-<operation name="asistenciaInd">
+<operation name="horarioAlumno">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>

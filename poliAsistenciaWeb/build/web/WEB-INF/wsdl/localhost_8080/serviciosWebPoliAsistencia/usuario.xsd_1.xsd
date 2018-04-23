@@ -52,19 +52,6 @@
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="guardarUrl">
-<xs:sequence>
-<xs:element name="idPer" type="xs:int"/>
-<xs:element name="url" type="xs:string" minOccurs="0"/>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="guardarUrlResponse">
-<xs:sequence>
-<xs:element name="return" type="xs:boolean"/>
-</xs:sequence>
-</xs:complexType>
-
 <xs:complexType name="datosProfesor">
 <xs:sequence>
 <xs:element name="numero" type="xs:string" minOccurs="0"/>
@@ -75,6 +62,19 @@
 <xs:complexType name="datosProfesorResponse">
 <xs:sequence>
 <xs:element name="return" type="xs:anyType" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="guardarUrl">
+<xs:sequence>
+<xs:element name="idPer" type="xs:int"/>
+<xs:element name="url" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="guardarUrlResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean"/>
 </xs:sequence>
 </xs:complexType>
 

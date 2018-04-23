@@ -99,18 +99,6 @@
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="asistenciaTurnoPorDiaMas">
-<xs:sequence>
-<xs:element name="turno" type="xs:string" minOccurs="0"/>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="asistenciaTurnoPorDiaMasResponse">
-<xs:sequence>
-<xs:element name="return" type="xs:anyType" minOccurs="0" maxOccurs="unbounded"/>
-</xs:sequence>
-</xs:complexType>
-
 <xs:complexType name="asistenciaGrupoDia">
 <xs:sequence>
 <xs:element name="grupo" type="xs:string" minOccurs="0"/>
@@ -118,6 +106,18 @@
 </xs:complexType>
 
 <xs:complexType name="asistenciaGrupoDiaResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:anyType" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="asistenciaTurnoPorDiaMas">
+<xs:sequence>
+<xs:element name="turno" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="asistenciaTurnoPorDiaMasResponse">
 <xs:sequence>
 <xs:element name="return" type="xs:anyType" minOccurs="0" maxOccurs="unbounded"/>
 </xs:sequence>
@@ -171,6 +171,7 @@
 <xs:complexType name="guardarNotificaciones">
 <xs:sequence>
 <xs:element name="tipoNotificacion" type="xs:int"/>
+<xs:element name="idPersona" type="xs:int"/>
 <xs:element name="titulo" type="xs:string" minOccurs="0"/>
 <xs:element name="descripcion" type="xs:string" minOccurs="0"/>
 <xs:element name="url" type="xs:string" minOccurs="0"/>

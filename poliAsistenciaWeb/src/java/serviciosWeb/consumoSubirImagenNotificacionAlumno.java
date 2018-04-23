@@ -84,12 +84,13 @@ public class consumoSubirImagenNotificacionAlumno extends HttpServlet {
                 response.sendRedirect("iniciarSesion");
                 return;
             }
+            int idPersona = Integer.parseInt((String) usr.getAttribute("idpersona"));
             String titulo = new String(request.getParameter("tit").getBytes(), "UTF-8") != null ? new String(request.getParameter("tit").getBytes(), "UTF-8") : "";
             String info = new String(request.getParameter("info").getBytes(), "UTF-8") != null ? new String(request.getParameter("info").getBytes(), "UTF-8") : "";
             String url = new String(request.getParameter("url").getBytes(), "UTF-8") != null ? new String(request.getParameter("url").getBytes(), "UTF-8") : "";
             Part foto = request.getPart("subir");
             if (foto.getSize() == 0) {
-                boolean guardarSinFoto = guardarNotificaciones(1, titulo, info, url, "");
+                boolean guardarSinFoto = guardarNotificaciones(1, idPersona, titulo, info, url, "");
                 if (guardarSinFoto) {
                     response.sendRedirect("notificaciones/crearNotificaciones?mensaje=Notificacion subida");
                     return;
@@ -116,7 +117,7 @@ public class consumoSubirImagenNotificacionAlumno extends HttpServlet {
                     String urlbase = "imagenes/notificaciones/alumno/" + archivo.getName();
                     out.println(urlbase);
                     int id = Integer.parseInt((String) usr.getAttribute("idpersona"));
-                    boolean guardado = guardarNotificaciones(1, titulo, info, url, urlbase);
+                    boolean guardado = guardarNotificaciones(1, idPersona, titulo, info, url, urlbase);
                     if (guardado) {
                         try {
                             Thread.sleep(2 * 10000);
@@ -156,11 +157,13 @@ public class consumoSubirImagenNotificacionAlumno extends HttpServlet {
         return "Short description";
     }// </editor-fold>
 
-    private boolean guardarNotificaciones(int tipoNotificacion, java.lang.String titulo, java.lang.String descripcion, java.lang.String url, java.lang.String urlImg) {
+    private boolean guardarNotificaciones(int tipoNotificacion, int idPersona, java.lang.String titulo, java.lang.String descripcion, java.lang.String url, java.lang.String urlImg) {
         // Note that the injected javax.xml.ws.Service reference as well as port objects are not thread safe.
         // If the calling of port operations may lead to race condition some synchronization is required.
         serviciosWebGestion.Gestion port = service.getGestionPort();
-        return port.guardarNotificaciones(tipoNotificacion, titulo, descripcion, url, urlImg);
+        return port.guardarNotificaciones(tipoNotificacion, idPersona, titulo, descripcion, url, urlImg);
     }
+
+
 
 }

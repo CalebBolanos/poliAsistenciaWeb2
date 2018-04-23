@@ -35,19 +35,19 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link AsistenciaIndResponse }
-     * 
-     */
-    public AsistenciaIndResponse createAsistenciaIndResponse() {
-        return new AsistenciaIndResponse();
-    }
-
-    /**
      * Create an instance of {@link AsistenciaInd }
      * 
      */
     public AsistenciaInd createAsistenciaInd() {
         return new AsistenciaInd();
+    }
+
+    /**
+     * Create an instance of {@link AsistenciaIndResponse }
+     * 
+     */
+    public AsistenciaIndResponse createAsistenciaIndResponse() {
+        return new AsistenciaIndResponse();
     }
 
     /**

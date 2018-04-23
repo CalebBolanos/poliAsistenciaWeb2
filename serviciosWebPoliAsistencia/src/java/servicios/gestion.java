@@ -110,10 +110,10 @@ public class gestion {
     }
     
     @WebMethod(operationName = "guardarNotificaciones")
-    public boolean guardarNotificaciones(@WebParam(name = "tipoNotificacion") int tipoNotificacion, @WebParam(name = "titulo") String titulo, @WebParam(name = "descripcion") String descripcion, @WebParam(name = "url") String url, @WebParam(name = "urlImg") String urlImg) {
+    public boolean guardarNotificaciones(@WebParam(name = "tipoNotificacion") int tipoNotificacion, @WebParam(name = "idPersona") int idPersona, @WebParam(name = "titulo") String titulo, @WebParam(name = "descripcion") String descripcion, @WebParam(name = "url") String url, @WebParam(name = "urlImg") String urlImg) {
         boolean valido;
         base.guardarNotificacion guardar = new base.guardarNotificacion();
-        valido = guardar.guardarNotificacion(tipoNotificacion, titulo, descripcion, url, urlImg);
+        valido = guardar.guardarNotificacion(tipoNotificacion, idPersona, titulo, descripcion, url, urlImg);
         return valido;
     }
     

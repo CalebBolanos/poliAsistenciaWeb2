@@ -12,19 +12,20 @@ import javax.xml.bind.annotation.XmlType;
  * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
  * 
  * <pre>
- * &lt;complexType name="guardarNotificaciones">
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element name="tipoNotificacion" type="{http://www.w3.org/2001/XMLSchema}int"/>
- *         &lt;element name="titulo" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *         &lt;element name="descripcion" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *         &lt;element name="url" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *         &lt;element name="urlImg" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *       &lt;/sequence>
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
+ * &lt;complexType name="guardarNotificaciones"&gt;
+ *   &lt;complexContent&gt;
+ *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
+ *       &lt;sequence&gt;
+ *         &lt;element name="tipoNotificacion" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
+ *         &lt;element name="idPersona" type="{http://www.w3.org/2001/XMLSchema}int"/&gt;
+ *         &lt;element name="titulo" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
+ *         &lt;element name="descripcion" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
+ *         &lt;element name="url" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
+ *         &lt;element name="urlImg" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
+ *       &lt;/sequence&gt;
+ *     &lt;/restriction&gt;
+ *   &lt;/complexContent&gt;
+ * &lt;/complexType&gt;
  * </pre>
  * 
  * 
@@ -32,6 +33,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "guardarNotificaciones", propOrder = {
     "tipoNotificacion",
+    "idPersona",
     "titulo",
     "descripcion",
     "url",
@@ -40,6 +42,7 @@ import javax.xml.bind.annotation.XmlType;
 public class GuardarNotificaciones {
 
     protected int tipoNotificacion;
+    protected int idPersona;
     protected String titulo;
     protected String descripcion;
     protected String url;
@@ -59,6 +62,22 @@ public class GuardarNotificaciones {
      */
     public void setTipoNotificacion(int value) {
         this.tipoNotificacion = value;
+    }
+
+    /**
+     * Obtiene el valor de la propiedad idPersona.
+     * 
+     */
+    public int getIdPersona() {
+        return idPersona;
+    }
+
+    /**
+     * Define el valor de la propiedad idPersona.
+     * 
+     */
+    public void setIdPersona(int value) {
+        this.idPersona = value;
     }
 
     /**
