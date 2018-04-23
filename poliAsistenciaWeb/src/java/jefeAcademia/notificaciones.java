@@ -327,7 +327,6 @@ public class notificaciones {
                 +"            function verUrl(link){"
                 +"                  window.open(link, '_blank');"
                 +"             }"
-                +"alert('"+ _idPersona +"');"
                 + "        </script>\n"
                 + "    </head>\n"
                 + "    <body>\n"
