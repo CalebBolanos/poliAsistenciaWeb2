@@ -43,10 +43,17 @@ public class inicioSesion {
         }
     }
     
-    public JSONObject obtenerJSON(){        
+    public JSONObject obtenerJSON(String nombre, String paterno, String materno, String genero, String num, String nacimiento ){        
         JSONObject resultado = new JSONObject();
         resultado.put("idPersona", _idPersona);
         resultado.put("idTipo", _idTipo);
+        resultado.put("nombre", nombre);
+        resultado.put("paterno", paterno);
+        resultado.put("materno", materno);
+        resultado.put("genero", genero);
+        resultado.put("numero", num);
+        resultado.put("nacimiento", nacimiento);
+        
         return resultado;
     }
     

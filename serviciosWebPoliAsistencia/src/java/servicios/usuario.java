@@ -41,6 +41,15 @@ public class usuario {
         String mensaje = "";
         String usr = "";
         String psw = "";
+        String nombre = "";
+        String paterno = "";
+        String materno = "";
+        String genero = "";
+        String num = "";
+        String nacimiento = "";        
+        
+        int idPersona = 0;
+        int idTipo = 0;
         
         try{
             JSONParser parser = new JSONParser();
@@ -53,8 +62,69 @@ public class usuario {
         }
         base.inicioSesion persona = new base.inicioSesion(usr, psw);
         if(persona.valido()){
-            JSONObject datos = persona.obtenerJSON();
-            mensaje = datos.toString();
+            idPersona = Integer.parseInt(persona.obtenerIdPersona());
+            idTipo = Integer.parseInt(persona.obteneridTipo());
+            
+            switch(idTipo){
+                case 1://gestion
+                    return "gestion";
+                case 2://alumno
+                    base.obtenerDatosAlumno alumno = new base.obtenerDatosAlumno(usr, "Pol");
+                    if(alumno.valido()){
+                        nombre = alumno.obtenerNombre();
+                        paterno = alumno.obtenerPaterno();
+                        materno = alumno.obtenerMaterno();
+                        genero = alumno.obtenerGenero();
+                        num = alumno.obtenerBoleta();
+                        nacimiento = alumno.obtenerNacimiento();
+                        JSONObject datos = persona.obtenerJSON(nombre, paterno, materno, genero, num, nacimiento);
+                        mensaje = datos.toString();
+                    }
+                    else{
+                        mensaje = "incorrecto";
+                    }
+                    break;
+                case 3://profesor
+                    base.obtenerDatosProfesor profesor = new base.obtenerDatosProfesor(usr, "Pol");
+                    if(profesor.valido()){
+                        nombre = profesor.obtenerNombre();
+                        paterno = profesor.obtenerPaterno();
+                        materno = profesor.obtenerMaterno();
+                        genero = profesor.obtenerGenero();
+                        num = profesor.obtenerNumeroTrabajador();
+                        nacimiento = profesor.obtenerNacimiento();
+                        JSONObject datos = persona.obtenerJSON(nombre, paterno, materno, genero, num, nacimiento);
+                        mensaje = datos.toString();
+                    }
+                    else{
+                        mensaje = "incorrecto";
+                    }
+                    break;
+                case 4://jefe
+                    base.obtenerDatosJefeAcademia jefe = new base.obtenerDatosJefeAcademia(usr, "Pol");
+                    if(jefe.valido()){
+                        nombre = jefe.obtenerNombre();
+                        paterno = jefe.obtenerPaterno();
+                        materno = jefe.obtenerMaterno();
+                        genero = jefe.obtenerGenero();
+                        num = jefe.obtenerNumeroTrabajador();
+                        nacimiento = jefe.obtenerNacimiento();
+                        JSONObject datos = persona.obtenerJSON(nombre, paterno, materno, genero, num, nacimiento);
+                        mensaje = datos.toString();
+                    }
+                    else{
+                        mensaje = "incorrecto";
+                    }
+                    break;
+                case 6://prefecto
+                    mensaje = "incorrecto";
+                    break;
+                default:
+                    mensaje = "incorrecto";
+                    break;
+            }
+            
+            
         }
         else{
             return "incorrecto";
