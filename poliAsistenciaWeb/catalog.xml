@@ -2,8 +2,6 @@
 <catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
     <system systemId="http://localhost:8080/serviciosWebPoliAsistencia/jefeAcademia?wsdl" uri="src/conf/xml-resources/web-service-references/jefeAcademia/wsdl/localhost_8080/serviciosWebPoliAsistencia/jefeAcademia.wsdl"/>
     <system systemId="http://localhost:8080/serviciosWebPoliAsistencia/jefeAcademia?xsd=1" uri="src/conf/xml-resources/web-service-references/jefeAcademia/wsdl/localhost_8080/serviciosWebPoliAsistencia/jefeAcademia.xsd_1.xsd"/>
-    <system systemId="http://localhost:8080/serviciosWebPoliAsistencia/usuario?wsdl" uri="src/conf/xml-resources/web-service-references/usuario/wsdl/localhost_8080/serviciosWebPoliAsistencia/usuario.wsdl"/>
-    <system systemId="http://localhost:8080/serviciosWebPoliAsistencia/usuario?xsd=1" uri="src/conf/xml-resources/web-service-references/usuario/wsdl/localhost_8080/serviciosWebPoliAsistencia/usuario.xsd_1.xsd"/>
     <system systemId="http://localhost:8080/serviciosWebPoliAsistencia/alumno?wsdl" uri="src/conf/xml-resources/web-service-references/alumno/wsdl/localhost_8080/serviciosWebPoliAsistencia/alumno.wsdl"/>
     <system systemId="http://localhost:8080/serviciosWebPoliAsistencia/alumno?xsd=1" uri="src/conf/xml-resources/web-service-references/alumno/wsdl/localhost_8080/serviciosWebPoliAsistencia/alumno.xsd_1.xsd"/>
     <system systemId="http://localhost:8080/serviciosWebPoliAsistencia/alumno?xsd=2" uri="src/conf/xml-resources/web-service-references/alumno/wsdl/localhost_8080/serviciosWebPoliAsistencia/alumno.xsd_2.xsd"/>
@@ -14,4 +12,6 @@
     <system systemId="http://localhost:8080/serviciosWebPoliAsistencia/gestion?xsd=1" uri="src/conf/xml-resources/web-service-references/gestion/wsdl/localhost_8080/serviciosWebPoliAsistencia/gestion.xsd_1.xsd"/>
     <system systemId="http://localhost:8080/serviciosWebPoliAsistencia/mails?wsdl" uri="src/conf/xml-resources/web-service-references/mails/wsdl/localhost_8080/serviciosWebPoliAsistencia/mails.wsdl"/>
     <system systemId="http://localhost:8080/serviciosWebPoliAsistencia/mails?xsd=1" uri="src/conf/xml-resources/web-service-references/mails/wsdl/localhost_8080/serviciosWebPoliAsistencia/mails.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/serviciosWebPoliAsistencia/usuario?wsdl" uri="src/conf/xml-resources/web-service-references/usuario/wsdl/localhost_8080/serviciosWebPoliAsistencia/usuario.wsdl"/>
+    <system systemId="http://localhost:8080/serviciosWebPoliAsistencia/usuario?xsd=1" uri="src/conf/xml-resources/web-service-references/usuario/wsdl/localhost_8080/serviciosWebPoliAsistencia/usuario.xsd_1.xsd"/>
 </catalog>

@@ -43,6 +43,8 @@ public class ObjectFactory {
     private final static QName _TraerUrl_QNAME = new QName("http://servicios/", "traerUrl");
     private final static QName _TraerUrlResponse_QNAME = new QName("http://servicios/", "traerUrlResponse");
     private final static QName _ValidarUsuario_QNAME = new QName("http://servicios/", "validarUsuario");
+    private final static QName _ValidarUsuarioAndroid_QNAME = new QName("http://servicios/", "validarUsuarioAndroid");
+    private final static QName _ValidarUsuarioAndroidResponse_QNAME = new QName("http://servicios/", "validarUsuarioAndroidResponse");
     private final static QName _ValidarUsuarioResponse_QNAME = new QName("http://servicios/", "validarUsuarioResponse");
 
     /**
@@ -202,6 +204,22 @@ public class ObjectFactory {
      */
     public ValidarUsuario createValidarUsuario() {
         return new ValidarUsuario();
+    }
+
+    /**
+     * Create an instance of {@link ValidarUsuarioAndroid }
+     * 
+     */
+    public ValidarUsuarioAndroid createValidarUsuarioAndroid() {
+        return new ValidarUsuarioAndroid();
+    }
+
+    /**
+     * Create an instance of {@link ValidarUsuarioAndroidResponse }
+     * 
+     */
+    public ValidarUsuarioAndroidResponse createValidarUsuarioAndroidResponse() {
+        return new ValidarUsuarioAndroidResponse();
     }
 
     /**
@@ -381,6 +399,24 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://servicios/", name = "validarUsuario")
     public JAXBElement<ValidarUsuario> createValidarUsuario(ValidarUsuario value) {
         return new JAXBElement<ValidarUsuario>(_ValidarUsuario_QNAME, ValidarUsuario.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link ValidarUsuarioAndroid }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://servicios/", name = "validarUsuarioAndroid")
+    public JAXBElement<ValidarUsuarioAndroid> createValidarUsuarioAndroid(ValidarUsuarioAndroid value) {
+        return new JAXBElement<ValidarUsuarioAndroid>(_ValidarUsuarioAndroid_QNAME, ValidarUsuarioAndroid.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link ValidarUsuarioAndroidResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://servicios/", name = "validarUsuarioAndroidResponse")
+    public JAXBElement<ValidarUsuarioAndroidResponse> createValidarUsuarioAndroidResponse(ValidarUsuarioAndroidResponse value) {
+        return new JAXBElement<ValidarUsuarioAndroidResponse>(_ValidarUsuarioAndroidResponse_QNAME, ValidarUsuarioAndroidResponse.class, null, value);
     }
 
     /**

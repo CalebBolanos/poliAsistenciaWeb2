@@ -9,6 +9,8 @@ import java.util.ArrayList;
 import javax.jws.WebService;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
 
 /**
  *
@@ -32,6 +34,32 @@ public class usuario {
         }
         return datos;
 
+    }
+    
+    @WebMethod(operationName = "validarUsuarioAndroid")
+    public String validarUsuarioAndroid(@WebParam(name = "numero") String numero) {
+        String mensaje = "";
+        String usr = "";
+        String psw = "";
+        
+        try{
+            JSONParser parser = new JSONParser();
+            JSONObject info = (JSONObject) parser.parse(numero);
+            usr = (String)info.get("usuario");
+            psw = (String)info.get("contrasena");
+        }
+        catch(Exception error){
+            return "error";
+        }
+        base.inicioSesion persona = new base.inicioSesion(usr, psw);
+        if(persona.valido()){
+            JSONObject datos = persona.obtenerJSON();
+            mensaje = datos.toString();
+        }
+        else{
+            return "incorrecto";
+        }
+        return mensaje;
     }
 
     @WebMethod(operationName = "datosAlumno")

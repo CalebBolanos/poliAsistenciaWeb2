@@ -6,6 +6,7 @@
 package base;
 
 import java.sql.ResultSet;
+import org.json.simple.JSONObject;
 
 /**
  *
@@ -16,7 +17,7 @@ public class inicioSesion {
     private String _idTipo;
     private boolean _valido;
     
-    public  inicioSesion(String usuario, String contrasena){
+    public inicioSesion(String usuario, String contrasena){
         conexion.cDatos base = new conexion.cDatos();
         try{
             base.conectar();
@@ -40,6 +41,13 @@ public class inicioSesion {
         catch(Exception error){
             _valido = false;
         }
+    }
+    
+    public JSONObject obtenerJSON(){        
+        JSONObject resultado = new JSONObject();
+        resultado.put("idPersona", _idPersona);
+        resultado.put("idTipo", _idTipo);
+        return resultado;
     }
     
     public String obtenerIdPersona(){

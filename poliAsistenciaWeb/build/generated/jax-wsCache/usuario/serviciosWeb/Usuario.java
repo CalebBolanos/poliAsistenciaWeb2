@@ -28,6 +28,78 @@ public interface Usuario {
     /**
      * 
      * @param idPer
+     * @param correo
+     * @return
+     *     returns boolean
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "guardarCorreo", targetNamespace = "http://servicios/", className = "serviciosWeb.GuardarCorreo")
+    @ResponseWrapper(localName = "guardarCorreoResponse", targetNamespace = "http://servicios/", className = "serviciosWeb.GuardarCorreoResponse")
+    @Action(input = "http://servicios/usuario/guardarCorreoRequest", output = "http://servicios/usuario/guardarCorreoResponse")
+    public boolean guardarCorreo(
+        @WebParam(name = "idPer", targetNamespace = "")
+        int idPer,
+        @WebParam(name = "correo", targetNamespace = "")
+        String correo);
+
+    /**
+     * 
+     * @param numero
+     * @param contrasena
+     * @return
+     *     returns java.util.List<java.lang.Object>
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "validarUsuario", targetNamespace = "http://servicios/", className = "serviciosWeb.ValidarUsuario")
+    @ResponseWrapper(localName = "validarUsuarioResponse", targetNamespace = "http://servicios/", className = "serviciosWeb.ValidarUsuarioResponse")
+    @Action(input = "http://servicios/usuario/validarUsuarioRequest", output = "http://servicios/usuario/validarUsuarioResponse")
+    public List<Object> validarUsuario(
+        @WebParam(name = "numero", targetNamespace = "")
+        String numero,
+        @WebParam(name = "contrasena", targetNamespace = "")
+        String contrasena);
+
+    /**
+     * 
+     * @param idPer
+     * @param url
+     * @return
+     *     returns boolean
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "guardarUrl", targetNamespace = "http://servicios/", className = "serviciosWeb.GuardarUrl")
+    @ResponseWrapper(localName = "guardarUrlResponse", targetNamespace = "http://servicios/", className = "serviciosWeb.GuardarUrlResponse")
+    @Action(input = "http://servicios/usuario/guardarUrlRequest", output = "http://servicios/usuario/guardarUrlResponse")
+    public boolean guardarUrl(
+        @WebParam(name = "idPer", targetNamespace = "")
+        int idPer,
+        @WebParam(name = "url", targetNamespace = "")
+        String url);
+
+    /**
+     * 
+     * @param llave
+     * @param boleta
+     * @return
+     *     returns java.util.List<java.lang.Object>
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "datosAlumno", targetNamespace = "http://servicios/", className = "serviciosWeb.DatosAlumno")
+    @ResponseWrapper(localName = "datosAlumnoResponse", targetNamespace = "http://servicios/", className = "serviciosWeb.DatosAlumnoResponse")
+    @Action(input = "http://servicios/usuario/datosAlumnoRequest", output = "http://servicios/usuario/datosAlumnoResponse")
+    public List<Object> datosAlumno(
+        @WebParam(name = "boleta", targetNamespace = "")
+        String boleta,
+        @WebParam(name = "llave", targetNamespace = "")
+        String llave);
+
+    /**
+     * 
+     * @param idPer
      * @return
      *     returns java.lang.String
      */
@@ -39,6 +111,24 @@ public interface Usuario {
     public String traerCorreo(
         @WebParam(name = "idPer", targetNamespace = "")
         int idPer);
+
+    /**
+     * 
+     * @param numero
+     * @param llave
+     * @return
+     *     returns java.util.List<java.lang.Object>
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "datosProfesor", targetNamespace = "http://servicios/", className = "serviciosWeb.DatosProfesor")
+    @ResponseWrapper(localName = "datosProfesorResponse", targetNamespace = "http://servicios/", className = "serviciosWeb.DatosProfesorResponse")
+    @Action(input = "http://servicios/usuario/datosProfesorRequest", output = "http://servicios/usuario/datosProfesorResponse")
+    public List<Object> datosProfesor(
+        @WebParam(name = "numero", targetNamespace = "")
+        String numero,
+        @WebParam(name = "llave", targetNamespace = "")
+        String llave);
 
     /**
      * 
@@ -88,60 +178,6 @@ public interface Usuario {
      */
     @WebMethod
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "datosProfesor", targetNamespace = "http://servicios/", className = "serviciosWeb.DatosProfesor")
-    @ResponseWrapper(localName = "datosProfesorResponse", targetNamespace = "http://servicios/", className = "serviciosWeb.DatosProfesorResponse")
-    @Action(input = "http://servicios/usuario/datosProfesorRequest", output = "http://servicios/usuario/datosProfesorResponse")
-    public List<Object> datosProfesor(
-        @WebParam(name = "numero", targetNamespace = "")
-        String numero,
-        @WebParam(name = "llave", targetNamespace = "")
-        String llave);
-
-    /**
-     * 
-     * @param idPer
-     * @param url
-     * @return
-     *     returns boolean
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "guardarUrl", targetNamespace = "http://servicios/", className = "serviciosWeb.GuardarUrl")
-    @ResponseWrapper(localName = "guardarUrlResponse", targetNamespace = "http://servicios/", className = "serviciosWeb.GuardarUrlResponse")
-    @Action(input = "http://servicios/usuario/guardarUrlRequest", output = "http://servicios/usuario/guardarUrlResponse")
-    public boolean guardarUrl(
-        @WebParam(name = "idPer", targetNamespace = "")
-        int idPer,
-        @WebParam(name = "url", targetNamespace = "")
-        String url);
-
-    /**
-     * 
-     * @param llave
-     * @param boleta
-     * @return
-     *     returns java.util.List<java.lang.Object>
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "datosAlumno", targetNamespace = "http://servicios/", className = "serviciosWeb.DatosAlumno")
-    @ResponseWrapper(localName = "datosAlumnoResponse", targetNamespace = "http://servicios/", className = "serviciosWeb.DatosAlumnoResponse")
-    @Action(input = "http://servicios/usuario/datosAlumnoRequest", output = "http://servicios/usuario/datosAlumnoResponse")
-    public List<Object> datosAlumno(
-        @WebParam(name = "boleta", targetNamespace = "")
-        String boleta,
-        @WebParam(name = "llave", targetNamespace = "")
-        String llave);
-
-    /**
-     * 
-     * @param numero
-     * @param llave
-     * @return
-     *     returns java.util.List<java.lang.Object>
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
     @RequestWrapper(localName = "datosGestion", targetNamespace = "http://servicios/", className = "serviciosWeb.DatosGestion")
     @ResponseWrapper(localName = "datosGestionResponse", targetNamespace = "http://servicios/", className = "serviciosWeb.DatosGestionResponse")
     @Action(input = "http://servicios/usuario/datosGestionRequest", output = "http://servicios/usuario/datosGestionResponse")
@@ -150,42 +186,6 @@ public interface Usuario {
         String numero,
         @WebParam(name = "llave", targetNamespace = "")
         String llave);
-
-    /**
-     * 
-     * @param idPer
-     * @param correo
-     * @return
-     *     returns boolean
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "guardarCorreo", targetNamespace = "http://servicios/", className = "serviciosWeb.GuardarCorreo")
-    @ResponseWrapper(localName = "guardarCorreoResponse", targetNamespace = "http://servicios/", className = "serviciosWeb.GuardarCorreoResponse")
-    @Action(input = "http://servicios/usuario/guardarCorreoRequest", output = "http://servicios/usuario/guardarCorreoResponse")
-    public boolean guardarCorreo(
-        @WebParam(name = "idPer", targetNamespace = "")
-        int idPer,
-        @WebParam(name = "correo", targetNamespace = "")
-        String correo);
-
-    /**
-     * 
-     * @param numero
-     * @param contrasena
-     * @return
-     *     returns java.util.List<java.lang.Object>
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "validarUsuario", targetNamespace = "http://servicios/", className = "serviciosWeb.ValidarUsuario")
-    @ResponseWrapper(localName = "validarUsuarioResponse", targetNamespace = "http://servicios/", className = "serviciosWeb.ValidarUsuarioResponse")
-    @Action(input = "http://servicios/usuario/validarUsuarioRequest", output = "http://servicios/usuario/validarUsuarioResponse")
-    public List<Object> validarUsuario(
-        @WebParam(name = "numero", targetNamespace = "")
-        String numero,
-        @WebParam(name = "contrasena", targetNamespace = "")
-        String contrasena);
 
     /**
      * 
@@ -204,5 +204,20 @@ public interface Usuario {
         String numero,
         @WebParam(name = "llave", targetNamespace = "")
         String llave);
+
+    /**
+     * 
+     * @param numero
+     * @return
+     *     returns java.lang.String
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "validarUsuarioAndroid", targetNamespace = "http://servicios/", className = "serviciosWeb.ValidarUsuarioAndroid")
+    @ResponseWrapper(localName = "validarUsuarioAndroidResponse", targetNamespace = "http://servicios/", className = "serviciosWeb.ValidarUsuarioAndroidResponse")
+    @Action(input = "http://servicios/usuario/validarUsuarioAndroidRequest", output = "http://servicios/usuario/validarUsuarioAndroidResponse")
+    public String validarUsuarioAndroid(
+        @WebParam(name = "numero", targetNamespace = "")
+        String numero);
 
 }
