@@ -4,23 +4,23 @@
 <xsd:import namespace="http://servicios/" schemaLocation="http://localhost:8080/serviciosWebPoliAsistencia/usuario?xsd=1"/>
 </xsd:schema>
 </types>
-<message name="guardarCorreo">
-<part name="parameters" element="tns:guardarCorreo"/>
+<message name="validarUsuarioAndroid">
+<part name="parameters" element="tns:validarUsuarioAndroid"/>
 </message>
-<message name="guardarCorreoResponse">
-<part name="parameters" element="tns:guardarCorreoResponse"/>
+<message name="validarUsuarioAndroidResponse">
+<part name="parameters" element="tns:validarUsuarioAndroidResponse"/>
 </message>
-<message name="validarUsuario">
-<part name="parameters" element="tns:validarUsuario"/>
+<message name="datosJefeAcademia">
+<part name="parameters" element="tns:datosJefeAcademia"/>
 </message>
-<message name="validarUsuarioResponse">
-<part name="parameters" element="tns:validarUsuarioResponse"/>
+<message name="datosJefeAcademiaResponse">
+<part name="parameters" element="tns:datosJefeAcademiaResponse"/>
 </message>
-<message name="guardarUrl">
-<part name="parameters" element="tns:guardarUrl"/>
+<message name="cambioContrasena">
+<part name="parameters" element="tns:cambioContrasena"/>
 </message>
-<message name="guardarUrlResponse">
-<part name="parameters" element="tns:guardarUrlResponse"/>
+<message name="cambioContrasenaResponse">
+<part name="parameters" element="tns:cambioContrasenaResponse"/>
 </message>
 <message name="datosAlumno">
 <part name="parameters" element="tns:datosAlumno"/>
@@ -28,23 +28,17 @@
 <message name="datosAlumnoResponse">
 <part name="parameters" element="tns:datosAlumnoResponse"/>
 </message>
-<message name="traerCorreo">
-<part name="parameters" element="tns:traerCorreo"/>
+<message name="validarUsuario">
+<part name="parameters" element="tns:validarUsuario"/>
 </message>
-<message name="traerCorreoResponse">
-<part name="parameters" element="tns:traerCorreoResponse"/>
+<message name="validarUsuarioResponse">
+<part name="parameters" element="tns:validarUsuarioResponse"/>
 </message>
 <message name="datosProfesor">
 <part name="parameters" element="tns:datosProfesor"/>
 </message>
 <message name="datosProfesorResponse">
 <part name="parameters" element="tns:datosProfesorResponse"/>
-</message>
-<message name="cambioContrasena">
-<part name="parameters" element="tns:cambioContrasena"/>
-</message>
-<message name="cambioContrasenaResponse">
-<part name="parameters" element="tns:cambioContrasenaResponse"/>
 </message>
 <message name="traerUrl">
 <part name="parameters" element="tns:traerUrl"/>
@@ -58,46 +52,48 @@
 <message name="datosGestionResponse">
 <part name="parameters" element="tns:datosGestionResponse"/>
 </message>
-<message name="datosJefeAcademia">
-<part name="parameters" element="tns:datosJefeAcademia"/>
+<message name="guardarCorreo">
+<part name="parameters" element="tns:guardarCorreo"/>
 </message>
-<message name="datosJefeAcademiaResponse">
-<part name="parameters" element="tns:datosJefeAcademiaResponse"/>
+<message name="guardarCorreoResponse">
+<part name="parameters" element="tns:guardarCorreoResponse"/>
 </message>
-<message name="validarUsuarioAndroid">
-<part name="parameters" element="tns:validarUsuarioAndroid"/>
+<message name="traerCorreo">
+<part name="parameters" element="tns:traerCorreo"/>
 </message>
-<message name="validarUsuarioAndroidResponse">
-<part name="parameters" element="tns:validarUsuarioAndroidResponse"/>
+<message name="traerCorreoResponse">
+<part name="parameters" element="tns:traerCorreoResponse"/>
+</message>
+<message name="guardarUrl">
+<part name="parameters" element="tns:guardarUrl"/>
+</message>
+<message name="guardarUrlResponse">
+<part name="parameters" element="tns:guardarUrlResponse"/>
 </message>
 <portType name="usuario">
-<operation name="guardarCorreo">
-<input wsam:Action="http://servicios/usuario/guardarCorreoRequest" message="tns:guardarCorreo"/>
-<output wsam:Action="http://servicios/usuario/guardarCorreoResponse" message="tns:guardarCorreoResponse"/>
+<operation name="validarUsuarioAndroid">
+<input wsam:Action="http://servicios/usuario/validarUsuarioAndroidRequest" message="tns:validarUsuarioAndroid"/>
+<output wsam:Action="http://servicios/usuario/validarUsuarioAndroidResponse" message="tns:validarUsuarioAndroidResponse"/>
 </operation>
-<operation name="validarUsuario">
-<input wsam:Action="http://servicios/usuario/validarUsuarioRequest" message="tns:validarUsuario"/>
-<output wsam:Action="http://servicios/usuario/validarUsuarioResponse" message="tns:validarUsuarioResponse"/>
+<operation name="datosJefeAcademia">
+<input wsam:Action="http://servicios/usuario/datosJefeAcademiaRequest" message="tns:datosJefeAcademia"/>
+<output wsam:Action="http://servicios/usuario/datosJefeAcademiaResponse" message="tns:datosJefeAcademiaResponse"/>
 </operation>
-<operation name="guardarUrl">
-<input wsam:Action="http://servicios/usuario/guardarUrlRequest" message="tns:guardarUrl"/>
-<output wsam:Action="http://servicios/usuario/guardarUrlResponse" message="tns:guardarUrlResponse"/>
+<operation name="cambioContrasena">
+<input wsam:Action="http://servicios/usuario/cambioContrasenaRequest" message="tns:cambioContrasena"/>
+<output wsam:Action="http://servicios/usuario/cambioContrasenaResponse" message="tns:cambioContrasenaResponse"/>
 </operation>
 <operation name="datosAlumno">
 <input wsam:Action="http://servicios/usuario/datosAlumnoRequest" message="tns:datosAlumno"/>
 <output wsam:Action="http://servicios/usuario/datosAlumnoResponse" message="tns:datosAlumnoResponse"/>
 </operation>
-<operation name="traerCorreo">
-<input wsam:Action="http://servicios/usuario/traerCorreoRequest" message="tns:traerCorreo"/>
-<output wsam:Action="http://servicios/usuario/traerCorreoResponse" message="tns:traerCorreoResponse"/>
+<operation name="validarUsuario">
+<input wsam:Action="http://servicios/usuario/validarUsuarioRequest" message="tns:validarUsuario"/>
+<output wsam:Action="http://servicios/usuario/validarUsuarioResponse" message="tns:validarUsuarioResponse"/>
 </operation>
 <operation name="datosProfesor">
 <input wsam:Action="http://servicios/usuario/datosProfesorRequest" message="tns:datosProfesor"/>
 <output wsam:Action="http://servicios/usuario/datosProfesorResponse" message="tns:datosProfesorResponse"/>
-</operation>
-<operation name="cambioContrasena">
-<input wsam:Action="http://servicios/usuario/cambioContrasenaRequest" message="tns:cambioContrasena"/>
-<output wsam:Action="http://servicios/usuario/cambioContrasenaResponse" message="tns:cambioContrasenaResponse"/>
 </operation>
 <operation name="traerUrl">
 <input wsam:Action="http://servicios/usuario/traerUrlRequest" message="tns:traerUrl"/>
@@ -107,18 +103,22 @@
 <input wsam:Action="http://servicios/usuario/datosGestionRequest" message="tns:datosGestion"/>
 <output wsam:Action="http://servicios/usuario/datosGestionResponse" message="tns:datosGestionResponse"/>
 </operation>
-<operation name="datosJefeAcademia">
-<input wsam:Action="http://servicios/usuario/datosJefeAcademiaRequest" message="tns:datosJefeAcademia"/>
-<output wsam:Action="http://servicios/usuario/datosJefeAcademiaResponse" message="tns:datosJefeAcademiaResponse"/>
+<operation name="guardarCorreo">
+<input wsam:Action="http://servicios/usuario/guardarCorreoRequest" message="tns:guardarCorreo"/>
+<output wsam:Action="http://servicios/usuario/guardarCorreoResponse" message="tns:guardarCorreoResponse"/>
 </operation>
-<operation name="validarUsuarioAndroid">
-<input wsam:Action="http://servicios/usuario/validarUsuarioAndroidRequest" message="tns:validarUsuarioAndroid"/>
-<output wsam:Action="http://servicios/usuario/validarUsuarioAndroidResponse" message="tns:validarUsuarioAndroidResponse"/>
+<operation name="traerCorreo">
+<input wsam:Action="http://servicios/usuario/traerCorreoRequest" message="tns:traerCorreo"/>
+<output wsam:Action="http://servicios/usuario/traerCorreoResponse" message="tns:traerCorreoResponse"/>
+</operation>
+<operation name="guardarUrl">
+<input wsam:Action="http://servicios/usuario/guardarUrlRequest" message="tns:guardarUrl"/>
+<output wsam:Action="http://servicios/usuario/guardarUrlResponse" message="tns:guardarUrlResponse"/>
 </operation>
 </portType>
 <binding name="usuarioPortBinding" type="tns:usuario">
 <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
-<operation name="guardarCorreo">
+<operation name="validarUsuarioAndroid">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -127,7 +127,7 @@
 <soap:body use="literal"/>
 </output>
 </operation>
-<operation name="validarUsuario">
+<operation name="datosJefeAcademia">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -136,7 +136,7 @@
 <soap:body use="literal"/>
 </output>
 </operation>
-<operation name="guardarUrl">
+<operation name="cambioContrasena">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -154,7 +154,7 @@
 <soap:body use="literal"/>
 </output>
 </operation>
-<operation name="traerCorreo">
+<operation name="validarUsuario">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -164,15 +164,6 @@
 </output>
 </operation>
 <operation name="datosProfesor">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<operation name="cambioContrasena">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -199,7 +190,7 @@
 <soap:body use="literal"/>
 </output>
 </operation>
-<operation name="datosJefeAcademia">
+<operation name="guardarCorreo">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -208,7 +199,16 @@
 <soap:body use="literal"/>
 </output>
 </operation>
-<operation name="validarUsuarioAndroid">
+<operation name="traerCorreo">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="guardarUrl">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>

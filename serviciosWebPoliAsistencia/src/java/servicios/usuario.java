@@ -46,7 +46,8 @@ public class usuario {
         String materno = "";
         String genero = "";
         String num = "";
-        String nacimiento = "";        
+        String nacimiento = "";       
+        String urlImagen = "";
         
         int idPersona = 0;
         int idTipo = 0;
@@ -64,6 +65,8 @@ public class usuario {
         if(persona.valido()){
             idPersona = Integer.parseInt(persona.obtenerIdPersona());
             idTipo = Integer.parseInt(persona.obteneridTipo());
+            base.obtenerUrl url = new base.obtenerUrl();
+            urlImagen = url.obtenerUrl(idPersona);
             
             switch(idTipo){
                 case 1://gestion
@@ -77,7 +80,7 @@ public class usuario {
                         genero = alumno.obtenerGenero();
                         num = alumno.obtenerBoleta();
                         nacimiento = alumno.obtenerNacimiento();
-                        JSONObject datos = persona.obtenerJSON(nombre, paterno, materno, genero, num, nacimiento);
+                        JSONObject datos = persona.obtenerJSON(nombre, paterno, materno, genero, num, nacimiento, urlImagen);
                         mensaje = datos.toString();
                     }
                     else{
@@ -93,7 +96,7 @@ public class usuario {
                         genero = profesor.obtenerGenero();
                         num = profesor.obtenerNumeroTrabajador();
                         nacimiento = profesor.obtenerNacimiento();
-                        JSONObject datos = persona.obtenerJSON(nombre, paterno, materno, genero, num, nacimiento);
+                        JSONObject datos = persona.obtenerJSON(nombre, paterno, materno, genero, num, nacimiento, urlImagen);
                         mensaje = datos.toString();
                     }
                     else{
@@ -109,7 +112,7 @@ public class usuario {
                         genero = jefe.obtenerGenero();
                         num = jefe.obtenerNumeroTrabajador();
                         nacimiento = jefe.obtenerNacimiento();
-                        JSONObject datos = persona.obtenerJSON(nombre, paterno, materno, genero, num, nacimiento);
+                        JSONObject datos = persona.obtenerJSON(nombre, paterno, materno, genero, num, nacimiento, urlImagen);
                         mensaje = datos.toString();
                     }
                     else{

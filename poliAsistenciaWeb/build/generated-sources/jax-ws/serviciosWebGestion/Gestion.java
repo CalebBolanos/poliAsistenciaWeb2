@@ -27,78 +27,51 @@ public interface Gestion {
 
     /**
      * 
+     * @param tipoNotificacion
      * @return
      *     returns java.lang.String
      */
     @WebMethod
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "alumnos", targetNamespace = "http://servicios/", className = "serviciosWebGestion.Alumnos")
-    @ResponseWrapper(localName = "alumnosResponse", targetNamespace = "http://servicios/", className = "serviciosWebGestion.AlumnosResponse")
-    @Action(input = "http://servicios/gestion/alumnosRequest", output = "http://servicios/gestion/alumnosResponse")
-    public String alumnos();
+    @RequestWrapper(localName = "obtenerNotificaciones", targetNamespace = "http://servicios/", className = "serviciosWebGestion.ObtenerNotificaciones")
+    @ResponseWrapper(localName = "obtenerNotificacionesResponse", targetNamespace = "http://servicios/", className = "serviciosWebGestion.ObtenerNotificacionesResponse")
+    @Action(input = "http://servicios/gestion/obtenerNotificacionesRequest", output = "http://servicios/gestion/obtenerNotificacionesResponse")
+    public String obtenerNotificaciones(
+        @WebParam(name = "tipoNotificacion", targetNamespace = "")
+        int tipoNotificacion);
 
     /**
      * 
-     * @return
-     *     returns java.lang.String
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "grupos", targetNamespace = "http://servicios/", className = "serviciosWebGestion.Grupos")
-    @ResponseWrapper(localName = "gruposResponse", targetNamespace = "http://servicios/", className = "serviciosWebGestion.GruposResponse")
-    @Action(input = "http://servicios/gestion/gruposRequest", output = "http://servicios/gestion/gruposResponse")
-    public String grupos();
-
-    /**
-     * 
+     * @param grupo
      * @param mes
-     * @param turno
-     * @param dia
      * @return
      *     returns java.util.List<java.lang.Object>
      */
     @WebMethod
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "asistenciaTurnoPorDia", targetNamespace = "http://servicios/", className = "serviciosWebGestion.AsistenciaTurnoPorDia")
-    @ResponseWrapper(localName = "asistenciaTurnoPorDiaResponse", targetNamespace = "http://servicios/", className = "serviciosWebGestion.AsistenciaTurnoPorDiaResponse")
-    @Action(input = "http://servicios/gestion/asistenciaTurnoPorDiaRequest", output = "http://servicios/gestion/asistenciaTurnoPorDiaResponse")
-    public List<Object> asistenciaTurnoPorDia(
-        @WebParam(name = "turno", targetNamespace = "")
-        int turno,
+    @RequestWrapper(localName = "asistenciaGrupoMes", targetNamespace = "http://servicios/", className = "serviciosWebGestion.AsistenciaGrupoMes")
+    @ResponseWrapper(localName = "asistenciaGrupoMesResponse", targetNamespace = "http://servicios/", className = "serviciosWebGestion.AsistenciaGrupoMesResponse")
+    @Action(input = "http://servicios/gestion/asistenciaGrupoMesRequest", output = "http://servicios/gestion/asistenciaGrupoMesResponse")
+    public List<Object> asistenciaGrupoMes(
         @WebParam(name = "mes", targetNamespace = "")
         int mes,
-        @WebParam(name = "dia", targetNamespace = "")
-        int dia);
-
-    /**
-     * 
-     * @param grupo
-     * @return
-     *     returns java.util.List<java.lang.Object>
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "datosGrupoEspecifico", targetNamespace = "http://servicios/", className = "serviciosWebGestion.DatosGrupoEspecifico")
-    @ResponseWrapper(localName = "datosGrupoEspecificoResponse", targetNamespace = "http://servicios/", className = "serviciosWebGestion.DatosGrupoEspecificoResponse")
-    @Action(input = "http://servicios/gestion/datosGrupoEspecificoRequest", output = "http://servicios/gestion/datosGrupoEspecificoResponse")
-    public List<Object> datosGrupoEspecifico(
         @WebParam(name = "grupo", targetNamespace = "")
         String grupo);
 
     /**
      * 
-     * @param grupo
+     * @param turno
      * @return
      *     returns java.util.List<java.lang.Object>
      */
     @WebMethod
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "asistenciaGrupoDia", targetNamespace = "http://servicios/", className = "serviciosWebGestion.AsistenciaGrupoDia")
-    @ResponseWrapper(localName = "asistenciaGrupoDiaResponse", targetNamespace = "http://servicios/", className = "serviciosWebGestion.AsistenciaGrupoDiaResponse")
-    @Action(input = "http://servicios/gestion/asistenciaGrupoDiaRequest", output = "http://servicios/gestion/asistenciaGrupoDiaResponse")
-    public List<Object> asistenciaGrupoDia(
-        @WebParam(name = "grupo", targetNamespace = "")
-        String grupo);
+    @RequestWrapper(localName = "asistenciaTurnoPorDiaMas", targetNamespace = "http://servicios/", className = "serviciosWebGestion.AsistenciaTurnoPorDiaMas")
+    @ResponseWrapper(localName = "asistenciaTurnoPorDiaMasResponse", targetNamespace = "http://servicios/", className = "serviciosWebGestion.AsistenciaTurnoPorDiaMasResponse")
+    @Action(input = "http://servicios/gestion/asistenciaTurnoPorDiaMasRequest", output = "http://servicios/gestion/asistenciaTurnoPorDiaMasResponse")
+    public List<Object> asistenciaTurnoPorDiaMas(
+        @WebParam(name = "turno", targetNamespace = "")
+        String turno);
 
     /**
      * 
@@ -132,18 +105,18 @@ public interface Gestion {
 
     /**
      * 
-     * @param tipoNotificacion
+     * @param id
      * @return
-     *     returns java.lang.String
+     *     returns java.util.List<java.lang.Object>
      */
     @WebMethod
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "obtenerNotificaciones", targetNamespace = "http://servicios/", className = "serviciosWebGestion.ObtenerNotificaciones")
-    @ResponseWrapper(localName = "obtenerNotificacionesResponse", targetNamespace = "http://servicios/", className = "serviciosWebGestion.ObtenerNotificacionesResponse")
-    @Action(input = "http://servicios/gestion/obtenerNotificacionesRequest", output = "http://servicios/gestion/obtenerNotificacionesResponse")
-    public String obtenerNotificaciones(
-        @WebParam(name = "tipoNotificacion", targetNamespace = "")
-        int tipoNotificacion);
+    @RequestWrapper(localName = "obtenerNotificacionEspecifica", targetNamespace = "http://servicios/", className = "serviciosWebGestion.ObtenerNotificacionEspecifica")
+    @ResponseWrapper(localName = "obtenerNotificacionEspecificaResponse", targetNamespace = "http://servicios/", className = "serviciosWebGestion.ObtenerNotificacionEspecificaResponse")
+    @Action(input = "http://servicios/gestion/obtenerNotificacionEspecificaRequest", output = "http://servicios/gestion/obtenerNotificacionEspecificaResponse")
+    public List<Object> obtenerNotificacionEspecifica(
+        @WebParam(name = "id", targetNamespace = "")
+        int id);
 
     /**
      * 
@@ -165,6 +138,21 @@ public interface Gestion {
 
     /**
      * 
+     * @param grupo
+     * @return
+     *     returns java.util.List<java.lang.Object>
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "datosGrupoEspecifico", targetNamespace = "http://servicios/", className = "serviciosWebGestion.DatosGrupoEspecifico")
+    @ResponseWrapper(localName = "datosGrupoEspecificoResponse", targetNamespace = "http://servicios/", className = "serviciosWebGestion.DatosGrupoEspecificoResponse")
+    @Action(input = "http://servicios/gestion/datosGrupoEspecificoRequest", output = "http://servicios/gestion/datosGrupoEspecificoResponse")
+    public List<Object> datosGrupoEspecifico(
+        @WebParam(name = "grupo", targetNamespace = "")
+        String grupo);
+
+    /**
+     * 
      * @param idNotificacion
      * @return
      *     returns boolean
@@ -181,49 +169,61 @@ public interface Gestion {
     /**
      * 
      * @param grupo
-     * @param mes
      * @return
      *     returns java.util.List<java.lang.Object>
      */
     @WebMethod
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "asistenciaGrupoMes", targetNamespace = "http://servicios/", className = "serviciosWebGestion.AsistenciaGrupoMes")
-    @ResponseWrapper(localName = "asistenciaGrupoMesResponse", targetNamespace = "http://servicios/", className = "serviciosWebGestion.AsistenciaGrupoMesResponse")
-    @Action(input = "http://servicios/gestion/asistenciaGrupoMesRequest", output = "http://servicios/gestion/asistenciaGrupoMesResponse")
-    public List<Object> asistenciaGrupoMes(
-        @WebParam(name = "mes", targetNamespace = "")
-        int mes,
+    @RequestWrapper(localName = "asistenciaGrupoDia", targetNamespace = "http://servicios/", className = "serviciosWebGestion.AsistenciaGrupoDia")
+    @ResponseWrapper(localName = "asistenciaGrupoDiaResponse", targetNamespace = "http://servicios/", className = "serviciosWebGestion.AsistenciaGrupoDiaResponse")
+    @Action(input = "http://servicios/gestion/asistenciaGrupoDiaRequest", output = "http://servicios/gestion/asistenciaGrupoDiaResponse")
+    public List<Object> asistenciaGrupoDia(
         @WebParam(name = "grupo", targetNamespace = "")
         String grupo);
 
     /**
      * 
-     * @param id
+     * @param mes
+     * @param turno
+     * @param dia
      * @return
      *     returns java.util.List<java.lang.Object>
      */
     @WebMethod
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "obtenerNotificacionEspecifica", targetNamespace = "http://servicios/", className = "serviciosWebGestion.ObtenerNotificacionEspecifica")
-    @ResponseWrapper(localName = "obtenerNotificacionEspecificaResponse", targetNamespace = "http://servicios/", className = "serviciosWebGestion.ObtenerNotificacionEspecificaResponse")
-    @Action(input = "http://servicios/gestion/obtenerNotificacionEspecificaRequest", output = "http://servicios/gestion/obtenerNotificacionEspecificaResponse")
-    public List<Object> obtenerNotificacionEspecifica(
-        @WebParam(name = "id", targetNamespace = "")
-        int id);
+    @RequestWrapper(localName = "asistenciaTurnoPorDia", targetNamespace = "http://servicios/", className = "serviciosWebGestion.AsistenciaTurnoPorDia")
+    @ResponseWrapper(localName = "asistenciaTurnoPorDiaResponse", targetNamespace = "http://servicios/", className = "serviciosWebGestion.AsistenciaTurnoPorDiaResponse")
+    @Action(input = "http://servicios/gestion/asistenciaTurnoPorDiaRequest", output = "http://servicios/gestion/asistenciaTurnoPorDiaResponse")
+    public List<Object> asistenciaTurnoPorDia(
+        @WebParam(name = "turno", targetNamespace = "")
+        int turno,
+        @WebParam(name = "mes", targetNamespace = "")
+        int mes,
+        @WebParam(name = "dia", targetNamespace = "")
+        int dia);
 
     /**
      * 
-     * @param turno
      * @return
-     *     returns java.util.List<java.lang.Object>
+     *     returns java.lang.String
      */
     @WebMethod
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "asistenciaTurnoPorDiaMas", targetNamespace = "http://servicios/", className = "serviciosWebGestion.AsistenciaTurnoPorDiaMas")
-    @ResponseWrapper(localName = "asistenciaTurnoPorDiaMasResponse", targetNamespace = "http://servicios/", className = "serviciosWebGestion.AsistenciaTurnoPorDiaMasResponse")
-    @Action(input = "http://servicios/gestion/asistenciaTurnoPorDiaMasRequest", output = "http://servicios/gestion/asistenciaTurnoPorDiaMasResponse")
-    public List<Object> asistenciaTurnoPorDiaMas(
-        @WebParam(name = "turno", targetNamespace = "")
-        String turno);
+    @RequestWrapper(localName = "grupos", targetNamespace = "http://servicios/", className = "serviciosWebGestion.Grupos")
+    @ResponseWrapper(localName = "gruposResponse", targetNamespace = "http://servicios/", className = "serviciosWebGestion.GruposResponse")
+    @Action(input = "http://servicios/gestion/gruposRequest", output = "http://servicios/gestion/gruposResponse")
+    public String grupos();
+
+    /**
+     * 
+     * @return
+     *     returns java.lang.String
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "alumnos", targetNamespace = "http://servicios/", className = "serviciosWebGestion.Alumnos")
+    @ResponseWrapper(localName = "alumnosResponse", targetNamespace = "http://servicios/", className = "serviciosWebGestion.AlumnosResponse")
+    @Action(input = "http://servicios/gestion/alumnosRequest", output = "http://servicios/gestion/alumnosResponse")
+    public String alumnos();
 
 }

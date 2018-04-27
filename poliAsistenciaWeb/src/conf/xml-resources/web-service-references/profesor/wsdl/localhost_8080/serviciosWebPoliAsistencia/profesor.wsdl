@@ -7,35 +7,29 @@
 <xsd:import namespace="http://jaxb.dev.java.net/array" schemaLocation="http://localhost:8080/serviciosWebPoliAsistencia/profesor?xsd=2"/>
 </xsd:schema>
 </types>
-<message name="horarioProfesor">
-<part name="parameters" element="tns:horarioProfesor"/>
-</message>
-<message name="horarioProfesorResponse">
-<part name="parameters" element="tns:horarioProfesorResponse"/>
-</message>
-<message name="asistenciaInd">
-<part name="parameters" element="tns:asistenciaInd"/>
-</message>
-<message name="asistenciaIndResponse">
-<part name="parameters" element="tns:asistenciaIndResponse"/>
-</message>
 <message name="unidades">
 <part name="parameters" element="tns:unidades"/>
 </message>
 <message name="unidadesResponse">
 <part name="parameters" element="tns:unidadesResponse"/>
 </message>
-<message name="obtenerHorarioDiaProfesor">
-<part name="parameters" element="tns:obtenerHorarioDiaProfesor"/>
+<message name="horarioProfesor">
+<part name="parameters" element="tns:horarioProfesor"/>
 </message>
-<message name="obtenerHorarioDiaProfesorResponse">
-<part name="parameters" element="tns:obtenerHorarioDiaProfesorResponse"/>
+<message name="horarioProfesorResponse">
+<part name="parameters" element="tns:horarioProfesorResponse"/>
 </message>
 <message name="asistenciaUnidadDia">
 <part name="parameters" element="tns:asistenciaUnidadDia"/>
 </message>
 <message name="asistenciaUnidadDiaResponse">
 <part name="parameters" element="tns:asistenciaUnidadDiaResponse"/>
+</message>
+<message name="obtenerHorarioDiaProfesor">
+<part name="parameters" element="tns:obtenerHorarioDiaProfesor"/>
+</message>
+<message name="obtenerHorarioDiaProfesorResponse">
+<part name="parameters" element="tns:obtenerHorarioDiaProfesorResponse"/>
 </message>
 <message name="informacionUnidad">
 <part name="parameters" element="tns:informacionUnidad"/>
@@ -49,26 +43,28 @@
 <message name="asistenciaUnidasMesResponse">
 <part name="parameters" element="tns:asistenciaUnidasMesResponse"/>
 </message>
+<message name="asistenciaInd">
+<part name="parameters" element="tns:asistenciaInd"/>
+</message>
+<message name="asistenciaIndResponse">
+<part name="parameters" element="tns:asistenciaIndResponse"/>
+</message>
 <portType name="profesor">
-<operation name="horarioProfesor">
-<input wsam:Action="http://servicios/profesor/horarioProfesorRequest" message="tns:horarioProfesor"/>
-<output wsam:Action="http://servicios/profesor/horarioProfesorResponse" message="tns:horarioProfesorResponse"/>
-</operation>
-<operation name="asistenciaInd">
-<input wsam:Action="http://servicios/profesor/asistenciaIndRequest" message="tns:asistenciaInd"/>
-<output wsam:Action="http://servicios/profesor/asistenciaIndResponse" message="tns:asistenciaIndResponse"/>
-</operation>
 <operation name="unidades">
 <input wsam:Action="http://servicios/profesor/unidadesRequest" message="tns:unidades"/>
 <output wsam:Action="http://servicios/profesor/unidadesResponse" message="tns:unidadesResponse"/>
 </operation>
-<operation name="obtenerHorarioDiaProfesor">
-<input wsam:Action="http://servicios/profesor/obtenerHorarioDiaProfesorRequest" message="tns:obtenerHorarioDiaProfesor"/>
-<output wsam:Action="http://servicios/profesor/obtenerHorarioDiaProfesorResponse" message="tns:obtenerHorarioDiaProfesorResponse"/>
+<operation name="horarioProfesor">
+<input wsam:Action="http://servicios/profesor/horarioProfesorRequest" message="tns:horarioProfesor"/>
+<output wsam:Action="http://servicios/profesor/horarioProfesorResponse" message="tns:horarioProfesorResponse"/>
 </operation>
 <operation name="asistenciaUnidadDia">
 <input wsam:Action="http://servicios/profesor/asistenciaUnidadDiaRequest" message="tns:asistenciaUnidadDia"/>
 <output wsam:Action="http://servicios/profesor/asistenciaUnidadDiaResponse" message="tns:asistenciaUnidadDiaResponse"/>
+</operation>
+<operation name="obtenerHorarioDiaProfesor">
+<input wsam:Action="http://servicios/profesor/obtenerHorarioDiaProfesorRequest" message="tns:obtenerHorarioDiaProfesor"/>
+<output wsam:Action="http://servicios/profesor/obtenerHorarioDiaProfesorResponse" message="tns:obtenerHorarioDiaProfesorResponse"/>
 </operation>
 <operation name="informacionUnidad">
 <input wsam:Action="http://servicios/profesor/informacionUnidadRequest" message="tns:informacionUnidad"/>
@@ -78,27 +74,13 @@
 <input wsam:Action="http://servicios/profesor/asistenciaUnidasMesRequest" message="tns:asistenciaUnidasMes"/>
 <output wsam:Action="http://servicios/profesor/asistenciaUnidasMesResponse" message="tns:asistenciaUnidasMesResponse"/>
 </operation>
+<operation name="asistenciaInd">
+<input wsam:Action="http://servicios/profesor/asistenciaIndRequest" message="tns:asistenciaInd"/>
+<output wsam:Action="http://servicios/profesor/asistenciaIndResponse" message="tns:asistenciaIndResponse"/>
+</operation>
 </portType>
 <binding name="profesorPortBinding" type="tns:profesor">
 <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
-<operation name="horarioProfesor">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<operation name="asistenciaInd">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
 <operation name="unidades">
 <soap:operation soapAction=""/>
 <input>
@@ -108,7 +90,7 @@
 <soap:body use="literal"/>
 </output>
 </operation>
-<operation name="obtenerHorarioDiaProfesor">
+<operation name="horarioProfesor">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -118,6 +100,15 @@
 </output>
 </operation>
 <operation name="asistenciaUnidadDia">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="obtenerHorarioDiaProfesor">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -136,6 +127,15 @@
 </output>
 </operation>
 <operation name="asistenciaUnidasMes">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="asistenciaInd">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>

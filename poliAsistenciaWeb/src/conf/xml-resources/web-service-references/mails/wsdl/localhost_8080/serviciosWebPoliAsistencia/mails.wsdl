@@ -4,18 +4,6 @@
 <xsd:import namespace="http://servicios/" schemaLocation="http://localhost:8080/serviciosWebPoliAsistencia/mails?xsd=1"/>
 </xsd:schema>
 </types>
-<message name="recuperaContra">
-<part name="parameters" element="tns:recuperaContra"/>
-</message>
-<message name="recuperaContraResponse">
-<part name="parameters" element="tns:recuperaContraResponse"/>
-</message>
-<message name="mandaMAils">
-<part name="parameters" element="tns:mandaMAils"/>
-</message>
-<message name="mandaMAilsResponse">
-<part name="parameters" element="tns:mandaMAilsResponse"/>
-</message>
 <message name="cambia">
 <part name="parameters" element="tns:cambia"/>
 </message>
@@ -46,15 +34,19 @@
 <message name="baseMailResponse">
 <part name="parameters" element="tns:baseMailResponse"/>
 </message>
+<message name="recuperaContra">
+<part name="parameters" element="tns:recuperaContra"/>
+</message>
+<message name="recuperaContraResponse">
+<part name="parameters" element="tns:recuperaContraResponse"/>
+</message>
+<message name="mandaMAils">
+<part name="parameters" element="tns:mandaMAils"/>
+</message>
+<message name="mandaMAilsResponse">
+<part name="parameters" element="tns:mandaMAilsResponse"/>
+</message>
 <portType name="enviaMails">
-<operation name="recuperaContra">
-<input wsam:Action="http://servicios/enviaMails/recuperaContraRequest" message="tns:recuperaContra"/>
-<output wsam:Action="http://servicios/enviaMails/recuperaContraResponse" message="tns:recuperaContraResponse"/>
-</operation>
-<operation name="mandaMAils">
-<input wsam:Action="http://servicios/enviaMails/mandaMAilsRequest" message="tns:mandaMAils"/>
-<output wsam:Action="http://servicios/enviaMails/mandaMAilsResponse" message="tns:mandaMAilsResponse"/>
-</operation>
 <operation name="cambia">
 <input wsam:Action="http://servicios/enviaMails/cambiaRequest" message="tns:cambia"/>
 <output wsam:Action="http://servicios/enviaMails/cambiaResponse" message="tns:cambiaResponse"/>
@@ -75,27 +67,17 @@
 <input wsam:Action="http://servicios/enviaMails/baseMailRequest" message="tns:baseMail"/>
 <output wsam:Action="http://servicios/enviaMails/baseMailResponse" message="tns:baseMailResponse"/>
 </operation>
+<operation name="recuperaContra">
+<input wsam:Action="http://servicios/enviaMails/recuperaContraRequest" message="tns:recuperaContra"/>
+<output wsam:Action="http://servicios/enviaMails/recuperaContraResponse" message="tns:recuperaContraResponse"/>
+</operation>
+<operation name="mandaMAils">
+<input wsam:Action="http://servicios/enviaMails/mandaMAilsRequest" message="tns:mandaMAils"/>
+<output wsam:Action="http://servicios/enviaMails/mandaMAilsResponse" message="tns:mandaMAilsResponse"/>
+</operation>
 </portType>
 <binding name="enviaMailsPortBinding" type="tns:enviaMails">
 <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
-<operation name="recuperaContra">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<operation name="mandaMAils">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
 <operation name="cambia">
 <soap:operation soapAction=""/>
 <input>
@@ -133,6 +115,24 @@
 </output>
 </operation>
 <operation name="baseMail">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="recuperaContra">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="mandaMAils">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
