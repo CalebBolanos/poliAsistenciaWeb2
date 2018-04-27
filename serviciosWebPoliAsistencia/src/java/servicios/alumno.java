@@ -81,4 +81,20 @@ public class alumno {
         String html = horario.obtenerHtml();
         return html;
     }
+    @WebMethod(operationName = "horarioAndroidAlumno")
+    public String horarioAndroidAlumno(@WebParam(name = "numero") String numero){
+        String ret[][] = horarioAlumno(numero);
+        JSONObject dia;
+        JSONArray hora = new JSONArray();
+        dia = new JSONObject();
+        String Dias[]={"Lunes", "Martes", "Miercoles", "Jueves", "Viernes"};
+        for(int i = 0; i<ret.length; i++){
+            for(int j = 0; j<ret[i].length; j++){
+                dia.put(Dias[j], ret[i][j]);
+            }
+            hora.add(dia);
+            dia = new JSONObject();
+        }
+        return hora.toString();
+    }
 }
