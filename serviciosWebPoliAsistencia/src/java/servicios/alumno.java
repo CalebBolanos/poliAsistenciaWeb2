@@ -42,6 +42,7 @@ public class alumno {
     public String graficaGeneralAndroid(@WebParam(name = "idPer") String idPer) {
         Calendar calendario = new GregorianCalendar();
         int mes = calendario.get(Calendar.MONTH);
+        int totalDiasAsistidos = 0;
         
         JSONObject grafica = new JSONObject();
         
@@ -50,6 +51,7 @@ public class alumno {
             for(int i= Calendar.AUGUST; i <= mes +1; i++){
                 consultaAlumno.asistenciaIndividual persona = new consultaAlumno.asistenciaIndividual(idPer, ""+i);
                 grafica.put("mes "+i, persona.obtenerDiasAsistidos());
+                totalDiasAsistidos += persona.obtenerDiasAsistidos();
                 persona = null;
             }
         }else{
@@ -58,12 +60,13 @@ public class alumno {
                 for(int i= Calendar.JANUARY+1; i<=mes + 1; i++){
                 consultaAlumno.asistenciaIndividual persona = new consultaAlumno.asistenciaIndividual(idPer, ""+i);
                 grafica.put("mes "+i, persona.obtenerDiasAsistidos());
+                totalDiasAsistidos += persona.obtenerDiasAsistidos();
                 persona = null;
             }
             }
         }
         grafica.put("mes actual", ""+(mes+1));
-        
+        grafica.put("total asistidos", totalDiasAsistidos);
         return grafica.toString();
     }
     
