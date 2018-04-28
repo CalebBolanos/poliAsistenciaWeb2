@@ -8,9 +8,13 @@ package servicios;
 import conexion.cDatos;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import javax.jws.WebService;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 
 /**
  *
@@ -33,6 +37,36 @@ public class alumno {
         datos.add(persona.obtenerMes());
         return datos;
     }
+    
+    @WebMethod(operationName = "graficaGeneralAndroid")
+    public String graficaGeneralAndroid(@WebParam(name = "idPer") String idPer) {
+        Calendar calendario = new GregorianCalendar();
+        int mes = calendario.get(Calendar.MONTH);
+        
+        JSONObject grafica = new JSONObject();
+        
+        if (mes > Calendar.JULY && mes < Calendar.DECEMBER + 1) {//Ciclo 1
+            grafica.put("Ciclo", "1");
+            for(int i= Calendar.AUGUST; i <= mes +1; i++){
+                consultaAlumno.asistenciaIndividual persona = new consultaAlumno.asistenciaIndividual(idPer, ""+i);
+                grafica.put("mes "+i, persona.obtenerDiasAsistidos());
+                persona = null;
+            }
+        }else{
+            if (mes > Calendar.JANUARY - 1 && mes < Calendar.AUGUST) {//Ciclo 2
+                grafica.put("Ciclo", "2");
+                for(int i= Calendar.JANUARY+1; i<=mes + 1; i++){
+                consultaAlumno.asistenciaIndividual persona = new consultaAlumno.asistenciaIndividual(idPer, ""+i);
+                grafica.put("mes "+i, persona.obtenerDiasAsistidos());
+                persona = null;
+            }
+            }
+        }
+        grafica.put("mes actual", ""+(mes+1));
+        
+        return grafica.toString();
+    }
+    
     @WebMethod(operationName = "horarioAlumno")
     public String[][] horarioAlumno(@WebParam(name = "idPer") String idPer){
         String[][] ret = new String[15][5];
@@ -81,6 +115,7 @@ public class alumno {
         String html = horario.obtenerHtml();
         return html;
     }
+    
     @WebMethod(operationName = "horarioAndroidAlumno")
     public String horarioAndroidAlumno(@WebParam(name = "numero") String numero){
         String ret[][] = horarioAlumno(numero);
@@ -97,4 +132,6 @@ public class alumno {
         }
         return hora.toString();
     }
+    
+    
 }
