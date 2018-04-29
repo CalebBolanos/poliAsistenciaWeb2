@@ -27,6 +27,93 @@ public interface Profesor {
 
     /**
      * 
+     * @param idUnidad
+     * @param grupo
+     * @return
+     *     returns java.util.List<java.lang.Object>
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "informacionUnidad", targetNamespace = "http://servicios/", className = "serviciosWebProfesor.InformacionUnidad")
+    @ResponseWrapper(localName = "informacionUnidadResponse", targetNamespace = "http://servicios/", className = "serviciosWebProfesor.InformacionUnidadResponse")
+    @Action(input = "http://servicios/profesor/informacionUnidadRequest", output = "http://servicios/profesor/informacionUnidadResponse")
+    public List<Object> informacionUnidad(
+        @WebParam(name = "grupo", targetNamespace = "")
+        String grupo,
+        @WebParam(name = "idUnidad", targetNamespace = "")
+        String idUnidad);
+
+    /**
+     * 
+     * @param idUnidad
+     * @return
+     *     returns java.util.List<java.lang.Object>
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "asistenciaUnidadDia", targetNamespace = "http://servicios/", className = "serviciosWebProfesor.AsistenciaUnidadDia")
+    @ResponseWrapper(localName = "asistenciaUnidadDiaResponse", targetNamespace = "http://servicios/", className = "serviciosWebProfesor.AsistenciaUnidadDiaResponse")
+    @Action(input = "http://servicios/profesor/asistenciaUnidadDiaRequest", output = "http://servicios/profesor/asistenciaUnidadDiaResponse")
+    public List<Object> asistenciaUnidadDia(
+        @WebParam(name = "idUnidad", targetNamespace = "")
+        String idUnidad);
+
+    /**
+     * 
+     * @param idUnidad
+     * @param mes
+     * @return
+     *     returns java.util.List<java.lang.Object>
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "asistenciaUnidasMes", targetNamespace = "http://servicios/", className = "serviciosWebProfesor.AsistenciaUnidasMes")
+    @ResponseWrapper(localName = "asistenciaUnidasMesResponse", targetNamespace = "http://servicios/", className = "serviciosWebProfesor.AsistenciaUnidasMesResponse")
+    @Action(input = "http://servicios/profesor/asistenciaUnidasMesRequest", output = "http://servicios/profesor/asistenciaUnidasMesResponse")
+    public List<Object> asistenciaUnidasMes(
+        @WebParam(name = "idUnidad", targetNamespace = "")
+        int idUnidad,
+        @WebParam(name = "mes", targetNamespace = "")
+        int mes);
+
+    /**
+     * 
+     * @param diaSemana
+     * @param numero
+     * @return
+     *     returns java.lang.String
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "obtenerHorarioDiaProfesor", targetNamespace = "http://servicios/", className = "serviciosWebProfesor.ObtenerHorarioDiaProfesor")
+    @ResponseWrapper(localName = "obtenerHorarioDiaProfesorResponse", targetNamespace = "http://servicios/", className = "serviciosWebProfesor.ObtenerHorarioDiaProfesorResponse")
+    @Action(input = "http://servicios/profesor/obtenerHorarioDiaProfesorRequest", output = "http://servicios/profesor/obtenerHorarioDiaProfesorResponse")
+    public String obtenerHorarioDiaProfesor(
+        @WebParam(name = "numero", targetNamespace = "")
+        String numero,
+        @WebParam(name = "diaSemana", targetNamespace = "")
+        int diaSemana);
+
+    /**
+     * 
+     * @param idPer
+     * @param mes
+     * @return
+     *     returns java.util.List<java.lang.Object>
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "asistenciaInd", targetNamespace = "http://servicios/", className = "serviciosWebProfesor.AsistenciaInd")
+    @ResponseWrapper(localName = "asistenciaIndResponse", targetNamespace = "http://servicios/", className = "serviciosWebProfesor.AsistenciaIndResponse")
+    @Action(input = "http://servicios/profesor/asistenciaIndRequest", output = "http://servicios/profesor/asistenciaIndResponse")
+    public List<Object> asistenciaInd(
+        @WebParam(name = "idPer", targetNamespace = "")
+        String idPer,
+        @WebParam(name = "mes", targetNamespace = "")
+        String mes);
+
+    /**
+     * 
      * @param idPer
      * @return
      *     returns java.lang.String
@@ -54,92 +141,5 @@ public interface Profesor {
     public List<StringArray> horarioProfesor(
         @WebParam(name = "idPer", targetNamespace = "")
         String idPer);
-
-    /**
-     * 
-     * @param idUnidad
-     * @return
-     *     returns java.util.List<java.lang.Object>
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "asistenciaUnidadDia", targetNamespace = "http://servicios/", className = "serviciosWebProfesor.AsistenciaUnidadDia")
-    @ResponseWrapper(localName = "asistenciaUnidadDiaResponse", targetNamespace = "http://servicios/", className = "serviciosWebProfesor.AsistenciaUnidadDiaResponse")
-    @Action(input = "http://servicios/profesor/asistenciaUnidadDiaRequest", output = "http://servicios/profesor/asistenciaUnidadDiaResponse")
-    public List<Object> asistenciaUnidadDia(
-        @WebParam(name = "idUnidad", targetNamespace = "")
-        String idUnidad);
-
-    /**
-     * 
-     * @param diaSemana
-     * @param numero
-     * @return
-     *     returns java.lang.String
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "obtenerHorarioDiaProfesor", targetNamespace = "http://servicios/", className = "serviciosWebProfesor.ObtenerHorarioDiaProfesor")
-    @ResponseWrapper(localName = "obtenerHorarioDiaProfesorResponse", targetNamespace = "http://servicios/", className = "serviciosWebProfesor.ObtenerHorarioDiaProfesorResponse")
-    @Action(input = "http://servicios/profesor/obtenerHorarioDiaProfesorRequest", output = "http://servicios/profesor/obtenerHorarioDiaProfesorResponse")
-    public String obtenerHorarioDiaProfesor(
-        @WebParam(name = "numero", targetNamespace = "")
-        String numero,
-        @WebParam(name = "diaSemana", targetNamespace = "")
-        int diaSemana);
-
-    /**
-     * 
-     * @param idUnidad
-     * @param grupo
-     * @return
-     *     returns java.util.List<java.lang.Object>
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "informacionUnidad", targetNamespace = "http://servicios/", className = "serviciosWebProfesor.InformacionUnidad")
-    @ResponseWrapper(localName = "informacionUnidadResponse", targetNamespace = "http://servicios/", className = "serviciosWebProfesor.InformacionUnidadResponse")
-    @Action(input = "http://servicios/profesor/informacionUnidadRequest", output = "http://servicios/profesor/informacionUnidadResponse")
-    public List<Object> informacionUnidad(
-        @WebParam(name = "grupo", targetNamespace = "")
-        String grupo,
-        @WebParam(name = "idUnidad", targetNamespace = "")
-        String idUnidad);
-
-    /**
-     * 
-     * @param idUnidad
-     * @param mes
-     * @return
-     *     returns java.util.List<java.lang.Object>
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "asistenciaUnidasMes", targetNamespace = "http://servicios/", className = "serviciosWebProfesor.AsistenciaUnidasMes")
-    @ResponseWrapper(localName = "asistenciaUnidasMesResponse", targetNamespace = "http://servicios/", className = "serviciosWebProfesor.AsistenciaUnidasMesResponse")
-    @Action(input = "http://servicios/profesor/asistenciaUnidasMesRequest", output = "http://servicios/profesor/asistenciaUnidasMesResponse")
-    public List<Object> asistenciaUnidasMes(
-        @WebParam(name = "idUnidad", targetNamespace = "")
-        int idUnidad,
-        @WebParam(name = "mes", targetNamespace = "")
-        int mes);
-
-    /**
-     * 
-     * @param idPer
-     * @param mes
-     * @return
-     *     returns java.util.List<java.lang.Object>
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "asistenciaInd", targetNamespace = "http://servicios/", className = "serviciosWebProfesor.AsistenciaInd")
-    @ResponseWrapper(localName = "asistenciaIndResponse", targetNamespace = "http://servicios/", className = "serviciosWebProfesor.AsistenciaIndResponse")
-    @Action(input = "http://servicios/profesor/asistenciaIndRequest", output = "http://servicios/profesor/asistenciaIndResponse")
-    public List<Object> asistenciaInd(
-        @WebParam(name = "idPer", targetNamespace = "")
-        String idPer,
-        @WebParam(name = "mes", targetNamespace = "")
-        String mes);
 
 }

@@ -6,11 +6,23 @@
 
 <xs:element name="asistenciaIndResponse" type="tns:asistenciaIndResponse"/>
 
+<xs:element name="graficaGeneralAndroid" type="tns:graficaGeneralAndroid"/>
+
+<xs:element name="graficaGeneralAndroidResponse" type="tns:graficaGeneralAndroidResponse"/>
+
 <xs:element name="horarioAlumno" type="tns:horarioAlumno"/>
 
 <xs:element name="horarioAlumnoResponse" type="tns:horarioAlumnoResponse"/>
 
+<xs:element name="horarioAndroidAlumno" type="tns:horarioAndroidAlumno"/>
+
+<xs:element name="horarioAndroidAlumnoResponse" type="tns:horarioAndroidAlumnoResponse"/>
+
 <xs:element name="obtenerHorarioDia" type="tns:obtenerHorarioDia"/>
+
+<xs:element name="obtenerHorarioDiaAndroid" type="tns:obtenerHorarioDiaAndroid"/>
+
+<xs:element name="obtenerHorarioDiaAndroidResponse" type="tns:obtenerHorarioDiaAndroidResponse"/>
 
 <xs:element name="obtenerHorarioDiaResponse" type="tns:obtenerHorarioDiaResponse"/>
 
@@ -42,6 +54,18 @@
 </xs:sequence>
 </xs:complexType>
 
+<xs:complexType name="horarioAndroidAlumno">
+<xs:sequence>
+<xs:element name="numero" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="horarioAndroidAlumnoResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
 <xs:complexType name="obtenerHorarioDia">
 <xs:sequence>
 <xs:element name="boleta" type="xs:string" minOccurs="0"/>
@@ -65,6 +89,30 @@
 <xs:complexType name="asistenciaIndResponse">
 <xs:sequence>
 <xs:element name="return" type="xs:anyType" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="obtenerHorarioDiaAndroid">
+<xs:sequence>
+<xs:element name="boleta" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="obtenerHorarioDiaAndroidResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="graficaGeneralAndroid">
+<xs:sequence>
+<xs:element name="idPer" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="graficaGeneralAndroidResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
 </xs:sequence>
 </xs:complexType>
 </xs:schema>

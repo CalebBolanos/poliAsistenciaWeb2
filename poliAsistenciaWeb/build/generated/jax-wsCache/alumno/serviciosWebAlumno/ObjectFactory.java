@@ -26,9 +26,15 @@ public class ObjectFactory {
 
     private final static QName _AsistenciaInd_QNAME = new QName("http://servicios/", "asistenciaInd");
     private final static QName _AsistenciaIndResponse_QNAME = new QName("http://servicios/", "asistenciaIndResponse");
+    private final static QName _GraficaGeneralAndroid_QNAME = new QName("http://servicios/", "graficaGeneralAndroid");
+    private final static QName _GraficaGeneralAndroidResponse_QNAME = new QName("http://servicios/", "graficaGeneralAndroidResponse");
     private final static QName _HorarioAlumno_QNAME = new QName("http://servicios/", "horarioAlumno");
     private final static QName _HorarioAlumnoResponse_QNAME = new QName("http://servicios/", "horarioAlumnoResponse");
+    private final static QName _HorarioAndroidAlumno_QNAME = new QName("http://servicios/", "horarioAndroidAlumno");
+    private final static QName _HorarioAndroidAlumnoResponse_QNAME = new QName("http://servicios/", "horarioAndroidAlumnoResponse");
     private final static QName _ObtenerHorarioDia_QNAME = new QName("http://servicios/", "obtenerHorarioDia");
+    private final static QName _ObtenerHorarioDiaAndroid_QNAME = new QName("http://servicios/", "obtenerHorarioDiaAndroid");
+    private final static QName _ObtenerHorarioDiaAndroidResponse_QNAME = new QName("http://servicios/", "obtenerHorarioDiaAndroidResponse");
     private final static QName _ObtenerHorarioDiaResponse_QNAME = new QName("http://servicios/", "obtenerHorarioDiaResponse");
     private final static QName _ObtenerNotificaciones_QNAME = new QName("http://servicios/", "obtenerNotificaciones");
     private final static QName _ObtenerNotificacionesResponse_QNAME = new QName("http://servicios/", "obtenerNotificacionesResponse");
@@ -57,6 +63,22 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link GraficaGeneralAndroid }
+     * 
+     */
+    public GraficaGeneralAndroid createGraficaGeneralAndroid() {
+        return new GraficaGeneralAndroid();
+    }
+
+    /**
+     * Create an instance of {@link GraficaGeneralAndroidResponse }
+     * 
+     */
+    public GraficaGeneralAndroidResponse createGraficaGeneralAndroidResponse() {
+        return new GraficaGeneralAndroidResponse();
+    }
+
+    /**
      * Create an instance of {@link HorarioAlumno }
      * 
      */
@@ -73,11 +95,43 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link HorarioAndroidAlumno }
+     * 
+     */
+    public HorarioAndroidAlumno createHorarioAndroidAlumno() {
+        return new HorarioAndroidAlumno();
+    }
+
+    /**
+     * Create an instance of {@link HorarioAndroidAlumnoResponse }
+     * 
+     */
+    public HorarioAndroidAlumnoResponse createHorarioAndroidAlumnoResponse() {
+        return new HorarioAndroidAlumnoResponse();
+    }
+
+    /**
      * Create an instance of {@link ObtenerHorarioDia }
      * 
      */
     public ObtenerHorarioDia createObtenerHorarioDia() {
         return new ObtenerHorarioDia();
+    }
+
+    /**
+     * Create an instance of {@link ObtenerHorarioDiaAndroid }
+     * 
+     */
+    public ObtenerHorarioDiaAndroid createObtenerHorarioDiaAndroid() {
+        return new ObtenerHorarioDiaAndroid();
+    }
+
+    /**
+     * Create an instance of {@link ObtenerHorarioDiaAndroidResponse }
+     * 
+     */
+    public ObtenerHorarioDiaAndroidResponse createObtenerHorarioDiaAndroidResponse() {
+        return new ObtenerHorarioDiaAndroidResponse();
     }
 
     /**
@@ -131,6 +185,24 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GraficaGeneralAndroid }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://servicios/", name = "graficaGeneralAndroid")
+    public JAXBElement<GraficaGeneralAndroid> createGraficaGeneralAndroid(GraficaGeneralAndroid value) {
+        return new JAXBElement<GraficaGeneralAndroid>(_GraficaGeneralAndroid_QNAME, GraficaGeneralAndroid.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GraficaGeneralAndroidResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://servicios/", name = "graficaGeneralAndroidResponse")
+    public JAXBElement<GraficaGeneralAndroidResponse> createGraficaGeneralAndroidResponse(GraficaGeneralAndroidResponse value) {
+        return new JAXBElement<GraficaGeneralAndroidResponse>(_GraficaGeneralAndroidResponse_QNAME, GraficaGeneralAndroidResponse.class, null, value);
+    }
+
+    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link HorarioAlumno }{@code >}}
      * 
      */
@@ -149,12 +221,48 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link HorarioAndroidAlumno }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://servicios/", name = "horarioAndroidAlumno")
+    public JAXBElement<HorarioAndroidAlumno> createHorarioAndroidAlumno(HorarioAndroidAlumno value) {
+        return new JAXBElement<HorarioAndroidAlumno>(_HorarioAndroidAlumno_QNAME, HorarioAndroidAlumno.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link HorarioAndroidAlumnoResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://servicios/", name = "horarioAndroidAlumnoResponse")
+    public JAXBElement<HorarioAndroidAlumnoResponse> createHorarioAndroidAlumnoResponse(HorarioAndroidAlumnoResponse value) {
+        return new JAXBElement<HorarioAndroidAlumnoResponse>(_HorarioAndroidAlumnoResponse_QNAME, HorarioAndroidAlumnoResponse.class, null, value);
+    }
+
+    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link ObtenerHorarioDia }{@code >}}
      * 
      */
     @XmlElementDecl(namespace = "http://servicios/", name = "obtenerHorarioDia")
     public JAXBElement<ObtenerHorarioDia> createObtenerHorarioDia(ObtenerHorarioDia value) {
         return new JAXBElement<ObtenerHorarioDia>(_ObtenerHorarioDia_QNAME, ObtenerHorarioDia.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link ObtenerHorarioDiaAndroid }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://servicios/", name = "obtenerHorarioDiaAndroid")
+    public JAXBElement<ObtenerHorarioDiaAndroid> createObtenerHorarioDiaAndroid(ObtenerHorarioDiaAndroid value) {
+        return new JAXBElement<ObtenerHorarioDiaAndroid>(_ObtenerHorarioDiaAndroid_QNAME, ObtenerHorarioDiaAndroid.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link ObtenerHorarioDiaAndroidResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://servicios/", name = "obtenerHorarioDiaAndroidResponse")
+    public JAXBElement<ObtenerHorarioDiaAndroidResponse> createObtenerHorarioDiaAndroidResponse(ObtenerHorarioDiaAndroidResponse value) {
+        return new JAXBElement<ObtenerHorarioDiaAndroidResponse>(_ObtenerHorarioDiaAndroidResponse_QNAME, ObtenerHorarioDiaAndroidResponse.class, null, value);
     }
 
     /**
