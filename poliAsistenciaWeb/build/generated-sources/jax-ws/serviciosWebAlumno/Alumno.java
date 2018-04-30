@@ -27,18 +27,18 @@ public interface Alumno {
 
     /**
      * 
-     * @param tipoNotificacion
+     * @param numero
      * @return
      *     returns java.lang.String
      */
     @WebMethod
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "obtenerNotificaciones", targetNamespace = "http://servicios/", className = "serviciosWebAlumno.ObtenerNotificaciones")
-    @ResponseWrapper(localName = "obtenerNotificacionesResponse", targetNamespace = "http://servicios/", className = "serviciosWebAlumno.ObtenerNotificacionesResponse")
-    @Action(input = "http://servicios/alumno/obtenerNotificacionesRequest", output = "http://servicios/alumno/obtenerNotificacionesResponse")
-    public String obtenerNotificaciones(
-        @WebParam(name = "tipoNotificacion", targetNamespace = "")
-        int tipoNotificacion);
+    @RequestWrapper(localName = "horarioAndroidAlumno", targetNamespace = "http://servicios/", className = "serviciosWebAlumno.HorarioAndroidAlumno")
+    @ResponseWrapper(localName = "horarioAndroidAlumnoResponse", targetNamespace = "http://servicios/", className = "serviciosWebAlumno.HorarioAndroidAlumnoResponse")
+    @Action(input = "http://servicios/alumno/horarioAndroidAlumnoRequest", output = "http://servicios/alumno/horarioAndroidAlumnoResponse")
+    public String horarioAndroidAlumno(
+        @WebParam(name = "numero", targetNamespace = "")
+        String numero);
 
     /**
      * 
@@ -57,6 +57,21 @@ public interface Alumno {
         String boleta,
         @WebParam(name = "diaSemana", targetNamespace = "")
         int diaSemana);
+
+    /**
+     * 
+     * @param tipoNotificacion
+     * @return
+     *     returns java.lang.String
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "obtenerNotificaciones", targetNamespace = "http://servicios/", className = "serviciosWebAlumno.ObtenerNotificaciones")
+    @ResponseWrapper(localName = "obtenerNotificacionesResponse", targetNamespace = "http://servicios/", className = "serviciosWebAlumno.ObtenerNotificacionesResponse")
+    @Action(input = "http://servicios/alumno/obtenerNotificacionesRequest", output = "http://servicios/alumno/obtenerNotificacionesResponse")
+    public String obtenerNotificaciones(
+        @WebParam(name = "tipoNotificacion", targetNamespace = "")
+        int tipoNotificacion);
 
     /**
      * 
@@ -90,5 +105,35 @@ public interface Alumno {
     public List<StringArray> horarioAlumno(
         @WebParam(name = "idPer", targetNamespace = "")
         String idPer);
+
+    /**
+     * 
+     * @param idPer
+     * @return
+     *     returns java.lang.String
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "graficaGeneralAndroid", targetNamespace = "http://servicios/", className = "serviciosWebAlumno.GraficaGeneralAndroid")
+    @ResponseWrapper(localName = "graficaGeneralAndroidResponse", targetNamespace = "http://servicios/", className = "serviciosWebAlumno.GraficaGeneralAndroidResponse")
+    @Action(input = "http://servicios/alumno/graficaGeneralAndroidRequest", output = "http://servicios/alumno/graficaGeneralAndroidResponse")
+    public String graficaGeneralAndroid(
+        @WebParam(name = "idPer", targetNamespace = "")
+        String idPer);
+
+    /**
+     * 
+     * @param boleta
+     * @return
+     *     returns java.lang.String
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "obtenerHorarioDiaAndroid", targetNamespace = "http://servicios/", className = "serviciosWebAlumno.ObtenerHorarioDiaAndroid")
+    @ResponseWrapper(localName = "obtenerHorarioDiaAndroidResponse", targetNamespace = "http://servicios/", className = "serviciosWebAlumno.ObtenerHorarioDiaAndroidResponse")
+    @Action(input = "http://servicios/alumno/obtenerHorarioDiaAndroidRequest", output = "http://servicios/alumno/obtenerHorarioDiaAndroidResponse")
+    public String obtenerHorarioDiaAndroid(
+        @WebParam(name = "boleta", targetNamespace = "")
+        String boleta);
 
 }

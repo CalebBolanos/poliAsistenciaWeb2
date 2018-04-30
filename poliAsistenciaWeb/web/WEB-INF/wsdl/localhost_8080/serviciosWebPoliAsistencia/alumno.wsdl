@@ -7,17 +7,23 @@
 <xsd:import namespace="http://jaxb.dev.java.net/array" schemaLocation="http://localhost:8080/serviciosWebPoliAsistencia/alumno?xsd=2"/>
 </xsd:schema>
 </types>
-<message name="obtenerNotificaciones">
-<part name="parameters" element="tns:obtenerNotificaciones"/>
+<message name="horarioAndroidAlumno">
+<part name="parameters" element="tns:horarioAndroidAlumno"/>
 </message>
-<message name="obtenerNotificacionesResponse">
-<part name="parameters" element="tns:obtenerNotificacionesResponse"/>
+<message name="horarioAndroidAlumnoResponse">
+<part name="parameters" element="tns:horarioAndroidAlumnoResponse"/>
 </message>
 <message name="obtenerHorarioDia">
 <part name="parameters" element="tns:obtenerHorarioDia"/>
 </message>
 <message name="obtenerHorarioDiaResponse">
 <part name="parameters" element="tns:obtenerHorarioDiaResponse"/>
+</message>
+<message name="obtenerNotificaciones">
+<part name="parameters" element="tns:obtenerNotificaciones"/>
+</message>
+<message name="obtenerNotificacionesResponse">
+<part name="parameters" element="tns:obtenerNotificacionesResponse"/>
 </message>
 <message name="asistenciaInd">
 <part name="parameters" element="tns:asistenciaInd"/>
@@ -31,14 +37,30 @@
 <message name="horarioAlumnoResponse">
 <part name="parameters" element="tns:horarioAlumnoResponse"/>
 </message>
+<message name="graficaGeneralAndroid">
+<part name="parameters" element="tns:graficaGeneralAndroid"/>
+</message>
+<message name="graficaGeneralAndroidResponse">
+<part name="parameters" element="tns:graficaGeneralAndroidResponse"/>
+</message>
+<message name="obtenerHorarioDiaAndroid">
+<part name="parameters" element="tns:obtenerHorarioDiaAndroid"/>
+</message>
+<message name="obtenerHorarioDiaAndroidResponse">
+<part name="parameters" element="tns:obtenerHorarioDiaAndroidResponse"/>
+</message>
 <portType name="alumno">
-<operation name="obtenerNotificaciones">
-<input wsam:Action="http://servicios/alumno/obtenerNotificacionesRequest" message="tns:obtenerNotificaciones"/>
-<output wsam:Action="http://servicios/alumno/obtenerNotificacionesResponse" message="tns:obtenerNotificacionesResponse"/>
+<operation name="horarioAndroidAlumno">
+<input wsam:Action="http://servicios/alumno/horarioAndroidAlumnoRequest" message="tns:horarioAndroidAlumno"/>
+<output wsam:Action="http://servicios/alumno/horarioAndroidAlumnoResponse" message="tns:horarioAndroidAlumnoResponse"/>
 </operation>
 <operation name="obtenerHorarioDia">
 <input wsam:Action="http://servicios/alumno/obtenerHorarioDiaRequest" message="tns:obtenerHorarioDia"/>
 <output wsam:Action="http://servicios/alumno/obtenerHorarioDiaResponse" message="tns:obtenerHorarioDiaResponse"/>
+</operation>
+<operation name="obtenerNotificaciones">
+<input wsam:Action="http://servicios/alumno/obtenerNotificacionesRequest" message="tns:obtenerNotificaciones"/>
+<output wsam:Action="http://servicios/alumno/obtenerNotificacionesResponse" message="tns:obtenerNotificacionesResponse"/>
 </operation>
 <operation name="asistenciaInd">
 <input wsam:Action="http://servicios/alumno/asistenciaIndRequest" message="tns:asistenciaInd"/>
@@ -48,10 +70,18 @@
 <input wsam:Action="http://servicios/alumno/horarioAlumnoRequest" message="tns:horarioAlumno"/>
 <output wsam:Action="http://servicios/alumno/horarioAlumnoResponse" message="tns:horarioAlumnoResponse"/>
 </operation>
+<operation name="graficaGeneralAndroid">
+<input wsam:Action="http://servicios/alumno/graficaGeneralAndroidRequest" message="tns:graficaGeneralAndroid"/>
+<output wsam:Action="http://servicios/alumno/graficaGeneralAndroidResponse" message="tns:graficaGeneralAndroidResponse"/>
+</operation>
+<operation name="obtenerHorarioDiaAndroid">
+<input wsam:Action="http://servicios/alumno/obtenerHorarioDiaAndroidRequest" message="tns:obtenerHorarioDiaAndroid"/>
+<output wsam:Action="http://servicios/alumno/obtenerHorarioDiaAndroidResponse" message="tns:obtenerHorarioDiaAndroidResponse"/>
+</operation>
 </portType>
 <binding name="alumnoPortBinding" type="tns:alumno">
 <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
-<operation name="obtenerNotificaciones">
+<operation name="horarioAndroidAlumno">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -61,6 +91,15 @@
 </output>
 </operation>
 <operation name="obtenerHorarioDia">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="obtenerNotificaciones">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -79,6 +118,24 @@
 </output>
 </operation>
 <operation name="horarioAlumno">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="graficaGeneralAndroid">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="obtenerHorarioDiaAndroid">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
