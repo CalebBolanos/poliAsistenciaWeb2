@@ -14,4 +14,9 @@
     <system systemId="http://localhost:8080/serviciosWebPoliAsistencia/profesor?xsd=2" uri="wsdl/localhost_8080/serviciosWebPoliAsistencia/profesor.xsd_2.xsd"/>
     <system systemId="http://localhost:8080/serviciosWebPoliAsistencia/mails?wsdl" uri="wsdl/localhost_8080/serviciosWebPoliAsistencia/mails.wsdl"/>
     <system systemId="http://localhost:8080/serviciosWebPoliAsistencia/mails?xsd=1" uri="wsdl/localhost_8080/serviciosWebPoliAsistencia/mails.xsd_1.xsd"/>
+    <system systemId="http://localhost:16645/serviciosWebPoliAsistencia/alumno?wsdl" uri="wsdl/localhost_16645/serviciosWebPoliAsistencia/alumno.wsdl"/>
+    <system systemId="http://localhost:16645/serviciosWebPoliAsistencia/alumno?xsd=1" uri="wsdl/localhost_16645/serviciosWebPoliAsistencia/alumno.xsd_1.xsd"/>
+    <system systemId="http://localhost:16645/serviciosWebPoliAsistencia/alumno?xsd=2" uri="wsdl/localhost_16645/serviciosWebPoliAsistencia/alumno.xsd_2.xsd"/>
+    <system systemId="http://localhost:16645/serviciosWebPoliAsistencia/usuario?wsdl" uri="wsdl/localhost_16645/serviciosWebPoliAsistencia/usuario.wsdl"/>
+    <system systemId="http://localhost:16645/serviciosWebPoliAsistencia/usuario?xsd=1" uri="wsdl/localhost_16645/serviciosWebPoliAsistencia/usuario.xsd_1.xsd"/>
 </catalog>

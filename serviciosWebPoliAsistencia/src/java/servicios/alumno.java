@@ -119,6 +119,14 @@ public class alumno {
         return html;
     }
     
+    @WebMethod(operationName = "obtenerHorarioDiaAndroid")
+    public String obtenerHorarioDiaAndroid(@WebParam(name = "boleta") String boleta) {
+        Calendar calendario = new GregorianCalendar();
+        base.obtenerHorarioDia horario = new base.obtenerHorarioDia(boleta, calendario.get(Calendar.DAY_OF_WEEK)-1);
+        String json = horario.obtenerJSON();
+        return json;
+    }
+    
     @WebMethod(operationName = "horarioAndroidAlumno")
     public String horarioAndroidAlumno(@WebParam(name = "numero") String numero){
         String ret[][] = horarioAlumno(numero);

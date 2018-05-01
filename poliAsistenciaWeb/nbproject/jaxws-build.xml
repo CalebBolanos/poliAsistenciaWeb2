@@ -28,8 +28,8 @@
     </target>
     <target name="wsimport-client-usuario" depends="wsimport-init">
         <mkdir dir="${build.generated.dir}/jax-wsCache/usuario"/>
-        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/usuario" destdir="${build.generated.dir}/jax-wsCache/usuario" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/usuario/wsdl/localhost_8080/serviciosWebPoliAsistencia/usuario.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:8080/serviciosWebPoliAsistencia/usuario?wsdl" xnocompile="true" xendorsed="true" package="serviciosWeb">
-            <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/usuario/wsdl/localhost_8080/serviciosWebPoliAsistencia/usuario.wsdl"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/usuario" destdir="${build.generated.dir}/jax-wsCache/usuario" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/usuario/wsdl/localhost_16645/serviciosWebPoliAsistencia/usuario.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:8080/serviciosWebPoliAsistencia/usuario?wsdl" xnocompile="true" xendorsed="true" package="serviciosWeb">
+            <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/usuario/wsdl/localhost_16645/serviciosWebPoliAsistencia/usuario.wsdl"/>
             <produces dir="${build.generated.dir}/jax-wsCache/usuario"/>
         </wsimport>
         <copy todir="${build.generated.sources.dir}/jax-ws">
@@ -44,8 +44,8 @@
     </target>
     <target name="wsimport-client-alumno" depends="wsimport-init">
         <mkdir dir="${build.generated.dir}/jax-wsCache/alumno"/>
-        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/alumno" destdir="${build.generated.dir}/jax-wsCache/alumno" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/alumno/wsdl/localhost_8080/serviciosWebPoliAsistencia/alumno.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:8080/serviciosWebPoliAsistencia/alumno?wsdl" xnocompile="true" xendorsed="true" package="serviciosWebAlumno">
-            <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/alumno/wsdl/localhost_8080/serviciosWebPoliAsistencia/alumno.wsdl"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/alumno" destdir="${build.generated.dir}/jax-wsCache/alumno" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/alumno/wsdl/localhost_16645/serviciosWebPoliAsistencia/alumno.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:8080/serviciosWebPoliAsistencia/alumno?wsdl" xnocompile="true" xendorsed="true" package="serviciosWebAlumno">
+            <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/alumno/wsdl/localhost_16645/serviciosWebPoliAsistencia/alumno.wsdl"/>
             <produces dir="${build.generated.dir}/jax-wsCache/alumno"/>
         </wsimport>
         <copy todir="${build.generated.sources.dir}/jax-ws">
