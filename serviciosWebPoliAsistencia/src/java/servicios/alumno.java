@@ -15,6 +15,7 @@ import javax.jws.WebMethod;
 import javax.jws.WebParam;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
 
 /**
  *
@@ -36,6 +37,43 @@ public class alumno {
         datos.add(persona.obtenerDiasFaltados());
         datos.add(persona.obtenerMes());
         return datos;
+    }
+    
+    @WebMethod(operationName = "asistenciaIndividualAndroid")
+    public String asistenciaIndividualAndroid(@WebParam(name = "datos") String datos) {
+        String idPer;
+        String mes;
+        try{
+            JSONParser parser = new JSONParser();
+            JSONObject info = (JSONObject) parser.parse(datos);
+            idPer = (String)info.get("idPer");
+            mes = (String)info.get("mes");
+        }
+        catch(Exception error){
+            return "error";
+        }
+        consultaAlumno.asistenciaIndividual persona = new consultaAlumno.asistenciaIndividual(idPer, mes);
+        JSONObject info = new JSONObject();
+        info.put("asistido", ""+persona.obtenerDiasAsistidos());
+        info.put("faltado", ""+persona.obtenerDiasFaltados());
+        return info.toString();
+    }
+    
+    @WebMethod(operationName = "infoAsistenciaIndividualAndroid")
+    public String infoAsistenciaIndividualAndroid(@WebParam(name = "datos") String datos) {
+        String idPer;
+        String mes;
+        try{
+            JSONParser parser = new JSONParser();
+            JSONObject info = (JSONObject) parser.parse(datos);
+            idPer = (String)info.get("idPer");
+            mes = (String)info.get("mes");
+        }
+        catch(Exception error){
+            return "error";
+        }
+        consultaAlumno.asistenciaIndividual persona = new consultaAlumno.asistenciaIndividual(idPer, mes);
+        return persona.obtenerInfoJSON();
     }
     
     @WebMethod(operationName = "graficaGeneralAndroid")
