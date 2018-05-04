@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jax-ws xmlns="http://www.netbeans.org/ns/jax-ws/1">
   <services>
-    <service name="usuario">
-      <implementation-class>servicios.usuario</implementation-class>
-    </service>
-    <service name="alumno">
-      <implementation-class>servicios.alumno</implementation-class>
-    </service>
     <service name="profesor">
       <implementation-class>servicios.profesor</implementation-class>
     </service>
     <service name="gestion">
       <implementation-class>servicios.gestion</implementation-class>
     </service>
+    <service name="usuario">
+      <implementation-class>servicios.usuario</implementation-class>
+    </service>
     <service name="jefeAcademia">
       <implementation-class>servicios.jefeAcademia</implementation-class>
+    </service>
+    <service name="alumno">
+      <implementation-class>servicios.alumno</implementation-class>
     </service>
     <service name="enviaMails">
       <implementation-class>servicios.enviaMails</implementation-class>

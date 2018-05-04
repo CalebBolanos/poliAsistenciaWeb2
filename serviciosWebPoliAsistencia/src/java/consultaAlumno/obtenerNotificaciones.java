@@ -65,6 +65,8 @@ public class obtenerNotificaciones {
                     notificacionx.put("imagen", "");
                     notificacionx.put("url", resultado.getString("url"));
                     notificacionx.put("borrar", "");
+                    notificaciones.add(notificacionx);
+                    notificacionx = null;
                 } else {//" + resultado.getString("img") + "
                     html += "<div class=\"mdl-cell mdl-cell--8-col\" style=\"transition: all 0.3s cubic-bezier(.25,.8,.25,1); box-shadow: 0px 1px 2px rgba(0,0,0,0.09), 0 1px 2px rgba(0,0,0,0.25); border-radius: 3px 3px;  background-color: white;\">\n"
                             + "                <div class=\"mdl-grid\">\n"
@@ -108,13 +110,13 @@ public class obtenerNotificaciones {
                     notificacionx.put("imagen", resultado.getString("imgN"));
                     notificacionx.put("url", resultado.getString("url"));
                     notificacionx.put("borrar", "");
+                    notificaciones.add(notificacionx);
+                    notificacionx = null;
                 }
             }
             if (html.equals("")) {
                 html = "<div style=\"color: gray; font-size:30px; padding-top: 20%\">No hay notificaciones en la bandeja de entrada</div>";
             }
-            notificaciones.add(notificacionx);
-            notificacionx = null;
         } catch (Exception error) {
 
         }
