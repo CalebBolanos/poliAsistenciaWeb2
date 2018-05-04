@@ -150,6 +150,12 @@ public class alumno {
         return html;
     }
     
+    @WebMethod(operationName = "obtenerNotificacionesAndroid")
+    public String obtenerNotificacionesAndroid(@WebParam(name = "tipoNotificacion") int tipoNotificacion) {
+        consultaAlumno.obtenerNotificaciones consulta = new consultaAlumno.obtenerNotificaciones(tipoNotificacion);
+        return consulta.obtenerJSON();
+    }
+    
     @WebMethod(operationName = "obtenerHorarioDia")
     public String obtenerHorarioDia(@WebParam(name = "boleta") String boleta, @WebParam(name = "diaSemana") int diaSemana) {
         base.obtenerHorarioDia horario = new base.obtenerHorarioDia(boleta, diaSemana);
