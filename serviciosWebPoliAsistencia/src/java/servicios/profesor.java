@@ -11,6 +11,8 @@ import java.util.ArrayList;
 import javax.jws.WebService;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 
 /**
  *
@@ -119,5 +121,22 @@ public class profesor {
         consultaProfesor.obtenerHorarioDia horario = new consultaProfesor.obtenerHorarioDia(numero, diaSemana);
         String html = horario.obtenerHtml();
         return html;
+    }
+    
+    @WebMethod(operationName = "horarioAndroidProfesor")
+    public String horarioAndroidProfesor(@WebParam(name = "numero") String numero){
+        String ret[][] = horarioProfesor(numero);
+        JSONObject dia;
+        JSONArray hora = new JSONArray();
+        dia = new JSONObject();
+        String Dias[]={"Lunes", "Martes", "Miercoles", "Jueves", "Viernes"};
+        for(int i = 0; i<ret.length; i++){
+            for(int j = 0; j<ret[i].length; j++){
+                dia.put(Dias[j], ret[i][j]);
+            }
+            hora.add(dia);
+            dia = new JSONObject();
+        }
+        return hora.toString();
     }
 }
