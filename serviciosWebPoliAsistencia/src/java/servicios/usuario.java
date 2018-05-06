@@ -6,11 +6,14 @@
 package servicios;
 
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.jws.WebService;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 
 /**
  *
@@ -215,6 +218,25 @@ public class usuario {
             }
 
         }
+        return mensaje;
+    }
+    
+    @WebMethod(operationName = "cambioContrasenaAndroid")
+    public String cambioContrasenaAndroid(@WebParam(name = "datos") String datos){
+        int idTipo;
+        String boleta, antigua, nueva;
+        try{
+            JSONParser parser = new JSONParser();
+            JSONObject info = (JSONObject) parser.parse(datos);
+            idTipo = Integer.parseInt((String)info.get("idTipo"));
+            boleta = (String)info.get("boleta");
+            antigua = (String)info.get("antigua");
+            nueva = (String)info.get("nueva");
+        } catch (ParseException ex) {
+            ex.printStackTrace();
+            return "error";
+        }
+        String mensaje = cambioContrasena(idTipo, boleta, antigua, nueva);
         return mensaje;
     }
     

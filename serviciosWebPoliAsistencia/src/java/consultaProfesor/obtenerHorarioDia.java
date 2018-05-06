@@ -6,6 +6,8 @@
 package consultaProfesor;
 
 import java.sql.ResultSet;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 
 /**
  *
@@ -22,6 +24,8 @@ public class obtenerHorarioDia {
             + "                                            </tr>\n"
             + "                                        </thead>\n"
             + "                                        <tbody>\n";
+    JSONArray materias = new JSONArray();
+    JSONObject materiax;
 
     public obtenerHorarioDia(String numero, int diaSemana) {
         conexion.cDatos base = new conexion.cDatos();
@@ -32,6 +36,7 @@ public class obtenerHorarioDia {
             ResultSet resultado = base.consulta("call spHorarioProfesor('" + numero + "');");
             while (resultado.next()) {
                 if (resultado.getInt("idDia") == diaSemana) {
+                    materiax = new JSONObject();
                     inicioHora = resultado.getInt("idHorarioI");
                     finHora = resultado.getInt("idHorarioF");
                     inicio = evaluarHora(inicioHora);
@@ -42,6 +47,11 @@ public class obtenerHorarioDia {
                                 + "      <td class=\"mdl-data-table__cell--non-numeric\">" + resultado.getString("materia") + "</td>\n"
                                 + "      <td class=\"mdl-data-table__cell--non-numeric\">" + inicio + " - " + fin + "</td>\n"
                                 + "  </tr>\n";
+                        materiax.put("grupo", resultado.getString("grupo"));
+                        materiax.put("unidad", resultado.getString("materia"));
+                        materiax.put("hora", inicio + " - " + fin);
+                        materias.add(materiax);
+                        materiax = null;
 
                     } else {
                         html = "Error";
@@ -55,6 +65,10 @@ public class obtenerHorarioDia {
         } catch (Exception error) {
             html = "Error";
         }
+    }
+    
+    private String obtenerJSON(){
+        return materias.toString();
     }
 
     private String evaluarHora(int valorHora) {

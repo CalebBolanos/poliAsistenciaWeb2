@@ -8,6 +8,8 @@ package servicios;
 import conexion.cDatos;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import javax.jws.WebService;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
@@ -119,5 +121,13 @@ public class profesor {
         consultaProfesor.obtenerHorarioDia horario = new consultaProfesor.obtenerHorarioDia(numero, diaSemana);
         String html = horario.obtenerHtml();
         return html;
+    }
+    
+    @WebMethod(operationName = "obtenerHorarioDiaProfesorAndroid")
+    public String obtenerHorarioDiaProfesorAndroid(@WebParam(name = "numero") String numero) {
+        Calendar calendario = new GregorianCalendar();
+        consultaProfesor.obtenerHorarioDia horario = new consultaProfesor.obtenerHorarioDia(numero, calendario.get(Calendar.DAY_OF_WEEK)-1);
+        String json = horario.obtenerHtml();
+        return json;
     }
 }
