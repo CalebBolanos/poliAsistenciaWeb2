@@ -6,6 +6,7 @@
 package consultaProfesor;
 
 import java.sql.ResultSet;
+import org.json.simple.JSONObject;
 
 /**
  *
@@ -14,6 +15,7 @@ import java.sql.ResultSet;
 public class infoUnidades {
     private String _unidad = "", _grupo = "", _semestre = "", _turno = "", _especialidad = "", _noAlumnos = "";
     private boolean _valido;
+    private JSONObject infoUnidad = new JSONObject();
     public infoUnidades(String grupo, String idUnidad){
         conexion.cDatos base = new conexion.cDatos();
         try{
@@ -33,6 +35,13 @@ public class infoUnidades {
                 _especialidad = resultado.getString("especialidad");
                 _noAlumnos = resultado.getString("inscritos");
                 _valido = true;
+                infoUnidad.put("unidad", _unidad);
+                infoUnidad.put("grupo", _grupo);
+                infoUnidad.put("semestre", _semestre);
+                infoUnidad.put("turno", _turno);
+                infoUnidad.put("especialidad", _especialidad);
+                infoUnidad.put("alumnos", _noAlumnos);
+                
             }
         }
         catch(Exception error){
@@ -66,5 +75,9 @@ public class infoUnidades {
     
     public boolean valido(){
         return _valido;
+    }
+    
+    public String obtenerJSON(){
+        return infoUnidad.toString();
     }
 }

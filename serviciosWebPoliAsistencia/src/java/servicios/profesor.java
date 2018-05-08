@@ -10,9 +10,15 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.jws.WebService;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 
 /**
  *
@@ -43,6 +49,12 @@ public class profesor {
         return html;
     }
     
+    @WebMethod(operationName = "unidadesAndroid")
+    public String unidadesAndroid(@WebParam(name = "idPer") int idPer) {
+        consultaProfesor.unidadesAprendizaje persona = new consultaProfesor.unidadesAprendizaje(idPer);
+        return persona.obtenerJSON();
+    }
+    
     @WebMethod(operationName = "informacionUnidad")
     public ArrayList informacionUnidad(@WebParam(name = "grupo") String grupo, @WebParam(name = "idUnidad") String idUnidad) {
         consultaProfesor.infoUnidades unidad = new consultaProfesor.infoUnidades(grupo, idUnidad);
@@ -55,6 +67,22 @@ public class profesor {
         datos.add(unidad.obtenerCantidadAlumnos());
         datos.add(unidad.valido());
         return datos;
+    }
+    
+    @WebMethod(operationName = "informacionUnidadAndroid")
+    public String informacionUnidadAndroid(@WebParam(name = "datos") String datos){
+        String grupo = "";
+        String idUnidad = "";
+        try{
+            JSONParser parser = new JSONParser();
+            JSONObject info = (JSONObject) parser.parse(datos);
+            grupo = (String)info.get("grupo");
+            idUnidad = (String)info.get("id");
+        } catch (ParseException ex) {
+            Logger.getLogger(profesor.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        consultaProfesor.infoUnidades unidad = new consultaProfesor.infoUnidades(grupo, idUnidad);
+        return unidad.obtenerJSON();
     }
     
     @WebMethod(operationName = "asistenciaUnidadDia")
@@ -79,6 +107,36 @@ public class profesor {
         datos.add(asistencia.totalDias());
         datos.add(asistencia.grafTotalDias());
         return datos;
+    }
+    
+    @WebMethod(operationName = "asistenciaUnidadMesAndroid")
+    public String asistenciaUnidadMesAndroid(@WebParam(name = "idUnidad") String idUnidad) {
+        Calendar calendario = new GregorianCalendar();
+        int mes = calendario.get(Calendar.MONTH);
+      
+        JSONObject grafica = new JSONObject();
+        
+        if (mes > Calendar.JULY && mes < Calendar.DECEMBER + 1) {//Ciclo 1
+            grafica.put("Ciclo", "1");
+            for(int i= Calendar.AUGUST; i <= mes +1; i++){
+                consultaProfesor.asistenciaUnidadPorMes asistencia = new consultaProfesor.asistenciaUnidadPorMes(Integer.parseInt(idUnidad), mes);
+                grafica.put("mesAsistido "+i, asistencia.promedioAsistido());
+                grafica.put("mesFaltado "+i, asistencia.promedioAsistido());
+                asistencia = null;
+            }
+        }else{
+            if (mes > Calendar.JANUARY - 1 && mes < Calendar.AUGUST) {//Ciclo 2
+                grafica.put("Ciclo", "2");
+                for(int i= Calendar.JANUARY+1; i<=mes + 1; i++){
+                consultaProfesor.asistenciaUnidadPorMes asistencia = new consultaProfesor.asistenciaUnidadPorMes(Integer.parseInt(idUnidad), mes);
+                grafica.put("mesAsistido "+i, asistencia.promedioAsistido());
+                grafica.put("mesFaltado "+i, asistencia.promedioAsistido());
+                asistencia = null;
+            }
+            }
+        }
+        grafica.put("mes actual", ""+(mes+1));
+        return grafica.toString();
     }
     
     @WebMethod(operationName = "horarioProfesor")
@@ -130,4 +188,21 @@ public class profesor {
         String json = horario.obtenerHtml();
         return json;
     }
+    
+       @WebMethod(operationName = "horarioAndroidProfesor")
+       public String horarioAndroidProfesor(@WebParam(name = "numero") String numero){
+           String ret[][] = horarioProfesor(numero);
+           JSONObject dia;
+           JSONArray hora = new JSONArray();
+           dia = new JSONObject();
+           String Dias[]={"Lunes", "Martes", "Miercoles", "Jueves", "Viernes"};
+           for(int i = 0; i<ret.length; i++){
+               for(int j = 0; j<ret[i].length; j++){
+                   dia.put(Dias[j], ret[i][j]);
+               }
+               hora.add(dia);
+               dia = new JSONObject();
+           }
+           return hora.toString();
+       }
 }

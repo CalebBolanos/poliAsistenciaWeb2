@@ -6,6 +6,8 @@
 package consultaProfesor;
 
 import java.sql.ResultSet;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 
 /**
  *
@@ -14,12 +16,14 @@ import java.sql.ResultSet;
 public class unidadesAprendizaje {
 
     private String _html = "";
+    JSONArray grupos = new JSONArray();
+    JSONObject grupox;
 
     public unidadesAprendizaje(int idPersona) {
         conexion.cDatos base = new conexion.cDatos();
         try {
             base.conectar();
-            ResultSet resultado = base.consulta("call spTraeUnidades(-1);");//"+idPersona+"
+            ResultSet resultado = base.consulta("call spTraeUnidades("+idPersona+");");//"+idPersona+"
             while (resultado.next()) {
                 _html += " <div class=\"mdl-cell mdl-cell--4-col\" >\n"
                         + "    <div class=\"tarjetas\" style=\"height: 150px; box-shadow: 0 1px 2px rgba(0,0,0,0), 0 1px 2px rgba(0,0,0,0); border: 2px rgb(224, 224, 224) solid\">\n"
@@ -38,6 +42,12 @@ public class unidadesAprendizaje {
                         + "        </div>\n"
                         + "    </div>\n"
                         + "</div>";
+                grupox = new JSONObject();
+                grupox.put("unidad", resultado.getString("materia"));
+                grupox.put("grupo", resultado.getString("grupo"));
+                grupox.put("id", resultado.getString("idUnidad"));
+                grupos.add(grupox);
+                grupox = null;
             }
             if (_html.equals("")) {
                 _html = "<div class=\"mdl-cell mdl-cell--12-col\" >\n"
@@ -54,5 +64,9 @@ public class unidadesAprendizaje {
 
     public String obtenerHtml() {
         return _html;
+    }
+    
+    public String obtenerJSON(){
+        return grupos.toJSONString();
     }
 }
