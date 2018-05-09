@@ -6,6 +6,8 @@
 package consultaProfesor;
 
 import java.sql.ResultSet;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 
 /**
  *
@@ -23,6 +25,8 @@ public class asistenciaUnidadPorDia {
             + "                                        </thead>\n"
             + "                                        <tbody>";
     private int asistido = 0, faltado = 0, totalDias = 0;
+    private JSONObject infox;
+    private JSONArray infoTabla = new JSONArray();
 
     public asistenciaUnidadPorDia(String idUnidad) {
         conexion.cDatos base = new conexion.cDatos();
@@ -30,6 +34,7 @@ public class asistenciaUnidadPorDia {
             base.conectar();
             ResultSet resultado = base.consulta("call spAsistenciaUnidad(" + idUnidad + ");");
             while (resultado.next()) {
+                infox = new JSONObject();
                 html += " <tr>\n"
                         + "    <td class=\"mdl-data-table__cell--non-numeric\">" + resultado.getString("boleta") + "</td>\n"
                         + "    <td class=\"mdl-data-table__cell--non-numeric\">" + resultado.getString("nombre") + "</td>\n"
@@ -41,6 +46,11 @@ public class asistenciaUnidadPorDia {
                     faltado++;
                 }
                 totalDias++;
+                infox.put("boleta", resultado.getString("boleta"));
+                infox.put("nombre", resultado.getString("nombre"));
+                infox.put("asistecia", resultado.getString("asistecia"));
+                infoTabla.add(infox);
+                infox = null;
             }
             html += "</tbody>";
             html += "</table>";
@@ -68,6 +78,10 @@ public class asistenciaUnidadPorDia {
 
     public int obtenerTotalAlumnosGrafica() {
         return totalDias*2;
+    }
+    
+    public String obtenerinfoJSON(){
+        return infoTabla.toString();
     }
     
 }

@@ -6,6 +6,8 @@
 package consultaProfesor;
 
 import java.sql.ResultSet;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 
 /**
  *
@@ -25,6 +27,8 @@ public class asistenciaUnidadPorMes {
             + "                                        <tbody>";
     private int numeroAlumnos, totalDias, alumnoAsistido;
     private float totalAsistido, totalFaltado;
+    private JSONObject alumnox;
+    private JSONArray alumnos = new JSONArray();
 
     public asistenciaUnidadPorMes(int idUnidad, int mes) {
         conexion.cDatos base = new conexion.cDatos();
@@ -36,12 +40,19 @@ public class asistenciaUnidadPorMes {
                 totalDias = dias.getInt("Total");
             }
             while (resultado.next()) {
+                alumnox = new JSONObject();
                 html += " <tr>\n"
                         + "    <td class=\"mdl-data-table__cell--non-numeric\">" + resultado.getString("boleta") + "</td>\n"
                         + "    <td class=\"mdl-data-table__cell--non-numeric\">" + resultado.getString("nombre") + "</td>\n"
                         + "    <td class=\"mdl-data-table__cell--non-numeric\">" + resultado.getString("asistidos") + "</td>\n"
                         + "    <td class=\"mdl-data-table__cell--non-numeric\">" + resultado.getString("Mes") + "</td>\n"
                         + "</tr>";
+                alumnox.put("boleta", resultado.getString("boleta"));
+                alumnox.put("nombre", resultado.getString("nombre"));
+                alumnox.put("asistidos", resultado.getString("asistidos"));
+                alumnox.put("faltado", resultado.getString("Mes"));
+                alumnos.add(alumnox);
+                alumnox = null;
                 alumnoAsistido = Integer.parseInt(resultado.getString("asistidos"));
                 totalAsistido += alumnoAsistido / (float)totalDias;
                 numeroAlumnos++;
@@ -73,5 +84,9 @@ public class asistenciaUnidadPorMes {
     
     public float grafTotalDias(){
         return totalAsistido * (float)1.3;
+    }
+    
+    public String obtenerinfoJSON(){
+        return alumnos.toString();
     }
 }
