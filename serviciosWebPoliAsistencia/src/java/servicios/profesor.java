@@ -238,7 +238,7 @@ public class profesor {
     public String obtenerHorarioDiaProfesorAndroid(@WebParam(name = "numero") String numero) {
         Calendar calendario = new GregorianCalendar();
         consultaProfesor.obtenerHorarioDia horario = new consultaProfesor.obtenerHorarioDia(numero, calendario.get(Calendar.DAY_OF_WEEK) - 1);
-        String json = horario.obtenerHtml();
+        String json = horario.obtenerJSON();
         return json;
     }
 

@@ -50,6 +50,7 @@ public class obtenerHorarioDia {
                         materiax.put("grupo", resultado.getString("grupo"));
                         materiax.put("unidad", resultado.getString("materia"));
                         materiax.put("hora", inicio + " - " + fin);
+                        materiax.put("id", resultado.getString("idUnidad"));
                         materias.add(materiax);
                         materiax = null;
 
@@ -67,7 +68,7 @@ public class obtenerHorarioDia {
         }
     }
     
-    private String obtenerJSON(){
+    public String obtenerJSON(){
         return materias.toString();
     }
 
