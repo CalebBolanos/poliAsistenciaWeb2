@@ -19,6 +19,9 @@
     <service name="enviaMails">
       <implementation-class>servicios.enviaMails</implementation-class>
     </service>
+    <service name="prefectos">
+      <implementation-class>servicios.prefectos</implementation-class>
+    </service>
   </services>
   <clients/>
 </jax-ws>
