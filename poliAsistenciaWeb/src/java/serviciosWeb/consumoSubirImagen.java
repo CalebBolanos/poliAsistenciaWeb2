@@ -5,6 +5,7 @@
  */
 package serviciosWeb;
 
+import conexion.imagenes;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
@@ -89,8 +90,9 @@ public class consumoSubirImagen extends HttpServlet {
             String nombreArchivo = Paths.get(foto.getSubmittedFileName()).toString();
             String tipoArchivo = Paths.get(foto.getContentType()).getFileName().toString();
             if (tipoArchivo.equals("png") || tipoArchivo.equals("jpeg")) {
-                String direccion = "C:/Users/Caleb/Documents/GitHub/poliAsistenciaWeb2/poliAsistenciaWeb/web/imagenes/perfil";//"D:/todo/poliAsistenciaWeb/web/imagenes/perfil";
-                File carpeta = new File(direccion);
+                imagenes imgServ = new imagenes();
+                String direccion = imgServ.getServidor();
+                File carpeta = new File(direccion); 
                 carpeta.mkdirs();
                 File archivo = File.createTempFile(identificador + "fotoPerfil" + nombreArchivo, "." + tipoArchivo, carpeta);
                 try (InputStream input = foto.getInputStream()) {
@@ -106,7 +108,7 @@ public class consumoSubirImagen extends HttpServlet {
                 boolean guardado = guardarUrl(id, urlbase);
                 if (guardado) {
                     try {
-                        Thread.sleep(2 * 10000);
+                        Thread.sleep(2 * 1000);
                     } 
                     catch (InterruptedException e) {
                     }

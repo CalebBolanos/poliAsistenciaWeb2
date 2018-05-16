@@ -5,6 +5,7 @@
  */
 package serviciosWeb;
 
+import conexion.imagenes;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
@@ -116,7 +117,8 @@ public class consumoSubirImagenNotificacionProfesor extends HttpServlet {
                 String nombreArchivo = Paths.get(foto.getSubmittedFileName()).toString();
                 String tipoArchivo = Paths.get(foto.getContentType()).getFileName().toString();
                 if (tipoArchivo.equals("png") || tipoArchivo.equals("jpeg")) {
-                    String direccion = "C:/Users/Caleb/Documents/GitHub/poliAsistenciaWeb2/poliAsistenciaWeb/web/imagenes/notificaciones/alumno";//"D:/todo/poliAsistenciaWeb/web/imagenes/perfil";
+                    imagenes imgServ = new imagenes();
+                    String direccion = imgServ.getServidor();
                     File carpeta = new File(direccion);
                     carpeta.mkdirs();
                     File archivo = File.createTempFile(identificador + "notificacionAlumno" + nombreArchivo, "." + tipoArchivo, carpeta);

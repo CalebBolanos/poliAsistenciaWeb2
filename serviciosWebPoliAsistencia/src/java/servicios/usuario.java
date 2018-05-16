@@ -274,5 +274,23 @@ public class usuario {
         return valido;
     }
     
+    @WebMethod(operationName = "guradaImagenAndroid")
+    public String guradaImagenAndroid(@WebParam(name="StringDeJSON") String StringDeJSON) {
+        String valido="Ocurrio un error";
+        try {
+            
+            JSONParser parser = new JSONParser();
+            JSONObject info = (JSONObject) parser.parse(StringDeJSON);
+            String bolet = (String) info.get("numero");
+            byte[] imgBy = (byte[]) info.get("img");
+            String nombreArchivo = (String) info.get("nombreArchivo");
+            base.guardarUrl guardar = new base.guardarUrl();
+            valido = guardar.guardaImagenAnd(bolet, imgBy, nombreArchivo);
+        } catch (ParseException ex) {
+            Logger.getLogger(usuario.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return valido;
+    }
+    
     
 }
