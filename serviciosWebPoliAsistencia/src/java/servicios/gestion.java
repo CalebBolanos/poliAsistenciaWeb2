@@ -5,10 +5,18 @@
  */
 package servicios;
 
+import conexion.cDatos;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.jws.WebService;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 
 /**
  *
@@ -114,6 +122,36 @@ public class gestion {
         boolean valido;
         base.guardarNotificacion guardar = new base.guardarNotificacion();
         valido = guardar.guardarNotificacion(tipoNotificacion, idPersona, titulo, descripcion, url, urlImg);
+        return valido;
+    }
+    
+    @WebMethod(operationName = "guardarNotificacionesAndroid")
+    public String guardarNotificacionesAndroid(@WebParam(name = "jeisonString") String jeisonString) {
+        String valido="";
+        try {
+            JSONParser parser = new JSONParser();
+            JSONObject info = (JSONObject) parser.parse(jeisonString);
+            String  boleta, titulo, descripcion, url;
+            boleta = (String) info.get("numero"); 
+            cDatos cd = new cDatos();
+            cd.conectar();
+            String idPer="0";
+            int idPersona = 0;
+            ResultSet rs  = cd.consulta("call spTraerIdPer('" + boleta + "');");
+            while(rs.next()){
+                idPersona = rs.getInt("idPp");
+            }
+            titulo = (String) info.get("titulo");
+            descripcion = (String) info.get("descripcion");
+            url = (String) info.get("url");
+            if(guardarNotificaciones(1, idPersona, titulo, descripcion, url, ""))
+                valido = "OK";
+            
+        } catch (ParseException ex) {
+            Logger.getLogger(gestion.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(gestion.class.getName()).log(Level.SEVERE, null, ex);
+        }
         return valido;
     }
     
