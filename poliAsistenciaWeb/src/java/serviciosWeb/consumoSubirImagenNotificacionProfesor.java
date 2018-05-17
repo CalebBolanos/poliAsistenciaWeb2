@@ -119,7 +119,7 @@ public class consumoSubirImagenNotificacionProfesor extends HttpServlet {
                 if (tipoArchivo.equals("png") || tipoArchivo.equals("jpeg")) {
                     imagenes imgServ = new imagenes();
                     String direccion = imgServ.getServidor();
-                    File carpeta = new File(direccion);
+                    File carpeta = new File("C:/Users/HP/Documents/GitHub/poliAsistenciaWeb2/poliAsistenciaWeb/web/imagenes/perfil");
                     carpeta.mkdirs();
                     File archivo = File.createTempFile(identificador + "notificacionAlumno" + nombreArchivo, "." + tipoArchivo, carpeta);
                     try (InputStream input = foto.getInputStream()) {

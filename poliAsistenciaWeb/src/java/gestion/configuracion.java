@@ -338,7 +338,7 @@ public class configuracion {
                 + "                        <div class=\"tarjetas\">\n"
                 + "                            <div class=\"iconos\" style=\" width: 100%; height: 230px;\">\n"
                 + "                                <center>\n"
-                + "                                    <div style=\"width: 130px; height: 130px; border-radius: 50%; background-repeat: no-repeat; background-position: center center; background-size: cover; background-image: url('../../"+traerUrl(_idPersona)+"');border: 5px whitesmoke solid; margin-top: 20px; position: relative\">\n"//Aqui hacer consulta foto
+                + "                                    <div style=\"width: 130px; height: 130px; border-radius: 50%; background-repeat: no-repeat; background-position: center center; background-size: cover; background-image: url('"+traerUrl(_idPersona)+"');border: 5px whitesmoke solid; margin-top: 20px; position: relative\">\n"//Aqui hacer consulta foto
                 + "                                        <div style=\"height:0px; overflow:hidden\">\n"
                 + "                                            <form action=\"consumoSubirImagen\" method=\"POST\" enctype=\"multipart/form-data\" id=\"subir\"><input type=\"file\" id=\"subirFoto\" name=\"subirFoto\" accept=\"image/*\"/></form>\n"
                 + "                                        </div>\n"
