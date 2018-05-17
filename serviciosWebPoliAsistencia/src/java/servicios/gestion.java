@@ -144,7 +144,7 @@ public class gestion {
             titulo = (String) info.get("titulo");
             descripcion = (String) info.get("descripcion");
             url = (String) info.get("url");
-            if(guardarNotificaciones(1, idPersona, titulo, descripcion, url, ""))
+            if(guardarNotificaciones(2, idPersona, titulo, descripcion, url, ""))
                 valido = "OK";
             
         } catch (ParseException ex) {
@@ -161,6 +161,18 @@ public class gestion {
         base.borrarNotificacion borrar = new base.borrarNotificacion();
         valido = borrar.borrarNotificacion(idNotificacion);
         return valido;
+    }
+    
+     @WebMethod(operationName = "borrarNotificacionesAndroid")
+    public String borrarNotificacionesAndroid(@WebParam(name = "idNotificacion") int idNotificacion) {
+        boolean valido;
+        String validoStr = "";
+        base.borrarNotificacion borrar = new base.borrarNotificacion();
+        valido = borrar.borrarNotificacion(idNotificacion);
+        if(valido){
+            validoStr = "ok";
+        }
+        return validoStr;
     }
     
     @WebMethod(operationName = "obtenerNotificacionEspecifica")

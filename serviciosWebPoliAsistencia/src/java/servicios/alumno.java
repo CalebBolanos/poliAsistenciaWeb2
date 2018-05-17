@@ -152,7 +152,7 @@ public class alumno {
     
     @WebMethod(operationName = "obtenerNotificacionesAndroid")
     public String obtenerNotificacionesAndroid(@WebParam(name = "tipoNotificacion") int tipoNotificacion) {
-        consultaAlumno.obtenerNotificaciones consulta = new consultaAlumno.obtenerNotificaciones(tipoNotificacion);
+        base.obtenerNotificaciones consulta = new base.obtenerNotificaciones(tipoNotificacion);
         return consulta.obtenerJSON();
     }
     

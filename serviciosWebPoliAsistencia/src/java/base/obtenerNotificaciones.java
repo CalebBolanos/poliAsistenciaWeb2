@@ -6,6 +6,8 @@
 package base;
 
 import java.sql.ResultSet;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 
 /**
  *
@@ -14,6 +16,9 @@ import java.sql.ResultSet;
 public class obtenerNotificaciones {
 
     private String html = "";
+    
+    private JSONObject notificacionx;
+    private JSONArray notificaciones = new JSONArray();
 
     public obtenerNotificaciones(int tipoNotificacion) {
         conexion.cDatos base = new conexion.cDatos();
@@ -21,6 +26,7 @@ public class obtenerNotificaciones {
             base.conectar();
             ResultSet resultado = base.consulta("call spNotificaciones(" + tipoNotificacion + ");");
             while (resultado.next()) {
+                notificacionx = new JSONObject();
                 if ((resultado.getString("imgN").equals(" ")) || (resultado.getString("imgN") == null)) {
                     html += "<div class=\"mdl-cell mdl-cell--8-col\" style=\"transition: all 0.3s cubic-bezier(.25,.8,.25,1); box-shadow: 0px 1px 2px rgba(0,0,0,0.09), 0 1px 2px rgba(0,0,0,0.25); border-radius: 3px 3px;  background-color: white\">\n"
                             + "                <div class=\"mdl-grid\">\n"
@@ -56,6 +62,17 @@ public class obtenerNotificaciones {
                             + "                    </div>\n"
                             + "                </div>\n"
                             + "            </div>";
+                    notificacionx.put("tipoNotificacion", "3");
+                    notificacionx.put("usuario", resultado.getString("nombre"));
+                    notificacionx.put("imagenUsuario", resultado.getString("imgP"));
+                    notificacionx.put("titulo", resultado.getString("titulo") );
+                    notificacionx.put("descripcion", resultado.getString("info"));
+                    notificacionx.put("imagen", "");
+                    notificacionx.put("url", resultado.getString("url"));
+                    notificacionx.put("borrar", "");
+                    notificaciones.add(notificacionx);
+                    notificacionx.put("idNoti", ""+resultado.getInt("idNoti"));
+                    notificacionx = null;
                 } else {//" + resultado.getString("img") + "
                     html += "  <div class=\"mdl-cell mdl-cell--8-col\" style=\"transition: all 0.3s cubic-bezier(.25,.8,.25,1); box-shadow: 0px 1px 2px rgba(0,0,0,0.09), 0 1px 2px rgba(0,0,0,0.25); border-radius: 3px 3px;  background-color: white\">\n"
                             + "                <div class=\"mdl-grid\">\n"
@@ -96,6 +113,17 @@ public class obtenerNotificaciones {
                             + "                    </div>\n"
                             + "                </div>\n"
                             + "            </div>";
+                    notificacionx.put("tipoNotificacion", "4");
+                    notificacionx.put("usuario", resultado.getString("nombre"));
+                    notificacionx.put("imagenUsuario", resultado.getString("imgP"));
+                    notificacionx.put("titulo", resultado.getString("titulo") );
+                    notificacionx.put("descripcion", resultado.getString("info"));
+                    notificacionx.put("imagen", resultado.getString("imgN"));
+                    notificacionx.put("url", resultado.getString("url"));
+                    notificacionx.put("borrar", "");
+                    notificacionx.put("idNoti", ""+resultado.getInt("idNoti"));
+                    notificaciones.add(notificacionx);
+                    notificacionx = null;
                 }
             }
             if (html.equals("")) {
@@ -109,5 +137,9 @@ public class obtenerNotificaciones {
 
     public String obtenerHtml() {
         return html;
+    }
+    
+    public String obtenerJSON(){
+        return notificaciones.toString();
     }
 }
