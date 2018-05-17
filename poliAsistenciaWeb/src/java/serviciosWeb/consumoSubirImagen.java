@@ -90,9 +90,9 @@ public class consumoSubirImagen extends HttpServlet {
             String nombreArchivo = Paths.get(foto.getSubmittedFileName()).toString();
             String tipoArchivo = Paths.get(foto.getContentType()).getFileName().toString();
             if (tipoArchivo.equals("png") || tipoArchivo.equals("jpeg")) {
-                imagenes imgServ = new imagenes();
-                String direccion = imgServ.getServidor();
-                File carpeta = new File(direccion); 
+                //imagenes imgServ = new imagenes();
+                //String direccion = imgServ.getServidor();
+                File carpeta = new File("/Users/caleb/Documents/GitHub/poliAsistenciaWeb2/poliAsistenciaWeb/web/imagenes/perfil"); 
                 carpeta.mkdirs();
                 File archivo = File.createTempFile(identificador + "fotoPerfil" + nombreArchivo, "." + tipoArchivo, carpeta);
                 try (InputStream input = foto.getInputStream()) {
