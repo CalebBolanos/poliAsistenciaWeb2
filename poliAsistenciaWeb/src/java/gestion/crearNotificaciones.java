@@ -390,7 +390,6 @@ public class crearNotificaciones {
                 + "                <span class=\"titulo\">&nbsp;Poli<span class=\"tituloBold\">Asistencia</span></span>\n"
                 + "                <nav class=\"mdl-navigation\">\n"
                 + "                    <a class=\"mdl-navigation__link disponible\" href=\"../inicio\"><i class=\"material-icons md-36 md-dark\">home</i> Inicio</a>\n"
-                + "                    <a class=\"mdl-navigation__link disponible\" href=\"../horario\" ><i class=\"material-icons md-36 md-dark\">date_range</i> Horario</a>\n"
                 + "                    <a class=\"mdl-navigation__link disponible\" href=\"../estadisticas\"><i class=\"material-icons md-36 md-dark\">insert_chart</i> Estadisticas</a>\n"
                 + "                    <a class=\"mdl-navigation__link seleccionado\" href=\"../notificaciones\"><i class=\"material-icons md-36 md-light\">list</i> Notificaciones</a>\n"
                 + "                    <a class=\"mdl-navigation__link disponible\" href=\"../configuracion\"><i class=\"material-icons md-36 md-dark\">settings</i> Configuración</a>\n"
