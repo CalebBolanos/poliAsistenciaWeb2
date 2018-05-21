@@ -95,6 +95,13 @@ public class consumoSubirImagen extends HttpServlet {
                 File carpeta = new File(direccion); 
                 carpeta.mkdirs();
                 File archivo = File.createTempFile(identificador + "fotoPerfil" + nombreArchivo, "." + tipoArchivo, carpeta);
+                String contenidoArchivo = new MimetypesFileTypeMap().getContentType(archivo);//mimetype, para saber el contenido del archivo
+                String tipo = contenidoArchivo.split("/")[0];
+                if(!tipo.equals("image")){
+                    mensaje = "La imagen que subiste esta alterada o corrompida, intentalo de nuevo";
+                    response.sendRedirect("configuracion?mensaje=" + mensaje);
+                    return;
+                }
                 try (InputStream input = foto.getInputStream()) {
                     Files.copy(input, archivo.toPath(), StandardCopyOption.REPLACE_EXISTING);
                 } catch (Exception error) {
