@@ -6,6 +6,8 @@
 package consultaProfesor;
 
 import java.sql.ResultSet;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 
 /**
  *
@@ -23,6 +25,8 @@ public class asistenciaIndividual {
             + "    </tr>\n"
             + "</thead>";
     private int asistido = 0, faltado = 0, totalDias = 0, mes = 0;
+    private JSONObject infox;
+    private JSONArray infoTabla = new JSONArray();
 
     public asistenciaIndividual(String idPer, String mes) {
         conexion.cDatos base = new conexion.cDatos();
@@ -30,15 +34,22 @@ public class asistenciaIndividual {
         try {
             this.mes = Integer.parseInt(mes);
             base.conectar();
-            ResultSet resultado = base.consulta("call spConsultaA(" + idPer + "," + mes + ");");
+            ResultSet resultado = base.consulta("call spConsultaAM(" + idPer + "," + mes + ");");
             infohtml += "<tbody>";
             while (resultado.next()) {
+                infox = new JSONObject();
                 infohtml += "<tr>\n"
                         + "     <td class=\"mdl-data-table__cell--non-numeric\">" + resultado.getString("asistecia") + "</td>\n"
                         + "     <td class=\"mdl-data-table__cell--non-numeric\">" + resultado.getString("dia") + "</td>\n"
                         + "     <td class=\"mdl-data-table__cell--non-numeric\">" + resultado.getString("Hora de entrada") + "</td>\n"
                         + "     <td class=\"mdl-data-table__cell--non-numeric\">" + resultado.getString("Hora de salida") + "</td>\n"
                         + " </tr>";
+                infox.put("asistecia", resultado.getString("asistecia"));
+                infox.put("dia", resultado.getString("dia"));
+                infox.put("entrada", resultado.getString("Hora de entrada"));
+                infox.put("salida", resultado.getString("Hora de salida"));
+                infoTabla.add(infox);
+                infox = null;
                 if (resultado.getString("asistecia").equals("si")) {
                     asistido++;
                 } else {
@@ -72,4 +83,9 @@ public class asistenciaIndividual {
     public int obtenerMes() {
         return mes;
     }
+    
+    public String obtenerInfoJSON(){
+        return infoTabla.toJSONString();
+    }
+    
 }

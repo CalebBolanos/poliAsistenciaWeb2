@@ -33,7 +33,7 @@ public class profesor {
     @WebMethod(operationName = "asistenciaInd")
     public ArrayList asistenciaInd(@WebParam(name = "idPer") String idPer, @WebParam(name = "mes") String mes) {
         ArrayList<Object> datos = new ArrayList<>();
-        consultaAlumno.asistenciaIndividual persona = new consultaAlumno.asistenciaIndividual(idPer, mes);
+        consultaProfesor.asistenciaIndividual persona = new consultaProfesor.asistenciaIndividual(idPer, mes);
         datos.add(persona.obtenerInformacion());
         datos.add(persona.obtenerTotalDias());
         datos.add(persona.obtenerDiasAsistidos());
@@ -41,7 +41,24 @@ public class profesor {
         datos.add(persona.obtenerMes());
         return datos;
     }
-
+    
+    @WebMethod(operationName = "infoAsistenciaIndividualAndroid")
+    public String infoAsistenciaIndividualAndroid(@WebParam(name = "datos") String datos) {
+        String idPer;
+        String mes;
+        try{
+            JSONParser parser = new JSONParser();
+            JSONObject info = (JSONObject) parser.parse(datos);
+            idPer = (String)info.get("idPer");
+            mes = (String)info.get("mes");
+        }
+        catch(Exception error){
+            return "error";
+        }
+        consultaProfesor.asistenciaIndividual persona = new consultaProfesor.asistenciaIndividual(idPer, mes);
+        return persona.obtenerInfoJSON();
+    }
+            
     @WebMethod(operationName = "unidades")
     public String unidades(@WebParam(name = "idPer") int idPer) {
         consultaProfesor.unidadesAprendizaje persona = new consultaProfesor.unidadesAprendizaje(idPer);
@@ -110,6 +127,37 @@ public class profesor {
     public String infoasistenciaUnidadDiaAndroid(@WebParam(name = "idUnidad") String idUnidad) {
         consultaProfesor.asistenciaUnidadPorDia asistencia = new consultaProfesor.asistenciaUnidadPorDia(idUnidad);
         return asistencia.obtenerinfoJSON();
+    }
+    @WebMethod(operationName = "graficaGeneralAndroid")
+    public String graficaGeneralAndroid(@WebParam(name = "idPer") String idPer) {
+        Calendar calendario = new GregorianCalendar();
+        int mes = calendario.get(Calendar.MONTH);
+        int totalDiasAsistidos = 0;
+        
+        JSONObject grafica = new JSONObject();
+        
+        if (mes > Calendar.JULY && mes < Calendar.DECEMBER + 1) {//Ciclo 1
+            grafica.put("Ciclo", "1");
+            for(int i= Calendar.AUGUST; i <= mes +1; i++){
+                consultaProfesor.asistenciaIndividual persona = new consultaProfesor.asistenciaIndividual(idPer, ""+i);
+                grafica.put("mes "+i, persona.obtenerDiasAsistidos());
+                totalDiasAsistidos += persona.obtenerDiasAsistidos();
+                persona = null;
+            }
+        }else{
+            if (mes > Calendar.JANUARY - 1 && mes < Calendar.AUGUST) {//Ciclo 2
+                grafica.put("Ciclo", "2");
+                for(int i= Calendar.JANUARY+1; i<=mes + 1; i++){
+                consultaProfesor.asistenciaIndividual persona = new consultaProfesor.asistenciaIndividual(idPer, ""+i);
+                grafica.put("mes "+i, persona.obtenerDiasAsistidos());
+                totalDiasAsistidos += persona.obtenerDiasAsistidos();
+                persona = null;
+            }
+            }
+        }
+                grafica.put("mes actual", ""+(mes+1));
+        grafica.put("total asistidos", totalDiasAsistidos);
+        return grafica.toString();
     }
 
     @WebMethod(operationName = "asistenciaUnidasMes")
