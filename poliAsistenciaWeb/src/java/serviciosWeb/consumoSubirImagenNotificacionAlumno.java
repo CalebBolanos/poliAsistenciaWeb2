@@ -13,6 +13,7 @@ import java.io.PrintWriter;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
+import javax.activation.MimetypesFileTypeMap;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
@@ -106,9 +107,16 @@ public class consumoSubirImagenNotificacionAlumno extends HttpServlet {
                 if (tipoArchivo.equals("png") || tipoArchivo.equals("jpeg")) {
                     imagenes imgServ = new imagenes();
                     String direccion = imgServ.getServidor();
-                    File carpeta = new File("C:/Users/HP/Documents/GitHub/poliAsistenciaWeb2/poliAsistenciaWeb/web/imagenes/notificaciones/alumno");
+                    File carpeta = new File("C:/Users/alexi/Documents/GitHub/poliAsistenciaWeb2/poliAsistenciaWeb/web/imagenes/notificaciones/alumno");
                     carpeta.mkdirs();
                     File archivo = File.createTempFile(identificador + "notificacionAlumno" + nombreArchivo, "." + tipoArchivo, carpeta);
+                    String contenidoArchivo = new MimetypesFileTypeMap().getContentType(archivo);//mimetype, para saber el contenido del archivo
+                    String tipo = contenidoArchivo.split("/")[0];
+                    if(!tipo.equals("image")){
+                        mensaje = "La imagen que subiste esta alterada o corrompida, intentalo de nuevo";
+                        response.sendRedirect("notificaciones/crearNotificaciones?mensaje=" + mensaje);
+                        return;
+                    }
                     try (InputStream input = foto.getInputStream()) {
                         Files.copy(input, archivo.toPath(), StandardCopyOption.REPLACE_EXISTING);
                     } catch (Exception error) {

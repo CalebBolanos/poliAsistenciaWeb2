@@ -11,7 +11,7 @@ package conexion;
  */
 public class imagenes {
     private String servidor1 = "C:/Users/Caleb/Documents/GitHub/poliAsistenciaWeb2/poliAsistenciaWeb/web/imagenes/perfil";
-    private String servidor2 = "C:/Users/HP/Documents/GitHub/poliAsistenciaWeb2/poliAsistenciaWeb/web/imagenes/perfil";
+    private String servidor2 = "C:/Users/alexi/Documents/GitHub/poliAsistenciaWeb2/poliAsistenciaWeb/web/imagenes/perfil";
     
     public String getServidor(){
         return servidor2;
