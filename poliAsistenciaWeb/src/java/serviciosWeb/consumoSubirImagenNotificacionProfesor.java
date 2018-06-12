@@ -118,9 +118,7 @@ public class consumoSubirImagenNotificacionProfesor extends HttpServlet {
                 String nombreArchivo = Paths.get(foto.getSubmittedFileName()).toString();
                 String tipoArchivo = Paths.get(foto.getContentType()).getFileName().toString();
                 if (tipoArchivo.equals("png") || tipoArchivo.equals("jpeg")) {
-                    imagenes imgServ = new imagenes();
-                    String direccion = imgServ.getServidor();
-                    File carpeta = new File("C:/Users/alexi/Documents/GitHub/poliAsistenciaWeb2/poliAsistenciaWeb/web/imagenes/notificaciones/alumno");
+                    File carpeta = new File(conexion.imagenes.NOTIFICACIONES_CALEB_MAC);
                     carpeta.mkdirs();
                     File archivo = File.createTempFile(identificador + "notificacionAlumno" + nombreArchivo, "." + tipoArchivo, carpeta);
                     String contenidoArchivo = new MimetypesFileTypeMap().getContentType(archivo);//mimetype, para saber el contenido del archivo
