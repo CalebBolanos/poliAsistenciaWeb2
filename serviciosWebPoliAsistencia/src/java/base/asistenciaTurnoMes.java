@@ -39,7 +39,7 @@ public class asistenciaTurnoMes {
                 if(resultado.getString("faltas") == null){
                     falta = "0";
                 }else{
-                    falta = resultado.getString("faltados");
+                    falta = resultado.getString("faltas");
                 }
                 html += " <tr>\n"
                         + "    <td class=\"mdl-data-table__cell--non-numeric\">" + resultado.getString("boleta") + "</td>\n"
@@ -47,7 +47,7 @@ public class asistenciaTurnoMes {
                         + "    <td class=\"mdl-data-table__cell--non-numeric\">" + resultado.getString("Asistidos") + "</td>\n"
                         + "    <td class=\"mdl-data-table__cell--non-numeric\">" + falta + "</td>\n"
                         + "</tr>";
-                alumnoAsistido = Integer.parseInt(resultado.getString("asistidos"));
+                alumnoAsistido = Integer.parseInt(resultado.getString("Asistidos"));
                 totalAsistido += alumnoAsistido / (float)totalDias;
                 numeroAlumnos++;
             }

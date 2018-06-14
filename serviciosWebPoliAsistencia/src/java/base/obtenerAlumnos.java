@@ -31,7 +31,7 @@ public class obtenerAlumnos {
         conexion.cDatos base = new conexion.cDatos();
         try {
             base.conectar();
-            ResultSet resultado = base.consulta("select * from vwalumnoscongrupo;");
+            ResultSet resultado = base.consulta("call spDatosAlumnos();");
             while (resultado.next()) {
                 _html += "<tr>\n"
                         + "    <td class=\"mdl-data-table__cell--non-numeric\">"+resultado.getString("boleta")+"</td>\n"

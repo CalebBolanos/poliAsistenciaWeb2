@@ -56,7 +56,7 @@ public class asistenciaTurnoPorDia {
             int mes = calendario.get(Calendar.MONTH) + 1;
             int dia = calendario.get(Calendar.DAY_OF_MONTH);
             base.conectar();
-            ResultSet resultado = base.consulta("call spAsistenciaGrupoDia("+mes+","+dia+",'"+turno+"');");
+            ResultSet resultado = base.consulta("call spAsistenciaTurnoDia("+mes+","+dia+",'"+turno+"');");
             while (resultado.next()) {
                 html += " <tr>\n"
                         + "    <td class=\"mdl-data-table__cell--non-numeric\">" + resultado.getString("boleta") + "</td>\n"
