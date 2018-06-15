@@ -719,7 +719,7 @@ public class asistenciaIndividual {
                             + "            });";
                 }
                 if (mes > Calendar.MAY) {
-                    ArrayList<Object> datosJunio = new ArrayList<>(asistenciaInd(Integer.toString(_idPersona), Integer.toString(5)));
+                    ArrayList<Object> datosJunio = new ArrayList<>(asistenciaInd(Integer.toString(_idPersona), Integer.toString(6)));
                     infoJunio = (String) datosJunio.get(0);
                     totalJunio = (int) datosJunio.get(1);
                     asistidosJunio = (int) datosJunio.get(2);
@@ -784,7 +784,7 @@ public class asistenciaIndividual {
                             + "            });";
                 }
                 if (mes > Calendar.JUNE) {
-                    ArrayList<Object> datosJulio = new ArrayList<>(asistenciaInd(Integer.toString(_idPersona), Integer.toString(6)));
+                    ArrayList<Object> datosJulio = new ArrayList<>(asistenciaInd(Integer.toString(_idPersona), Integer.toString(7)));
                     infoJulio = (String) datosJulio.get(0);
                     totalJulio = (int) datosJulio.get(1);
                     asistidosJulio = (int) datosJulio.get(2);
