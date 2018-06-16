@@ -96,6 +96,10 @@ public class consumoSubirImagenNotificacionProfesor extends HttpServlet {
             String titulo = new String(request.getParameter("tit").getBytes(), "UTF-8") != null ? new String(request.getParameter("tit").getBytes(), "UTF-8") : "";
             String info = new String(request.getParameter("info").getBytes(), "UTF-8") != null ? new String(request.getParameter("info").getBytes(), "UTF-8") : "";
             String url = new String(request.getParameter("url").getBytes(), "UTF-8") != null ? new String(request.getParameter("url").getBytes(), "UTF-8") : "";
+            if(titulo.length() > 100 || info.length() > 200 || url.length() > 300){
+                response.sendRedirect("notificaciones/crearNotificaciones?mensaje=El contenido excede a la cantidad de caracteres que soporta una notificacion");
+                return;
+            }
             String mai="off";
             try{mai = new String(request.getParameter("mail").getBytes(), "UTF-8") != null ? new String(request.getParameter("mail").getBytes(), "UTF-8") : "";
             }catch(Exception xd){
