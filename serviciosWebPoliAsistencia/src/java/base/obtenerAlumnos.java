@@ -37,9 +37,9 @@ public class obtenerAlumnos {
                         + "    <td class=\"mdl-data-table__cell--non-numeric\">"+resultado.getString("boleta")+"</td>\n"
                         + "    <td class=\"mdl-data-table__cell--non-numeric\">"+resultado.getString("paterno")+" "+resultado.getString("materno")+" "+resultado.getString("nombre")+"</td>\n"
                         + "    <td class=\"mdl-data-table__cell--non-numeric\">"+resultado.getString("grupo")+"</td>\n"
-                        + "    <td class=\"mdl-data-table__cell--non-numeric\">Matutino</td>\n"//falta consultar turnooooooo
+                        + "    <td class=\"mdl-data-table__cell--non-numeric\">"+resultado.getString("grupo")+"</td>\n"//falta consultar turnooooooo
                         + "    <td class=\"mdl-data-table__cell--non-numeric\">"+resultado.getString("semestre")+"</td>\n"
-                        + "    <td class=\"mdl-data-table__cell--non-numeric\">Programación</td>\n"//y especialidad
+                        + "    <td class=\"mdl-data-table__cell--non-numeric\">"+resultado.getString("area")+"</td>\n"//y especialidad
                         + "    <td class=\"mdl-data-table__cell--non-numeric\"><button class=\"mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--primary\" style=\"width: 100%\" onclick=\"enviarAlumno('"+resultado.getString("idPersona")+"', '"+resultado.getString("paterno")+" "+resultado.getString("materno")+" "+resultado.getString("nombre")+"');\">Ver mas</button></td>\n"
                         + "</tr>";
             }
