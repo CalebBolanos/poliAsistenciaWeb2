@@ -5,6 +5,7 @@
  */
 package servicios;
 
+import base.guardarFotos;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -292,5 +293,40 @@ public class usuario {
         return valido;
     }
     
+    
+    @WebMethod(operationName = "pruebaFotos")//para guardar las fotos de perfil desde android
+    public String pruebaFotos(@WebParam(name = "datos") String datos) {
+        String idPer;
+        String idTipo;
+        String contenidoFoto;
+        String nombrePersona;
+        String resultado;
+        String url;
+        try{
+            JSONParser parser = new JSONParser();
+            JSONObject info = (JSONObject) parser.parse(datos);
+            idPer = (String)info.get("idPer");
+            idTipo = (String)info.get("idTipo");
+            contenidoFoto = (String)info.get("foto");
+            nombrePersona = (String)info.get("nombre");
+            guardarFotos foto = new guardarFotos(contenidoFoto, 2, idPer, idTipo, nombrePersona);
+            if(foto.seGuardo()){
+                url = "imagenes/perfil/"+ idPer +"_"+ idTipo +""+ nombrePersona +".jpg";
+                if(guardarUrl(Integer.parseInt(idPer), url)){
+                    resultado = "bien";
+                }
+                else{
+                    resultado = "mal";
+                }
+            }
+            else{
+                resultado = "mal";
+            }
+        }
+        catch(Exception error){
+            return "error";
+        }
+        return resultado;
+    }
     
 }
