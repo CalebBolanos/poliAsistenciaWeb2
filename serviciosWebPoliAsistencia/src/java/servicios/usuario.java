@@ -275,33 +275,9 @@ public class usuario {
         return valido;
     }
     
-    @WebMethod(operationName = "guradaImagenAndroid")
-    public String guradaImagenAndroid(@WebParam(name="StringDeJSON") String StringDeJSON) {
-        String valido="Ocurrio un error";
-        try {
-            
-            JSONParser parser = new JSONParser();
-            JSONObject info = (JSONObject) parser.parse(StringDeJSON);
-            String bolet = (String) info.get("numero");
-            byte[] imgBy = (byte[]) info.get("img");
-            String nombreArchivo = (String) info.get("nombreArchivo");
-            base.guardarUrl guardar = new base.guardarUrl();
-            valido = guardar.guardaImagenAnd(bolet, imgBy, nombreArchivo);
-        } catch (ParseException ex) {
-            Logger.getLogger(usuario.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return valido;
-    }
-    
-    
-    @WebMethod(operationName = "pruebaFotos")//para guardar las fotos de perfil desde android
-    public String pruebaFotos(@WebParam(name = "datos") String datos) {
-        String idPer;
-        String idTipo;
-        String contenidoFoto;
-        String nombrePersona;
-        String resultado;
-        String url;
+    @WebMethod(operationName = "subirFotoPerfilAndroid")//para guardar las fotos de perfil desde android
+    public String subirFotoPerfilAndroid(@WebParam(name = "datos") String datos) {
+        String idPer, idTipo, contenidoFoto, nombrePersona, resultado, url;
         try{
             JSONParser parser = new JSONParser();
             JSONObject info = (JSONObject) parser.parse(datos);
