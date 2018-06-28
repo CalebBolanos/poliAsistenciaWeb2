@@ -287,9 +287,10 @@ public class usuario {
             nombrePersona = (String)info.get("nombre");
             guardarFotos foto = new guardarFotos(contenidoFoto, 2, idPer, idTipo, nombrePersona);
             if(foto.seGuardo()){
-                url = "imagenes/perfil/"+ idPer +"_"+ idTipo +""+ nombrePersona +".jpg";
+                String hora = foto.obtenerHora();
+                url = "imagenes/perfil/"+ idPer +"_"+ idTipo +""+ nombrePersona +""+ hora +".jpg";
                 if(guardarUrl(Integer.parseInt(idPer), url)){
-                    resultado = "bien";
+                    resultado = url;
                 }
                 else{
                     resultado = "mal";

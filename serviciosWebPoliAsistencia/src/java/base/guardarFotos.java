@@ -8,6 +8,8 @@ package base;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
 import java.io.File;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import javax.imageio.ImageIO;
 import javax.xml.bind.DatatypeConverter;
 
@@ -19,6 +21,7 @@ public class guardarFotos {
     String direccionArchivo = "";
     boolean guardado = false;
     String direccionFinal = "";
+    String hora = "";
     public guardarFotos(String imagenString, int servidor, String idPer, String idTipo, String nombre){
         switch (servidor){
             case 1:
@@ -38,7 +41,8 @@ public class guardarFotos {
         try{
             byte[] imagenBytes = DatatypeConverter.parseBase64Binary(imagenString);
             BufferedImage image = ImageIO.read(new ByteArrayInputStream(imagenBytes));
-            direccionFinal = direccionArchivo+"/"+ idPer +"_"+ idTipo +""+ nombre +".jpg";
+            hora = new SimpleDateFormat("yyyyMMdd_HHmmss").format(Calendar.getInstance().getTime());
+            direccionFinal = direccionArchivo+"/"+ idPer +"_"+ idTipo +""+ nombre +""+ hora +".jpg";
             File archivoFoto = new File(direccionFinal);
             ImageIO.write(image, "jpg", archivoFoto);
             guardado = true;
@@ -55,5 +59,9 @@ public class guardarFotos {
     
     public String obtenerDireccionFinal(){
         return direccionFinal;
+    }
+    
+    public String obtenerHora(){
+        return hora;
     }
 }
