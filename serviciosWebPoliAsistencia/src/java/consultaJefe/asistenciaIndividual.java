@@ -29,7 +29,7 @@ public class asistenciaIndividual {
         this.mes = Integer.parseInt(mes);
         try {
             base.conectar();
-            ResultSet resultado = base.consulta("call spConsultaA(" + idPer + "," + mes + ");");
+            ResultSet resultado = base.consulta("call spConsultaAM(" + idPer + "," + mes + ");");
             infohtml += "<tbody>";
             while (resultado.next()) {
                 infohtml += "<tr>\n"
