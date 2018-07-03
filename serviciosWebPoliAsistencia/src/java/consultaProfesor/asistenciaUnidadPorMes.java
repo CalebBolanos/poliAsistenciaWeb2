@@ -22,11 +22,17 @@ public class asistenciaUnidadPorMes {
             + "                                                <th class=\"mdl-data-table__cell--non-numeric\">Nombre</th>\n"
             + "                                                <th class=\"mdl-data-table__cell--non-numeric\">Dias Asistidos</th>\n"
             + "                                                <th class=\"mdl-data-table__cell--non-numeric\">Dias Faltados</th>\n"
+            + "                                                <th class=\"mdl-data-table__cell--non-numeric\">% de Asistencia</th>\n"
+            + "                                                <th class=\"mdl-data-table__cell--non-numeric\">% de Inasistencia</th>\n"
             + "                                            </tr>\n"
             + "                                        </thead>\n"
             + "                                        <tbody>";
-    private int numeroAlumnos, totalDias, alumnoAsistido;
-    private float totalAsistido, totalFaltado;
+    private int diasHabiles = 0;
+    private int falta = 0, asistencia = 0;
+    private float promedioAsistenciaIndividual = 0f, promedioInasistenciaIndividual = 0f;
+    private int numeroAlumnos = 0;
+    private float sumaAsistencia = 0f, sumaInasistencia = 0f;
+    private float promedioAsistencia = 0f, promedioInasistencia = 0f;
     private JSONObject alumnox;
     private JSONArray alumnos = new JSONArray();
 
@@ -35,31 +41,65 @@ public class asistenciaUnidadPorMes {
         try {
             base.conectar();
             ResultSet resultado = base.consulta("call spAsistenciaUnidadMes(" + idUnidad + "," + mes + ");");
-            ResultSet dias = base.consulta("call spATotal(" + idUnidad + "," + mes + ");");
-            if(dias.next()){
-                totalDias = dias.getInt("Total");
-            }
+            ResultSet resultado2 = base.consulta("call spAsistenciaUnidadMes2(" + idUnidad + "," + mes + ");");
             while (resultado.next()) {
                 alumnox = new JSONObject();
+                asistencia = Integer.parseInt(resultado.getString("asistidos"));
+                falta = Integer.parseInt(resultado.getString("faltas"));
+                diasHabiles = asistencia + falta;
+                promedioInasistenciaIndividual = (falta * 100) / diasHabiles;
+                promedioAsistenciaIndividual = 100 - promedioInasistenciaIndividual;
                 html += " <tr>\n"
                         + "    <td class=\"mdl-data-table__cell--non-numeric\">" + resultado.getString("boleta") + "</td>\n"
                         + "    <td class=\"mdl-data-table__cell--non-numeric\">" + resultado.getString("nombre") + "</td>\n"
-                        + "    <td class=\"mdl-data-table__cell--non-numeric\">" + resultado.getString("asistidos") + "</td>\n"
-                        + "    <td class=\"mdl-data-table__cell--non-numeric\">" + resultado.getString("Mes") + "</td>\n"
+                        + "    <td class=\"mdl-data-table__cell--non-numeric\">" + resultado.getString("Asistidos") + "</td>\n"
+                        + "    <td class=\"mdl-data-table__cell--non-numeric\">" + resultado.getString("faltas") + "</td>\n"
+                        + "    <td class=\"mdl-data-table__cell--non-numeric\">" + promedioAsistenciaIndividual + "%" + "</td>\n"
+                        + "    <td class=\"mdl-data-table__cell--non-numeric\">" + promedioInasistenciaIndividual + "%" + "</td>\n"
                         + "</tr>";
+                numeroAlumnos++;
+                sumaAsistencia += promedioAsistenciaIndividual;
+                sumaInasistencia += promedioInasistenciaIndividual;
                 alumnox.put("boleta", resultado.getString("boleta"));
                 alumnox.put("nombre", resultado.getString("nombre"));
                 alumnox.put("asistidos", resultado.getString("asistidos"));
-                alumnox.put("faltado", resultado.getString("Mes"));
+                alumnox.put("faltado", resultado.getString("faltas"));
                 alumnos.add(alumnox);
                 alumnox = null;
-                alumnoAsistido = Integer.parseInt(resultado.getString("asistidos"));
-                totalAsistido += alumnoAsistido / (float)totalDias;
+                numeroAlumnos++;
+            }
+            while(resultado2.next()){
+                alumnox = new JSONObject();
+                asistencia = Integer.parseInt(resultado2.getString("asistidos"));
+                falta = Integer.parseInt(resultado2.getString("faltas"));
+                diasHabiles = asistencia + falta;
+                promedioInasistenciaIndividual = (falta * 100) / diasHabiles;
+                promedioAsistenciaIndividual = 100 - promedioInasistenciaIndividual;
+                html += " <tr>\n"
+                        + "    <td class=\"mdl-data-table__cell--non-numeric\">" + resultado2.getString("boleta") + "</td>\n"
+                        + "    <td class=\"mdl-data-table__cell--non-numeric\">" + resultado2.getString("nombre") + "</td>\n"
+                        + "    <td class=\"mdl-data-table__cell--non-numeric\">" + resultado2.getString("Asistidos") + "</td>\n"
+                        + "    <td class=\"mdl-data-table__cell--non-numeric\">" + resultado2.getString("faltas") + "</td>\n"
+                        + "    <td class=\"mdl-data-table__cell--non-numeric\">" + promedioAsistenciaIndividual + "%" + "</td>\n"
+                        + "    <td class=\"mdl-data-table__cell--non-numeric\">" + promedioInasistenciaIndividual + "%" + "</td>\n"
+                        + "</tr>";
+                numeroAlumnos++;
+                sumaAsistencia += promedioAsistenciaIndividual;
+                sumaInasistencia += promedioInasistenciaIndividual;
+                alumnox.put("boleta", resultado2.getString("boleta"));
+                alumnox.put("nombre", resultado2.getString("nombre"));
+                alumnox.put("asistidos", resultado2.getString("asistidos"));
+                alumnox.put("faltado", resultado2.getString("faltas"));
+                alumnos.add(alumnox);
+                alumnox = null;
                 numeroAlumnos++;
             }
             html += "</tbody>";
             html += "</table>";
-            totalFaltado = numeroAlumnos - totalAsistido;
+            if(numeroAlumnos > 0){
+                promedioAsistencia = sumaAsistencia / numeroAlumnos;
+                promedioInasistencia = sumaInasistencia / numeroAlumnos;
+            }
         } catch (Exception error) {
             html = "";
         }
@@ -71,19 +111,24 @@ public class asistenciaUnidadPorMes {
     }
     
     public float promedioAsistido(){
-        return totalAsistido;
+        return promedioAsistencia;
     }
     
     public float pormedioFaltado(){
-        return totalFaltado;
+        return promedioInasistencia;
     }
     
     public int totalDias(){
-        return totalDias;
+        return diasHabiles;
     }
     
     public float grafTotalDias(){
-        return totalAsistido * (float)1.3;
+        if(promedioAsistencia > promedioInasistencia){
+            return promedioAsistencia * (float)1.3;
+        }
+        else{
+            return promedioInasistencia * (float)1.3;
+        }
     }
     
     public String obtenerinfoJSON(){
