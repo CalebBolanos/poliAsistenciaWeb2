@@ -17,10 +17,10 @@ public class guardarCorreo {
         conexion.cDatos base = new conexion.cDatos();
         try{
             base.conectar();
-            ResultSet resultado = base.consulta("call spCambiaMail("+idPer+",'"+correo+"');");
+            ResultSet resultado = base.consulta("call spGuardaCorreo("+idPer+",'"+correo+"');");
             if(resultado.next()){
                 if(resultado.getString("existe").equals("1")){
-                     guardado = resultado.getString("msj").equals("ok");
+                     guardado = resultado.getString("msj").equals("Correo actualizado");
                 }
                 else{
                     guardado = false;
