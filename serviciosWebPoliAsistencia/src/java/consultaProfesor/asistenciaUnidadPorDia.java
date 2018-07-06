@@ -28,11 +28,11 @@ public class asistenciaUnidadPorDia {
     private JSONObject infox;
     private JSONArray infoTabla = new JSONArray();
 
-    public asistenciaUnidadPorDia(String idUnidad) {
+    public asistenciaUnidadPorDia(int mes, int dia, String idUnidad) {
         conexion.cDatos base = new conexion.cDatos();
         try {
             base.conectar();
-            ResultSet resultado = base.consulta("call spAsistenciaUnidad(" + idUnidad + ");");
+            ResultSet resultado = base.consulta("call spAsistenciaUnidad(" + mes + "," + dia + "," + idUnidad + ");");
             while (resultado.next()) {
                 infox = new JSONObject();
                 html += " <tr>\n"

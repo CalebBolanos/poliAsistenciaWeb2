@@ -124,7 +124,10 @@ public class profesor {
 
     @WebMethod(operationName = "asistenciaUnidadDia")
     public ArrayList asistenciaUnidadDia(@WebParam(name = "idUnidad") String idUnidad) {
-        consultaProfesor.asistenciaUnidadPorDia asistencia = new consultaProfesor.asistenciaUnidadPorDia(idUnidad);
+        Calendar calendario = new GregorianCalendar();
+        int mes = calendario.get(Calendar.MONTH)+1;
+        int dia = calendario.get(Calendar.DAY_OF_MONTH);
+        consultaProfesor.asistenciaUnidadPorDia asistencia = new consultaProfesor.asistenciaUnidadPorDia(mes, dia, idUnidad);
         ArrayList<Object> datos = new ArrayList<>();
         datos.add(asistencia.obtenerHtml());
         datos.add(asistencia.obtenerAlumnosAsistidos());
@@ -136,7 +139,10 @@ public class profesor {
 
     @WebMethod(operationName = "asistenciaUnidadDiaAndroid")
     public String asistenciaUnidadDiaAndroid(@WebParam(name = "idUnidad") String idUnidad) {
-        consultaProfesor.asistenciaUnidadPorDia asistencia = new consultaProfesor.asistenciaUnidadPorDia(idUnidad);
+        Calendar calendario = new GregorianCalendar();
+        int mes = calendario.get(Calendar.MONTH)+1;
+        int dia = calendario.get(Calendar.DAY_OF_MONTH);
+        consultaProfesor.asistenciaUnidadPorDia asistencia = new consultaProfesor.asistenciaUnidadPorDia(mes, dia, idUnidad);
         JSONObject info = new JSONObject();
         info.put("asistido", asistencia.obtenerAlumnosAsistidos());
         info.put("faltado", asistencia.obtenerAlumnosFaltados());
@@ -145,7 +151,10 @@ public class profesor {
 
     @WebMethod(operationName = "infoasistenciaUnidadDiaAndroid")
     public String infoasistenciaUnidadDiaAndroid(@WebParam(name = "idUnidad") String idUnidad) {
-        consultaProfesor.asistenciaUnidadPorDia asistencia = new consultaProfesor.asistenciaUnidadPorDia(idUnidad);
+        Calendar calendario = new GregorianCalendar();
+        int mes = calendario.get(Calendar.MONTH)+1;
+        int dia = calendario.get(Calendar.DAY_OF_MONTH);
+        consultaProfesor.asistenciaUnidadPorDia asistencia = new consultaProfesor.asistenciaUnidadPorDia(mes, dia, idUnidad);
         return asistencia.obtenerinfoJSON();
     }
     @WebMethod(operationName = "graficaGeneralAndroid")
