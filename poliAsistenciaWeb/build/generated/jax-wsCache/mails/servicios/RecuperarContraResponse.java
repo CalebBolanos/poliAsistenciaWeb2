@@ -7,12 +7,12 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Clase Java para cambia complex type.
+ * <p>Clase Java para recuperarContraResponse complex type.
  * 
  * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
  * 
  * <pre>
- * &lt;complexType name="cambia"&gt;
+ * &lt;complexType name="recuperarContraResponse"&gt;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
@@ -25,8 +25,8 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "cambia")
-public class Cambia {
+@XmlType(name = "recuperarContraResponse")
+public class RecuperarContraResponse {
 
 
 }

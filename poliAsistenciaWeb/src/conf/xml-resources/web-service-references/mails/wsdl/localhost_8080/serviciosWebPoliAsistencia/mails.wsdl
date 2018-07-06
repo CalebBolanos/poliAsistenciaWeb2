@@ -4,12 +4,6 @@
 <xsd:import namespace="http://servicios/" schemaLocation="http://localhost:8080/serviciosWebPoliAsistencia/mails?xsd=1"/>
 </xsd:schema>
 </types>
-<message name="recuperaContra">
-<part name="parameters" element="tns:recuperaContra"/>
-</message>
-<message name="recuperaContraResponse">
-<part name="parameters" element="tns:recuperaContraResponse"/>
-</message>
 <message name="mandaMAils">
 <part name="parameters" element="tns:mandaMAils"/>
 </message>
@@ -22,35 +16,46 @@
 <message name="mandaMAilResponse">
 <part name="parameters" element="tns:mandaMAilResponse"/>
 </message>
-<message name="validaCuenta">
-<part name="parameters" element="tns:validaCuenta"/>
-</message>
-<message name="validaCuentaResponse">
-<part name="parameters" element="tns:validaCuentaResponse"/>
-</message>
-<message name="confirma">
-<part name="parameters" element="tns:confirma"/>
-</message>
-<message name="confirmaResponse">
-<part name="parameters" element="tns:confirmaResponse"/>
-</message>
-<message name="cambia">
-<part name="parameters" element="tns:cambia"/>
-</message>
-<message name="cambiaResponse">
-<part name="parameters" element="tns:cambiaResponse"/>
-</message>
 <message name="baseMail">
 <part name="parameters" element="tns:baseMail"/>
 </message>
 <message name="baseMailResponse">
 <part name="parameters" element="tns:baseMailResponse"/>
 </message>
+<message name="validarCodigo">
+<part name="parameters" element="tns:validarCodigo"/>
+</message>
+<message name="validarCodigoResponse">
+<part name="parameters" element="tns:validarCodigoResponse"/>
+</message>
+<message name="recuperarContra">
+<part name="parameters" element="tns:recuperarContra"/>
+</message>
+<message name="recuperarContraResponse">
+<part name="parameters" element="tns:recuperarContraResponse"/>
+</message>
+<message name="descifra">
+<part name="parameters" element="tns:descifra"/>
+</message>
+<message name="descifraResponse">
+<part name="parameters" element="tns:descifraResponse"/>
+</message>
+<message name="Exception">
+<part name="fault" element="tns:Exception"/>
+</message>
+<message name="cifra">
+<part name="parameters" element="tns:cifra"/>
+</message>
+<message name="cifraResponse">
+<part name="parameters" element="tns:cifraResponse"/>
+</message>
+<message name="validarCuenta">
+<part name="parameters" element="tns:validarCuenta"/>
+</message>
+<message name="validarCuentaResponse">
+<part name="parameters" element="tns:validarCuentaResponse"/>
+</message>
 <portType name="enviaMails">
-<operation name="recuperaContra">
-<input wsam:Action="http://servicios/enviaMails/recuperaContraRequest" message="tns:recuperaContra"/>
-<output wsam:Action="http://servicios/enviaMails/recuperaContraResponse" message="tns:recuperaContraResponse"/>
-</operation>
 <operation name="mandaMAils">
 <input wsam:Action="http://servicios/enviaMails/mandaMAilsRequest" message="tns:mandaMAils"/>
 <output wsam:Action="http://servicios/enviaMails/mandaMAilsResponse" message="tns:mandaMAilsResponse"/>
@@ -59,34 +64,35 @@
 <input wsam:Action="http://servicios/enviaMails/mandaMAilRequest" message="tns:mandaMAil"/>
 <output wsam:Action="http://servicios/enviaMails/mandaMAilResponse" message="tns:mandaMAilResponse"/>
 </operation>
-<operation name="validaCuenta">
-<input wsam:Action="http://servicios/enviaMails/validaCuentaRequest" message="tns:validaCuenta"/>
-<output wsam:Action="http://servicios/enviaMails/validaCuentaResponse" message="tns:validaCuentaResponse"/>
-</operation>
-<operation name="confirma">
-<input wsam:Action="http://servicios/enviaMails/confirmaRequest" message="tns:confirma"/>
-<output wsam:Action="http://servicios/enviaMails/confirmaResponse" message="tns:confirmaResponse"/>
-</operation>
-<operation name="cambia">
-<input wsam:Action="http://servicios/enviaMails/cambiaRequest" message="tns:cambia"/>
-<output wsam:Action="http://servicios/enviaMails/cambiaResponse" message="tns:cambiaResponse"/>
-</operation>
 <operation name="baseMail">
 <input wsam:Action="http://servicios/enviaMails/baseMailRequest" message="tns:baseMail"/>
 <output wsam:Action="http://servicios/enviaMails/baseMailResponse" message="tns:baseMailResponse"/>
 </operation>
+<operation name="validarCodigo">
+<input wsam:Action="http://servicios/enviaMails/validarCodigoRequest" message="tns:validarCodigo"/>
+<output wsam:Action="http://servicios/enviaMails/validarCodigoResponse" message="tns:validarCodigoResponse"/>
+</operation>
+<operation name="recuperarContra">
+<input wsam:Action="http://servicios/enviaMails/recuperarContraRequest" message="tns:recuperarContra"/>
+<output wsam:Action="http://servicios/enviaMails/recuperarContraResponse" message="tns:recuperarContraResponse"/>
+</operation>
+<operation name="descifra">
+<input wsam:Action="http://servicios/enviaMails/descifraRequest" message="tns:descifra"/>
+<output wsam:Action="http://servicios/enviaMails/descifraResponse" message="tns:descifraResponse"/>
+<fault message="tns:Exception" name="Exception" wsam:Action="http://servicios/enviaMails/descifra/Fault/Exception"/>
+</operation>
+<operation name="cifra">
+<input wsam:Action="http://servicios/enviaMails/cifraRequest" message="tns:cifra"/>
+<output wsam:Action="http://servicios/enviaMails/cifraResponse" message="tns:cifraResponse"/>
+<fault message="tns:Exception" name="Exception" wsam:Action="http://servicios/enviaMails/cifra/Fault/Exception"/>
+</operation>
+<operation name="validarCuenta">
+<input wsam:Action="http://servicios/enviaMails/validarCuentaRequest" message="tns:validarCuenta"/>
+<output wsam:Action="http://servicios/enviaMails/validarCuentaResponse" message="tns:validarCuentaResponse"/>
+</operation>
 </portType>
 <binding name="enviaMailsPortBinding" type="tns:enviaMails">
 <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
-<operation name="recuperaContra">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
 <operation name="mandaMAils">
 <soap:operation soapAction=""/>
 <input>
@@ -105,34 +111,58 @@
 <soap:body use="literal"/>
 </output>
 </operation>
-<operation name="validaCuenta">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<operation name="confirma">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<operation name="cambia">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
 <operation name="baseMail">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="validarCodigo">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="recuperarContra">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="descifra">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+<fault name="Exception">
+<soap:fault name="Exception" use="literal"/>
+</fault>
+</operation>
+<operation name="cifra">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+<fault name="Exception">
+<soap:fault name="Exception" use="literal"/>
+</fault>
+</operation>
+<operation name="validarCuenta">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>

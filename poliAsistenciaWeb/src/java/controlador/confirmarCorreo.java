@@ -12,6 +12,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.xml.ws.WebServiceRef;
+import servicios.Mails;
 
 /**
  *
@@ -19,6 +21,9 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet(name = "confirmarCorreo", urlPatterns = {"/confirmarCorreo"})
 public class confirmarCorreo extends HttpServlet {
+
+    @WebServiceRef(wsdlLocation = "WEB-INF/wsdl/localhost_8080/serviciosWebPoliAsistencia/mails.wsdl")
+    private Mails service;
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -31,19 +36,28 @@ public class confirmarCorreo extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        String codi = request.getParameter("codigo") != null ? request.getParameter("codigo") : "";
         response.setContentType("text/html;charset=UTF-8");
+        String retorno = validarCodigo(codi);
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
+            
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
             out.println("<title>Servlet confirmarCorreo</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet confirmarCorreo at " + request.getContextPath() + "</h1>");
+            out.println("<h1>"+retorno+"</h1>");
             out.println("</body>");
             out.println("</html>");
         }
+        if(retorno.equals("Correo validado")){
+            response.sendRedirect("inicio");
+        }else{
+            response.sendRedirect("iniciarSesion?error=" + retorno);
+        }
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -72,7 +86,6 @@ public class confirmarCorreo extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String codi = request.getParameter("codigo") != null ? request.getParameter("codigo") : "";
     }
 
     /**
@@ -85,4 +98,10 @@ public class confirmarCorreo extends HttpServlet {
         return "Short description";
     }// </editor-fold>
 
+    private String validarCodigo(java.lang.String codigo) {
+        // Note that the injected javax.xml.ws.Service reference as well as port objects are not thread safe.
+        // If the calling of port operations may lead to race condition some synchronization is required.
+        servicios.EnviaMails port = service.getEnviaMailsPort();
+        return port.validarCodigo(codigo);
+    }
 }

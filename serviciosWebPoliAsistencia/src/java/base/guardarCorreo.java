@@ -6,6 +6,7 @@
 package base;
 
 import java.sql.ResultSet;
+import servicios.enviaMails;
 
 /**
  *
@@ -19,17 +20,13 @@ public class guardarCorreo {
             base.conectar();
             ResultSet resultado = base.consulta("call spGuardaCorreo("+idPer+",'"+correo+"');");
             if(resultado.next()){
-                if(resultado.getString("existe").equals("1")){
-                     guardado = resultado.getString("msj").equals("Correo actualizado");
-                }
-                else{
-                    guardado = false;
-                }
-               
+                guardado = resultado.getString("msj").equals("Correo actualizado");
             }
             else{
                 guardado = false;
             }
+            enviaMails eM = new enviaMails();
+            eM.validarCuenta(idPer, correo);
         }
         catch(Exception error){
             guardado = false;

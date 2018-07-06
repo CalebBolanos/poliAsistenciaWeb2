@@ -7,18 +7,17 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Clase Java para recuperaContra complex type.
+ * <p>Clase Java para validarCuenta complex type.
  * 
  * <p>El siguiente fragmento de esquema especifica el contenido que se espera que haya en esta clase.
  * 
  * <pre>
- * &lt;complexType name="recuperaContra"&gt;
+ * &lt;complexType name="validarCuenta"&gt;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
  *         &lt;element name="arg0" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
  *         &lt;element name="arg1" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
- *         &lt;element name="arg2" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
@@ -28,16 +27,14 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "recuperaContra", propOrder = {
+@XmlType(name = "validarCuenta", propOrder = {
     "arg0",
-    "arg1",
-    "arg2"
+    "arg1"
 })
-public class RecuperaContra {
+public class ValidarCuenta {
 
     protected String arg0;
     protected String arg1;
-    protected String arg2;
 
     /**
      * Obtiene el valor de la propiedad arg0.
@@ -85,30 +82,6 @@ public class RecuperaContra {
      */
     public void setArg1(String value) {
         this.arg1 = value;
-    }
-
-    /**
-     * Obtiene el valor de la propiedad arg2.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getArg2() {
-        return arg2;
-    }
-
-    /**
-     * Define el valor de la propiedad arg2.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setArg2(String value) {
-        this.arg2 = value;
     }
 
 }

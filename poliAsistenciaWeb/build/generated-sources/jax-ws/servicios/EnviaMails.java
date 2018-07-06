@@ -7,6 +7,7 @@ import javax.jws.WebResult;
 import javax.jws.WebService;
 import javax.xml.bind.annotation.XmlSeeAlso;
 import javax.xml.ws.Action;
+import javax.xml.ws.FaultAction;
 import javax.xml.ws.RequestWrapper;
 import javax.xml.ws.ResponseWrapper;
 
@@ -23,27 +24,6 @@ import javax.xml.ws.ResponseWrapper;
 })
 public interface EnviaMails {
 
-
-    /**
-     * 
-     * @param arg2
-     * @param arg1
-     * @param arg0
-     * @return
-     *     returns boolean
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "recuperaContra", targetNamespace = "http://servicios/", className = "servicios.RecuperaContra")
-    @ResponseWrapper(localName = "recuperaContraResponse", targetNamespace = "http://servicios/", className = "servicios.RecuperaContraResponse")
-    @Action(input = "http://servicios/enviaMails/recuperaContraRequest", output = "http://servicios/enviaMails/recuperaContraResponse")
-    public boolean recuperaContra(
-        @WebParam(name = "arg0", targetNamespace = "")
-        String arg0,
-        @WebParam(name = "arg1", targetNamespace = "")
-        String arg1,
-        @WebParam(name = "arg2", targetNamespace = "")
-        String arg2);
 
     /**
      * 
@@ -89,54 +69,6 @@ public interface EnviaMails {
 
     /**
      * 
-     * @param arg2
-     * @param arg1
-     * @param arg0
-     * @return
-     *     returns boolean
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "validaCuenta", targetNamespace = "http://servicios/", className = "servicios.ValidaCuenta")
-    @ResponseWrapper(localName = "validaCuentaResponse", targetNamespace = "http://servicios/", className = "servicios.ValidaCuentaResponse")
-    @Action(input = "http://servicios/enviaMails/validaCuentaRequest", output = "http://servicios/enviaMails/validaCuentaResponse")
-    public boolean validaCuenta(
-        @WebParam(name = "arg0", targetNamespace = "")
-        String arg0,
-        @WebParam(name = "arg1", targetNamespace = "")
-        String arg1,
-        @WebParam(name = "arg2", targetNamespace = "")
-        String arg2);
-
-    /**
-     * 
-     * @param arg0
-     * @return
-     *     returns java.lang.String
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "confirma", targetNamespace = "http://servicios/", className = "servicios.Confirma")
-    @ResponseWrapper(localName = "confirmaResponse", targetNamespace = "http://servicios/", className = "servicios.ConfirmaResponse")
-    @Action(input = "http://servicios/enviaMails/confirmaRequest", output = "http://servicios/enviaMails/confirmaResponse")
-    public String confirma(
-        @WebParam(name = "arg0", targetNamespace = "")
-        String arg0);
-
-    /**
-     * 
-     * @return
-     *     returns java.lang.String
-     */
-    @WebMethod
-    @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "cambia", targetNamespace = "http://servicios/", className = "servicios.Cambia")
-    @ResponseWrapper(localName = "cambiaResponse", targetNamespace = "http://servicios/", className = "servicios.CambiaResponse")
-    @Action(input = "http://servicios/enviaMails/cambiaRequest", output = "http://servicios/enviaMails/cambiaResponse")
-    public String cambia();
-
-    /**
-     * 
      * @param arg1
      * @param arg0
      * @return
@@ -148,6 +80,88 @@ public interface EnviaMails {
     @ResponseWrapper(localName = "baseMailResponse", targetNamespace = "http://servicios/", className = "servicios.BaseMailResponse")
     @Action(input = "http://servicios/enviaMails/baseMailRequest", output = "http://servicios/enviaMails/baseMailResponse")
     public String baseMail(
+        @WebParam(name = "arg0", targetNamespace = "")
+        String arg0,
+        @WebParam(name = "arg1", targetNamespace = "")
+        String arg1);
+
+    /**
+     * 
+     * @param codigo
+     * @return
+     *     returns java.lang.String
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "validarCodigo", targetNamespace = "http://servicios/", className = "servicios.ValidarCodigo")
+    @ResponseWrapper(localName = "validarCodigoResponse", targetNamespace = "http://servicios/", className = "servicios.ValidarCodigoResponse")
+    @Action(input = "http://servicios/enviaMails/validarCodigoRequest", output = "http://servicios/enviaMails/validarCodigoResponse")
+    public String validarCodigo(
+        @WebParam(name = "codigo", targetNamespace = "")
+        String codigo);
+
+    /**
+     * 
+     * @param arg0
+     */
+    @WebMethod
+    @RequestWrapper(localName = "recuperarContra", targetNamespace = "http://servicios/", className = "servicios.RecuperarContra")
+    @ResponseWrapper(localName = "recuperarContraResponse", targetNamespace = "http://servicios/", className = "servicios.RecuperarContraResponse")
+    @Action(input = "http://servicios/enviaMails/recuperarContraRequest", output = "http://servicios/enviaMails/recuperarContraResponse")
+    public void recuperarContra(
+        @WebParam(name = "arg0", targetNamespace = "")
+        String arg0);
+
+    /**
+     * 
+     * @param arg0
+     * @return
+     *     returns java.lang.String
+     * @throws Exception_Exception
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "descifra", targetNamespace = "http://servicios/", className = "servicios.Descifra")
+    @ResponseWrapper(localName = "descifraResponse", targetNamespace = "http://servicios/", className = "servicios.DescifraResponse")
+    @Action(input = "http://servicios/enviaMails/descifraRequest", output = "http://servicios/enviaMails/descifraResponse", fault = {
+        @FaultAction(className = Exception_Exception.class, value = "http://servicios/enviaMails/descifra/Fault/Exception")
+    })
+    public String descifra(
+        @WebParam(name = "arg0", targetNamespace = "")
+        byte[] arg0)
+        throws Exception_Exception
+    ;
+
+    /**
+     * 
+     * @param arg0
+     * @return
+     *     returns java.lang.String
+     * @throws Exception_Exception
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "cifra", targetNamespace = "http://servicios/", className = "servicios.Cifra")
+    @ResponseWrapper(localName = "cifraResponse", targetNamespace = "http://servicios/", className = "servicios.CifraResponse")
+    @Action(input = "http://servicios/enviaMails/cifraRequest", output = "http://servicios/enviaMails/cifraResponse", fault = {
+        @FaultAction(className = Exception_Exception.class, value = "http://servicios/enviaMails/cifra/Fault/Exception")
+    })
+    public String cifra(
+        @WebParam(name = "arg0", targetNamespace = "")
+        String arg0)
+        throws Exception_Exception
+    ;
+
+    /**
+     * 
+     * @param arg1
+     * @param arg0
+     */
+    @WebMethod
+    @RequestWrapper(localName = "validarCuenta", targetNamespace = "http://servicios/", className = "servicios.ValidarCuenta")
+    @ResponseWrapper(localName = "validarCuentaResponse", targetNamespace = "http://servicios/", className = "servicios.ValidarCuentaResponse")
+    @Action(input = "http://servicios/enviaMails/validarCuentaRequest", output = "http://servicios/enviaMails/validarCuentaResponse")
+    public void validarCuenta(
         @WebParam(name = "arg0", targetNamespace = "")
         String arg0,
         @WebParam(name = "arg1", targetNamespace = "")

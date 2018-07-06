@@ -24,26 +24,38 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory {
 
+    private final static QName _Exception_QNAME = new QName("http://servicios/", "Exception");
     private final static QName _BaseMail_QNAME = new QName("http://servicios/", "baseMail");
     private final static QName _BaseMailResponse_QNAME = new QName("http://servicios/", "baseMailResponse");
-    private final static QName _Cambia_QNAME = new QName("http://servicios/", "cambia");
-    private final static QName _CambiaResponse_QNAME = new QName("http://servicios/", "cambiaResponse");
-    private final static QName _Confirma_QNAME = new QName("http://servicios/", "confirma");
-    private final static QName _ConfirmaResponse_QNAME = new QName("http://servicios/", "confirmaResponse");
+    private final static QName _Cifra_QNAME = new QName("http://servicios/", "cifra");
+    private final static QName _CifraResponse_QNAME = new QName("http://servicios/", "cifraResponse");
+    private final static QName _Descifra_QNAME = new QName("http://servicios/", "descifra");
+    private final static QName _DescifraResponse_QNAME = new QName("http://servicios/", "descifraResponse");
     private final static QName _MandaMAil_QNAME = new QName("http://servicios/", "mandaMAil");
     private final static QName _MandaMAilResponse_QNAME = new QName("http://servicios/", "mandaMAilResponse");
     private final static QName _MandaMAils_QNAME = new QName("http://servicios/", "mandaMAils");
     private final static QName _MandaMAilsResponse_QNAME = new QName("http://servicios/", "mandaMAilsResponse");
-    private final static QName _RecuperaContra_QNAME = new QName("http://servicios/", "recuperaContra");
-    private final static QName _RecuperaContraResponse_QNAME = new QName("http://servicios/", "recuperaContraResponse");
-    private final static QName _ValidaCuenta_QNAME = new QName("http://servicios/", "validaCuenta");
-    private final static QName _ValidaCuentaResponse_QNAME = new QName("http://servicios/", "validaCuentaResponse");
+    private final static QName _RecuperarContra_QNAME = new QName("http://servicios/", "recuperarContra");
+    private final static QName _RecuperarContraResponse_QNAME = new QName("http://servicios/", "recuperarContraResponse");
+    private final static QName _ValidarCodigo_QNAME = new QName("http://servicios/", "validarCodigo");
+    private final static QName _ValidarCodigoResponse_QNAME = new QName("http://servicios/", "validarCodigoResponse");
+    private final static QName _ValidarCuenta_QNAME = new QName("http://servicios/", "validarCuenta");
+    private final static QName _ValidarCuentaResponse_QNAME = new QName("http://servicios/", "validarCuentaResponse");
+    private final static QName _DescifraArg0_QNAME = new QName("", "arg0");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: servicios
      * 
      */
     public ObjectFactory() {
+    }
+
+    /**
+     * Create an instance of {@link Exception }
+     * 
+     */
+    public Exception createException() {
+        return new Exception();
     }
 
     /**
@@ -63,35 +75,35 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link Cambia }
+     * Create an instance of {@link Cifra }
      * 
      */
-    public Cambia createCambia() {
-        return new Cambia();
+    public Cifra createCifra() {
+        return new Cifra();
     }
 
     /**
-     * Create an instance of {@link CambiaResponse }
+     * Create an instance of {@link CifraResponse }
      * 
      */
-    public CambiaResponse createCambiaResponse() {
-        return new CambiaResponse();
+    public CifraResponse createCifraResponse() {
+        return new CifraResponse();
     }
 
     /**
-     * Create an instance of {@link Confirma }
+     * Create an instance of {@link Descifra }
      * 
      */
-    public Confirma createConfirma() {
-        return new Confirma();
+    public Descifra createDescifra() {
+        return new Descifra();
     }
 
     /**
-     * Create an instance of {@link ConfirmaResponse }
+     * Create an instance of {@link DescifraResponse }
      * 
      */
-    public ConfirmaResponse createConfirmaResponse() {
-        return new ConfirmaResponse();
+    public DescifraResponse createDescifraResponse() {
+        return new DescifraResponse();
     }
 
     /**
@@ -127,35 +139,60 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link RecuperaContra }
+     * Create an instance of {@link RecuperarContra }
      * 
      */
-    public RecuperaContra createRecuperaContra() {
-        return new RecuperaContra();
+    public RecuperarContra createRecuperarContra() {
+        return new RecuperarContra();
     }
 
     /**
-     * Create an instance of {@link RecuperaContraResponse }
+     * Create an instance of {@link RecuperarContraResponse }
      * 
      */
-    public RecuperaContraResponse createRecuperaContraResponse() {
-        return new RecuperaContraResponse();
+    public RecuperarContraResponse createRecuperarContraResponse() {
+        return new RecuperarContraResponse();
     }
 
     /**
-     * Create an instance of {@link ValidaCuenta }
+     * Create an instance of {@link ValidarCodigo }
      * 
      */
-    public ValidaCuenta createValidaCuenta() {
-        return new ValidaCuenta();
+    public ValidarCodigo createValidarCodigo() {
+        return new ValidarCodigo();
     }
 
     /**
-     * Create an instance of {@link ValidaCuentaResponse }
+     * Create an instance of {@link ValidarCodigoResponse }
      * 
      */
-    public ValidaCuentaResponse createValidaCuentaResponse() {
-        return new ValidaCuentaResponse();
+    public ValidarCodigoResponse createValidarCodigoResponse() {
+        return new ValidarCodigoResponse();
+    }
+
+    /**
+     * Create an instance of {@link ValidarCuenta }
+     * 
+     */
+    public ValidarCuenta createValidarCuenta() {
+        return new ValidarCuenta();
+    }
+
+    /**
+     * Create an instance of {@link ValidarCuentaResponse }
+     * 
+     */
+    public ValidarCuentaResponse createValidarCuentaResponse() {
+        return new ValidarCuentaResponse();
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link Exception }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://servicios/", name = "Exception")
+    public JAXBElement<Exception> createException(Exception value) {
+        return new JAXBElement<Exception>(_Exception_QNAME, Exception.class, null, value);
     }
 
     /**
@@ -177,39 +214,39 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link Cambia }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link Cifra }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://servicios/", name = "cambia")
-    public JAXBElement<Cambia> createCambia(Cambia value) {
-        return new JAXBElement<Cambia>(_Cambia_QNAME, Cambia.class, null, value);
+    @XmlElementDecl(namespace = "http://servicios/", name = "cifra")
+    public JAXBElement<Cifra> createCifra(Cifra value) {
+        return new JAXBElement<Cifra>(_Cifra_QNAME, Cifra.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link CambiaResponse }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link CifraResponse }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://servicios/", name = "cambiaResponse")
-    public JAXBElement<CambiaResponse> createCambiaResponse(CambiaResponse value) {
-        return new JAXBElement<CambiaResponse>(_CambiaResponse_QNAME, CambiaResponse.class, null, value);
+    @XmlElementDecl(namespace = "http://servicios/", name = "cifraResponse")
+    public JAXBElement<CifraResponse> createCifraResponse(CifraResponse value) {
+        return new JAXBElement<CifraResponse>(_CifraResponse_QNAME, CifraResponse.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link Confirma }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link Descifra }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://servicios/", name = "confirma")
-    public JAXBElement<Confirma> createConfirma(Confirma value) {
-        return new JAXBElement<Confirma>(_Confirma_QNAME, Confirma.class, null, value);
+    @XmlElementDecl(namespace = "http://servicios/", name = "descifra")
+    public JAXBElement<Descifra> createDescifra(Descifra value) {
+        return new JAXBElement<Descifra>(_Descifra_QNAME, Descifra.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ConfirmaResponse }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link DescifraResponse }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://servicios/", name = "confirmaResponse")
-    public JAXBElement<ConfirmaResponse> createConfirmaResponse(ConfirmaResponse value) {
-        return new JAXBElement<ConfirmaResponse>(_ConfirmaResponse_QNAME, ConfirmaResponse.class, null, value);
+    @XmlElementDecl(namespace = "http://servicios/", name = "descifraResponse")
+    public JAXBElement<DescifraResponse> createDescifraResponse(DescifraResponse value) {
+        return new JAXBElement<DescifraResponse>(_DescifraResponse_QNAME, DescifraResponse.class, null, value);
     }
 
     /**
@@ -249,39 +286,66 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link RecuperaContra }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link RecuperarContra }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://servicios/", name = "recuperaContra")
-    public JAXBElement<RecuperaContra> createRecuperaContra(RecuperaContra value) {
-        return new JAXBElement<RecuperaContra>(_RecuperaContra_QNAME, RecuperaContra.class, null, value);
+    @XmlElementDecl(namespace = "http://servicios/", name = "recuperarContra")
+    public JAXBElement<RecuperarContra> createRecuperarContra(RecuperarContra value) {
+        return new JAXBElement<RecuperarContra>(_RecuperarContra_QNAME, RecuperarContra.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link RecuperaContraResponse }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link RecuperarContraResponse }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://servicios/", name = "recuperaContraResponse")
-    public JAXBElement<RecuperaContraResponse> createRecuperaContraResponse(RecuperaContraResponse value) {
-        return new JAXBElement<RecuperaContraResponse>(_RecuperaContraResponse_QNAME, RecuperaContraResponse.class, null, value);
+    @XmlElementDecl(namespace = "http://servicios/", name = "recuperarContraResponse")
+    public JAXBElement<RecuperarContraResponse> createRecuperarContraResponse(RecuperarContraResponse value) {
+        return new JAXBElement<RecuperarContraResponse>(_RecuperarContraResponse_QNAME, RecuperarContraResponse.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ValidaCuenta }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link ValidarCodigo }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://servicios/", name = "validaCuenta")
-    public JAXBElement<ValidaCuenta> createValidaCuenta(ValidaCuenta value) {
-        return new JAXBElement<ValidaCuenta>(_ValidaCuenta_QNAME, ValidaCuenta.class, null, value);
+    @XmlElementDecl(namespace = "http://servicios/", name = "validarCodigo")
+    public JAXBElement<ValidarCodigo> createValidarCodigo(ValidarCodigo value) {
+        return new JAXBElement<ValidarCodigo>(_ValidarCodigo_QNAME, ValidarCodigo.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ValidaCuentaResponse }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link ValidarCodigoResponse }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://servicios/", name = "validaCuentaResponse")
-    public JAXBElement<ValidaCuentaResponse> createValidaCuentaResponse(ValidaCuentaResponse value) {
-        return new JAXBElement<ValidaCuentaResponse>(_ValidaCuentaResponse_QNAME, ValidaCuentaResponse.class, null, value);
+    @XmlElementDecl(namespace = "http://servicios/", name = "validarCodigoResponse")
+    public JAXBElement<ValidarCodigoResponse> createValidarCodigoResponse(ValidarCodigoResponse value) {
+        return new JAXBElement<ValidarCodigoResponse>(_ValidarCodigoResponse_QNAME, ValidarCodigoResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link ValidarCuenta }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://servicios/", name = "validarCuenta")
+    public JAXBElement<ValidarCuenta> createValidarCuenta(ValidarCuenta value) {
+        return new JAXBElement<ValidarCuenta>(_ValidarCuenta_QNAME, ValidarCuenta.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link ValidarCuentaResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://servicios/", name = "validarCuentaResponse")
+    public JAXBElement<ValidarCuentaResponse> createValidarCuentaResponse(ValidarCuentaResponse value) {
+        return new JAXBElement<ValidarCuentaResponse>(_ValidarCuentaResponse_QNAME, ValidarCuentaResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link byte[]}{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "", name = "arg0", scope = Descifra.class)
+    public JAXBElement<byte[]> createDescifraArg0(byte[] value) {
+        return new JAXBElement<byte[]>(_DescifraArg0_QNAME, byte[].class, Descifra.class, ((byte[]) value));
     }
 
 }

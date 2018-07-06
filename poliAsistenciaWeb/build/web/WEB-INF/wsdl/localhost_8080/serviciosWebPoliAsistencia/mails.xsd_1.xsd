@@ -1,16 +1,18 @@
 <?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI (http://jax-ws.java.net). RI's version is Metro/2.3.2-b608 (trunk-7979; 2015-01-21T12:50:19+0000) JAXWS-RI/2.2.11-b150120.1832 JAXWS-API/2.2.12 JAXB-RI/2.2.12-b141219.1637 JAXB-API/2.2.13-b141020.1521 svn-revision#unknown. --><xs:schema xmlns:tns="http://servicios/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://servicios/">
 
+<xs:element name="Exception" type="tns:Exception"/>
+
 <xs:element name="baseMail" type="tns:baseMail"/>
 
 <xs:element name="baseMailResponse" type="tns:baseMailResponse"/>
 
-<xs:element name="cambia" type="tns:cambia"/>
+<xs:element name="cifra" type="tns:cifra"/>
 
-<xs:element name="cambiaResponse" type="tns:cambiaResponse"/>
+<xs:element name="cifraResponse" type="tns:cifraResponse"/>
 
-<xs:element name="confirma" type="tns:confirma"/>
+<xs:element name="descifra" type="tns:descifra"/>
 
-<xs:element name="confirmaResponse" type="tns:confirmaResponse"/>
+<xs:element name="descifraResponse" type="tns:descifraResponse"/>
 
 <xs:element name="mandaMAil" type="tns:mandaMAil"/>
 
@@ -20,26 +22,27 @@
 
 <xs:element name="mandaMAilsResponse" type="tns:mandaMAilsResponse"/>
 
-<xs:element name="recuperaContra" type="tns:recuperaContra"/>
+<xs:element name="recuperarContra" type="tns:recuperarContra"/>
 
-<xs:element name="recuperaContraResponse" type="tns:recuperaContraResponse"/>
+<xs:element name="recuperarContraResponse" type="tns:recuperarContraResponse"/>
 
-<xs:element name="validaCuenta" type="tns:validaCuenta"/>
+<xs:element name="validarCodigo" type="tns:validarCodigo"/>
 
-<xs:element name="validaCuentaResponse" type="tns:validaCuentaResponse"/>
+<xs:element name="validarCodigoResponse" type="tns:validarCodigoResponse"/>
 
-<xs:complexType name="recuperaContra">
+<xs:element name="validarCuenta" type="tns:validarCuenta"/>
+
+<xs:element name="validarCuentaResponse" type="tns:validarCuentaResponse"/>
+
+<xs:complexType name="validarCuenta">
 <xs:sequence>
 <xs:element name="arg0" type="xs:string" minOccurs="0"/>
 <xs:element name="arg1" type="xs:string" minOccurs="0"/>
-<xs:element name="arg2" type="xs:string" minOccurs="0"/>
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="recuperaContraResponse">
-<xs:sequence>
-<xs:element name="return" type="xs:boolean"/>
-</xs:sequence>
+<xs:complexType name="validarCuentaResponse">
+<xs:sequence/>
 </xs:complexType>
 
 <xs:complexType name="mandaMAil">
@@ -69,13 +72,53 @@
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="confirma">
+<xs:complexType name="cifra">
 <xs:sequence>
 <xs:element name="arg0" type="xs:string" minOccurs="0"/>
 </xs:sequence>
 </xs:complexType>
 
-<xs:complexType name="confirmaResponse">
+<xs:complexType name="cifraResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="Exception">
+<xs:sequence>
+<xs:element name="message" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="recuperarContra">
+<xs:sequence>
+<xs:element name="arg0" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="recuperarContraResponse">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="validarCodigo">
+<xs:sequence>
+<xs:element name="codigo" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="validarCodigoResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="descifra">
+<xs:sequence>
+<xs:element name="arg0" type="xs:base64Binary" nillable="true" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="descifraResponse">
 <xs:sequence>
 <xs:element name="return" type="xs:string" minOccurs="0"/>
 </xs:sequence>
@@ -92,30 +135,6 @@
 <xs:complexType name="mandaMAilsResponse">
 <xs:sequence>
 <xs:element name="return" type="xs:boolean"/>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="validaCuenta">
-<xs:sequence>
-<xs:element name="arg0" type="xs:string" minOccurs="0"/>
-<xs:element name="arg1" type="xs:string" minOccurs="0"/>
-<xs:element name="arg2" type="xs:string" minOccurs="0"/>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="validaCuentaResponse">
-<xs:sequence>
-<xs:element name="return" type="xs:boolean"/>
-</xs:sequence>
-</xs:complexType>
-
-<xs:complexType name="cambia">
-<xs:sequence/>
-</xs:complexType>
-
-<xs:complexType name="cambiaResponse">
-<xs:sequence>
-<xs:element name="return" type="xs:string" minOccurs="0"/>
 </xs:sequence>
 </xs:complexType>
 </xs:schema>
