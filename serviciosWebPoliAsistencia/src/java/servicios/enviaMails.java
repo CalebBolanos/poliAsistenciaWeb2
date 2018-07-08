@@ -75,8 +75,8 @@ public class enviaMails {
     public String validarCodigo(@WebParam(name = "codigo") String codigo) {
         String ret="Ocurrio un error, correo no validado", bolet="", corre="", mensa;
         try {
-            cifrados descifra = new cifrados();
-            mensa = descifra.Desencriptar(codigo);
+            //mensa = cifrados.Desencriptar(sustituir(codigo));
+            mensa = codigo;
             boolean cambia=true;
             char ch;
             for(int i=0; i<mensa.length(); i++){
@@ -98,7 +98,7 @@ public class enviaMails {
                 ret = rs.getNString("msj");
             }
         } catch (Exception ex) {
-            Logger.getLogger(enviaMails.class.getName()).log(Level.SEVERE, null, ex);
+            ret = "Ocurrio un error, correo no validado";
         }
         return ret;
     }
@@ -169,17 +169,21 @@ public class enviaMails {
     @WebMethod(operationName = "validarCuenta")
     public void validarCuenta(@WebParam(name = "boleta") int boleta, @WebParam(name = "correo") String correo){
         try {
-            cifrados cifra = new cifrados();
-            String codigo = cifra.Encriptar(boleta+" " + correo);
+            //String codigo = cifrados.Encriptar(boleta+" " + correo);
             String mensaj = "Es necesario realices la confirmación de la cuenta de Correo Electrónico"
                     + " que proporcionaste al registrarte en Poliasistencia dando clic en la siguiente enlace: "
-                    + "<br><b><span style=\"font-size: 25px; color: #0091EA; align-items: left;\">"
-                    + raiz + "confirmarCorreo?codigo="+codigo + "</span></b>\n";
+                    + "<br><b><span style=\"font-size: 25px; color: #0091EA; align-items: left;\"><a href='"
+//                    + raiz + "confirmarCorreo?codigo="+codigo + "'>" + raiz + "confirmarCorreo?codigo="+codigo + "</a></span></b>\n";
+                    + raiz + "confirmarCorreo?codigo="+boleta + " " + correo + "'>" + raiz + "confirmarCorreo?codigo="+boleta + " " + correo +"</a></span></b>\n";
              mandaMAil(correo, "Validar correo", mensaj);
         } catch (Exception ex) {
             Logger.getLogger(enviaMails.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
+    public String sustituir(String txt){
+        String ret = txt.replace(' ', '+');
+        return ret;
+    }
     
 }

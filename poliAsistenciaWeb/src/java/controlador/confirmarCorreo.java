@@ -36,8 +36,8 @@ public class confirmarCorreo extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String codi = request.getParameter("codigo") != null ? request.getParameter("codigo") : "";
         response.setContentType("text/html;charset=UTF-8");
+        String codi = request.getParameter("codigo") != null ? request.getParameter("codigo") : "Hola";
         String retorno = validarCodigo(codi);
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
