@@ -83,8 +83,8 @@ public class consumoInicioSesion extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            String usuario = new String(request.getParameter("usuario").getBytes(), "UTF-8") != null ? new String(request.getParameter("usuario").getBytes(), "UTF-8") : "";
-            String contrasena = new String(request.getParameter("contrasena").getBytes(), "UTF-8") != null ? new String(request.getParameter("contrasena").getBytes(), "UTF-8") : "";
+            String usuario = new String(request.getParameter("usuario").getBytes(), "UTF-8").trim() != null ? new String(request.getParameter("usuario").getBytes(), "UTF-8").trim() : "";
+            String contrasena = new String(request.getParameter("contrasena").getBytes(), "UTF-8").trim() != null ? new String(request.getParameter("contrasena").getBytes(), "UTF-8").trim() : "";
             String script = "";
             try{
                 ArrayList <Object> datos = new ArrayList<>(validarUsuario(usuario, contrasena));

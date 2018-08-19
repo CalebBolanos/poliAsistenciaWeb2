@@ -52,7 +52,7 @@ public class crearNotificaciones extends HttpServlet {
         HttpSession usr = request.getSession();
         String msj = request.getParameter("mensaje") != null ? request.getParameter("mensaje") : "";
         if (usr.getAttribute("idpersona") == null || usr.getAttribute("idtipo") == null) {
-            response.sendRedirect("iniciarSesion");
+            response.sendRedirect("../iniciarSesion");
             return;
         }
         try (PrintWriter out = response.getWriter()) {

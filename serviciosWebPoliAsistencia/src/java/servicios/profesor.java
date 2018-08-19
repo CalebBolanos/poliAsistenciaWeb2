@@ -249,18 +249,18 @@ public class profesor {
         if (mes > Calendar.JULY && mes < Calendar.DECEMBER + 1) {//Ciclo 1
             grafica.put("Ciclo", "1");
             for (int i = Calendar.AUGUST; i <= mes + 1; i++) {
-                consultaProfesor.asistenciaUnidadPorMes asistencia = new consultaProfesor.asistenciaUnidadPorMes(Integer.parseInt(idUnidad), mes);
+                consultaProfesor.asistenciaUnidadPorMes asistencia = new consultaProfesor.asistenciaUnidadPorMes(Integer.parseInt(idUnidad), i);
                 grafica.put("mesAsistido " + i, asistencia.promedioAsistido());
-                grafica.put("mesFaltado " + i, asistencia.promedioAsistido());
+                grafica.put("mesFaltado " + i, asistencia.pormedioFaltado());
                 asistencia = null;
             }
         } else {
             if (mes > Calendar.JANUARY - 1 && mes < Calendar.AUGUST) {//Ciclo 2
                 grafica.put("Ciclo", "2");
                 for (int i = Calendar.JANUARY + 1; i <= mes + 1; i++) {
-                    consultaProfesor.asistenciaUnidadPorMes asistencia = new consultaProfesor.asistenciaUnidadPorMes(Integer.parseInt(idUnidad), mes);
+                    consultaProfesor.asistenciaUnidadPorMes asistencia = new consultaProfesor.asistenciaUnidadPorMes(Integer.parseInt(idUnidad), i);
                     grafica.put("mesAsistido " + i, asistencia.promedioAsistido());
-                    grafica.put("mesFaltado " + i, asistencia.promedioAsistido());
+                    grafica.put("mesFaltado " + i, asistencia.pormedioFaltado());
                     asistencia = null;
                 }
             }

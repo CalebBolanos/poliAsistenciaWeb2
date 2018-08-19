@@ -81,9 +81,9 @@ public class consumoCambioContrasena extends HttpServlet {
             numero = (String) usr.getAttribute("numero");
         }
 
-        String antigua = new String(request.getParameter("contra").getBytes(), "UTF-8") != null ? new String(request.getParameter("contra").getBytes(), "UTF-8") : "";
-        String nueva = new String(request.getParameter("nueva").getBytes(), "UTF-8") != null ? new String(request.getParameter("nueva").getBytes(), "UTF-8") : "";
-        String nueva2 = new String(request.getParameter("nueva2").getBytes(), "UTF-8") != null ? new String(request.getParameter("nueva2").getBytes(), "UTF-8") : "";
+        String antigua = new String(request.getParameter("contra").getBytes(), "UTF-8").trim() != null ? new String(request.getParameter("contra").getBytes(), "UTF-8").trim() : "";
+        String nueva = new String(request.getParameter("nueva").getBytes(), "UTF-8").trim() != null ? new String(request.getParameter("nueva").getBytes(), "UTF-8").trim() : "";
+        String nueva2 = new String(request.getParameter("nueva2").getBytes(), "UTF-8").trim() != null ? new String(request.getParameter("nueva2").getBytes(), "UTF-8").trim() : "";
         String mensaje = "";
         if (nueva.equals(nueva2)) {
             try {

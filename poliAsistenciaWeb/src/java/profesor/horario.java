@@ -460,7 +460,7 @@ public class horario {
                 + "                            </table>\n"
                 + "                        </div>\n"
                 + "                    </div>\n"
-                + "                    <div class=\"mdl-cell mdl-cell--10-col\">\n"
+                + "                    <!-- <div class=\"mdl-cell mdl-cell--10-col\">\n"
                 + "                        <div class=\"tarjetas\" style=\"\">\n"
                 + "                            <div style=\"background-color: rgb(237, 155, 3);\" class=\"tituloTabla\"><br>Grupos</div>\n"
                 + "                            <div class=\"ajustarTabla\">\n"
@@ -486,7 +486,7 @@ public class horario {
                 + "                            </div>\n"
                 + "                        </div>\n"
                 + "                    </div>\n"
-                + "                </div>\n"
+                + "                </div> -->\n"
                 + "\n"
                 + "                <script>\n"
                 + horarioDeLaBase()

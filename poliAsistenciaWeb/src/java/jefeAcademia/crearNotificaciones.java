@@ -428,10 +428,6 @@ public class crearNotificaciones {
                 + "                                    </div><br>\n"
                 + "                                    <input type=\"file\" name=\"subir\" accept=\"image/*\"  id=\"subir\" ><br><br>\n"
                 + "                                    \n"
-                + "                                     <div style=\"text-align: left; display: table; margin: 0 auto;\"><label class=\"mdl-switch mdl-js-switch mdl-js-ripple-effect\" for=\"mail\">\n" +
-                "                                       <input type=\"checkbox\" id=\"mail\" class=\"mdl-switch__input\" name=\"mail\">\n" +
-                "                                       <span class=\"mdl-switch__label\">Enviar correo a los destinatarios</span>\n" +
-                "                                       </label></div><br><br>\n"
                 + "                                    <input type=\"submit\" class=\"mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--primary\" value=\"subir notificación\" id=\"subirNotificacion\">\n"
                 + "                                    <br>\n"
                 + "                                </form>\n"
@@ -455,7 +451,7 @@ public class crearNotificaciones {
                 + "                </div>\n"
                 + "                <div class=\"mdl-grid \">\n"
                 + "                    <div class=\"mdl-cell mdl-cell--12-col\" id=\"infoTarjeta\">\n"
-                + "                        Descripcion xd\n"
+                + "                        Descripcion\n"
                 + "                    </div>\n"
                 + "                </div>\n"
                 + "                <div class=\"mdl-grid\" style=\"margin: 0px; padding: 0px\">\n"

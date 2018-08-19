@@ -57,7 +57,7 @@ public class asistenciaGrupo extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         HttpSession usr = request.getSession();
         if (usr.getAttribute("idpersona") == null || usr.getAttribute("idtipo") == null) {
-            response.sendRedirect("iniciarSesion");
+            response.sendRedirect("../iniciarSesion");
             return;
         }
         try (PrintWriter out = response.getWriter()) {

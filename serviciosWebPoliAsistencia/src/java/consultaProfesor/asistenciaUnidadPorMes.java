@@ -66,9 +66,8 @@ public class asistenciaUnidadPorMes {
                 alumnox.put("faltado", resultado.getString("faltas"));
                 alumnos.add(alumnox);
                 alumnox = null;
-                numeroAlumnos++;
             }
-            while(resultado2.next()){
+            while(resultado2.next()){//sospechoso, lo mas probable es que falle xd
                 alumnox = new JSONObject();
                 asistencia = Integer.parseInt(resultado2.getString("asistidos"));
                 falta = Integer.parseInt(resultado2.getString("faltas"));
@@ -92,7 +91,6 @@ public class asistenciaUnidadPorMes {
                 alumnox.put("faltado", resultado2.getString("faltas"));
                 alumnos.add(alumnox);
                 alumnox = null;
-                numeroAlumnos++;
             }
             html += "</tbody>";
             html += "</table>";
